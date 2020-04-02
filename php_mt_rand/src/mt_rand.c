@@ -14,11 +14,11 @@
 
 #define MT_RAND_MT19937 999
 
-uint32_t mt_rand_mode = 0;
+uint32_t mt_rand_mode = MT_RAND_MT19937;
 
-uint32_t state_val = 0;
+uint32_t bg_state_val = 0;
 uint32_t next_val = 0;
-uint32_t * state = &state_val;
+uint32_t * bg_state = &bg_state_val;
 uint32_t * next = &next_val;
 uint32_t left = 0;
 
@@ -44,6 +44,7 @@ static inline void php_mt_initialize(uint32_t seed, uint32_t *state)
       
 static inline void php_mt_reload(void)
 {
+	register uint32_t *state = bg_state;
 	register uint32_t *p = state;
 	register int i;
 
@@ -68,7 +69,7 @@ static inline void php_mt_reload(void)
 void php_mt_srand(uint32_t seed)
 {
 	/* Seed the generator with a simple uint32 */
-	php_mt_initialize(seed, state);
+	php_mt_initialize(seed, bg_state);
 	php_mt_reload();
 	
 
@@ -93,6 +94,8 @@ uint32_t php_mt_rand(void)
 	s1 ^= (s1 >> 11);
 	s1 ^= (s1 <<  7) & 0x9d2c5680U;
 	s1 ^= (s1 << 15) & 0xefc60000U;
-	return ( s1 ^ (s1 >> 18) );
+
+	uint32_t result = s1 ^ (s1 >> 18);
+	return result >> 1;
 }
 

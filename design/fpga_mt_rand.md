@@ -1,4 +1,4 @@
-#SPC-fpga_mt_rand
+# SPC-fpga_mt_rand
 partof: REQ-purpose
 ###
 

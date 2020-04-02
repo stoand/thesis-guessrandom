@@ -1,4 +1,6 @@
-#SPC-php_mt_rand
+# SPC-php_mt_rand
+partof: REQ-purpose
+###
 
 Mersenne Twister implementation copied from php 8 source.
 

@@ -1,4 +1,4 @@
-#REQ-purpose
+# REQ-purpose
 
 ## Goals of the project
 

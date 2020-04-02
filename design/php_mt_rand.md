@@ -2,12 +2,18 @@
 partof: REQ-purpose
 ###
 
-Mersenne Twister implementation copied from php 8 source.
+Mersenne Twister
 
-## Running
+## Running modified C from php 8 source
 
 ```
 npm i -g nodemon
 
 (cd php_mt_rand; make watch)
 ```
+
+## Running actual php functions
+
+```
+php -e php_mt_rand/src/mt_rand.php
+``

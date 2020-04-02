@@ -9,7 +9,7 @@ Uses FPGA to guess Mersenne Twister random generator state.
 
 [Buy TinyFPGA BX](https://www.crowdsupply.com/tinyfpga/tinyfpga-bx)
 
-[Install Icestorm](www.clifford.at/icestorm)
+[Install Icestorm](http://www.clifford.at/icestorm)
 
 
 Initial Project Setup

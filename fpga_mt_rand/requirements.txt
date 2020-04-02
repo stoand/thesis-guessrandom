@@ -1,0 +1,2 @@
+git+http://github.com/m-labs/nmigen.git#egg=nmigen
+git+http://github.com/m-labs/nmigen-boards.git#egg=nmigen_boards

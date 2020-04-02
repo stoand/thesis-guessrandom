@@ -16,10 +16,9 @@
 
 uint32_t mt_rand_mode = MT_RAND_MT19937;
 
-uint32_t bg_state_val = 0;
-uint32_t next_val = 0;
-uint32_t * bg_state = &bg_state_val;
-uint32_t * next = &next_val;
+uint32_t bg_state_vals[2500];
+uint32_t * bg_state = &bg_state_vals[0];
+uint32_t * next;
 uint32_t left = 0;
 
 /* {{{ php_mt_initialize

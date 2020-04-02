@@ -12,7 +12,7 @@ npm i -g nodemon
 (cd php_mt_rand; make watch)
 ```
 
-## Running actual php functions
+## Running actual PHP functions
 
 ```
 php -e php_mt_rand/src/mt_rand.php

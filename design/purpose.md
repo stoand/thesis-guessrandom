@@ -17,3 +17,5 @@ https://lemire.me/blog/2017/08/22/cracking-random-number-generators-xoroshiro128
 https://en.wikipedia.org/wiki/TestU01
 
 crypto.di.uoa.gr/CRYPTO.SEC/Randomness_Attacks_files/paper.pdf
+
+https://www.ambionics.io/blog/php-mt-rand-prediction

@@ -9,6 +9,10 @@ Uses FPGA to guess Mersenne Twister random generator state.
 Use a nMigen simulation to assert that the Mersenne Twister module
 outputs the correct values.
 
+Test style copied from:
+
+[http://blog.lambdaconcept.com/doku.php?id=nmigen:nmigen_sim_testbench](http://blog.lambdaconcept.com/doku.php?id=nmigen:nmigen_sim_testbench)
+
 ## Getting Started
 
 [Buy TinyFPGA BX](https://www.crowdsupply.com/tinyfpga/tinyfpga-bx)
@@ -33,7 +37,7 @@ Entering Python Env and Running
 ```
 source fpga_mt_rand/env/bin/activate
 # Don't forget to press reset button before loading program
-(cd fpga_mt_rand/src/; nodemon -e py -x 'python3 -m sim_mt_rand')
+(cd fpga_mt_rand/src/; nodemon -e py -x 'python3 -m sim_mt_rand || echo')
 ```
 
 Leaving Python Env

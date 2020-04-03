@@ -1,13 +1,31 @@
 # #SPC-fpga_mt_rand
 import itertools
 
-from nmigen import Elaboratable, Module, Signal, Cat, Const, Array
+from nmigen import Elaboratable, Module, Signal, Cat, Const, Array, unsigned
 from nmigen.build import ResourceError
 from tinyfpga_bx import TinyFPGABXPlatformCustomFreq
 
-__all__ = ["MtRand"]
+__all__ = ["MtRand", "MersenneTwister"]
 
 speed = 16
+
+MT_COUNT = 624
+MT_PERIOD = 397
+
+UINT_SIZE = 32
+
+
+class MersenneTwister(Elaboratable):
+    def __init__(self):
+        self.state = Array([Signal(unsigned(UINT_SIZE))
+                           for _ in range(MT_COUNT)])
+        self.input = Signal(32)
+        self.output = Signal(32)
+
+    def elaborate(self, platform):
+        m = Module()
+        m.d.comb += self.output.eq(self.input + 5)
+        return m
 
 
 class MtRand(Elaboratable):

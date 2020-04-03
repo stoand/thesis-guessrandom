@@ -2,18 +2,18 @@
 partof: REQ-purpose
 ###
 
-Mersenne Twister
+[[.tst-php_eq_c]]
 
-## Running modified C from php 8 source
+Assert that the C Mersenne Twister implementation results match those of the actual PHP functions.
 
 ```
+# Install nodemon watcher
 npm i -g nodemon
 
+
+# Run actual PHP functions
+php -e php_mt_rand/src/mt_rand.php
+
+# Run modified C from php 8 source
 (cd php_mt_rand; make watch)
 ```
-
-## Running actual PHP functions
-
-```
-php -e php_mt_rand/src/mt_rand.php
-``

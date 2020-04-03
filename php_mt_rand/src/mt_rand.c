@@ -1,3 +1,4 @@
+// #SPC-php_mt_rand.adapted_c
 #include <stdint.h>
 
 

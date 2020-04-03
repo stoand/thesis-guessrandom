@@ -1,4 +1,5 @@
 <?php
+// #SPC-php_mt_rand.real_php
 
 mt_srand(0);
 echo "PHP mt_rand() output:\n";

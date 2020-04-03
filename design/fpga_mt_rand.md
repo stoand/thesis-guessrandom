@@ -32,12 +32,19 @@ source fpga_mt_rand/env/bin/activate
 pip3 install -r fpga_mt_rand/requirements.txt
 ```
 
-Entering Python Env and Running
+Running Tests
+
+```
+source fpga_mt_rand/env/bin/activate
+(cd fpga_mt_rand/src/; nodemon -e py -x 'python3 -m sim_mt_rand || echo')
+```
+
+Programming FPGA
 
 ```
 source fpga_mt_rand/env/bin/activate
 # Don't forget to press reset button before loading program
-(cd fpga_mt_rand/src/; nodemon -e py -x 'python3 -m sim_mt_rand || echo')
+(cd fpga_mt_rand/src/; python3 -m mt_rand)
 ```
 
 Leaving Python Env

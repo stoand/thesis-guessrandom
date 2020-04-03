@@ -4,6 +4,10 @@ partof: REQ-purpose
 
 Uses FPGA to guess Mersenne Twister random generator state.
 
+[[.tst-simulate]]
+
+Use a nMigen simulation to assert that the Mersenne Twister module
+outputs the correct values.
 
 ## Getting Started
 
@@ -15,6 +19,8 @@ Uses FPGA to guess Mersenne Twister random generator state.
 Initial Project Setup
 
 ```
+npm i -g nodemon
+
 python3 -m pip install --user virtualenv
 python3 -m venv fpga_mt_rand/env
 
@@ -27,7 +33,7 @@ Entering Python Env and Running
 ```
 source fpga_mt_rand/env/bin/activate
 # Don't forget to press reset button before loading program
-(cd fpga_mt_rand/src/; python3 -m mt_rand)
+(cd fpga_mt_rand/src/; nodemon -e py -x 'python3 -m sim_mt_rand')
 ```
 
 Leaving Python Env
@@ -35,3 +41,8 @@ Leaving Python Env
 ```
 deactivate
 ```
+
+View Logic Cell usage and other Statistics
+
+
+open `fpga_mt_rand/src/build/top.rpt` and go to end of file

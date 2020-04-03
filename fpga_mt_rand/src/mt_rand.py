@@ -1,8 +1,9 @@
+# #SPC-fpga_mt_rand
 import itertools
 
 from nmigen import Elaboratable, Module, Signal, Cat, Const, Array
 from nmigen.build import ResourceError
-from nmigen_boards.tinyfpga_bx import TinyFPGABXPlatform
+from tinyfpga_bx import TinyFPGABXPlatformCustomFreq
 
 __all__ = ["MtRand"]
 
@@ -48,7 +49,7 @@ class MtRand(Elaboratable):
 
         secret = Const(1, range(secret_range))
 
-        workers = pow(2, 5)
+        workers = pow(2, 7)
         print("workers:", workers)
 
         scan_iter = Signal(range(pow(2, 32)), reset=pow(2, 32) - 1)
@@ -86,4 +87,4 @@ class MtRand(Elaboratable):
 
 
 if __name__ == "__main__":
-    TinyFPGABXPlatform().build(MtRand(), do_program=True)
+    TinyFPGABXPlatformCustomFreq().build(MtRand(), do_program=True)

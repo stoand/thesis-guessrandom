@@ -10,6 +10,7 @@ __all__ = ["MtRand", "MersenneTwister"]
 speed = 16
 
 MT_SCAN_DEPTH = 3
+MT_SKIP = 397
 UINT_SIZE = 32
 
 WORKER_COUNT = pow(2, 5)
@@ -28,6 +29,14 @@ def twist(m, u, v):
     return op7
 
 
+def init_next(prev, index):
+    op0 = prev >> 30
+    op1 = prev ^ op0
+    op2 = 1812433253 * op1
+    op3 = op2 + index
+    return op3 & 0xffffffff
+
+
 class MersenneTwister(Elaboratable):
     def __init__(self):
         self.seed = Signal(UINT_SIZE)
@@ -36,8 +45,7 @@ class MersenneTwister(Elaboratable):
         self.twist_result = Signal(UINT_SIZE)
 
         self.state0 = Array([Signal(unsigned(UINT_SIZE))
-                            for _ in range(MT_SCAN_DEPTH)])
-
+                            for _ in range(MT_SCAN_DEPTH + MT_SKIP)])
         self.state1 = Array([Signal(unsigned(UINT_SIZE))
                             for _ in range(MT_SCAN_DEPTH)])
 
@@ -55,19 +63,9 @@ class MersenneTwister(Elaboratable):
 
         m.d.comb += self.state0[0].eq(self.seed & 0xffffffff)
 
-        for index in range(1, MT_SCAN_DEPTH):
-            prev = self.state0[index - 1]
-
-            op0 = prev >> 30
-            op1 = prev ^ op0
-            op2 = 1812433253 * op1
-            op3 = op2 + index
-            op4 = op3 & 0xffffffff
-
-            m.d.comb += self.state0[index].eq(op4)
-
-        for index in range(1, MT_SCAN_DEPTH):
-            print()
+        for index in range(1, len(self.state0)):
+            m.d.comb += self.state0[index].eq(
+                init_next(self.state0[index - 1], index))
 
         for index in range(MT_SCAN_DEPTH):
             m.d.comb += self.outputs[index].eq(self.state1[index])

@@ -1,7 +1,7 @@
 # #SPC-fpga_mt_rand
 import itertools
 
-from nmigen import Elaboratable, Module, Signal, Cat, Const, Array, unsigned
+from nmigen import Elaboratable, Module, Signal, Cat, Const, Array, unsigned, signed
 from nmigen.build import ResourceError
 from tinyfpga_bx import TinyFPGABXPlatformCustomFreq
 
@@ -13,15 +13,42 @@ MT_SCAN_DEPTH = 3
 UINT_SIZE = 32
 
 
+# Perform equivalent of
+def convert_invert_sign(v):
+    return 4294967295
+
+
+# define hiBit(u)      ((u) & 0x80000000U)  /* mask all but highest   bit of u */
 # define loBit(u)      ((u) & 0x00000001U)  /* mask all but lowest    bit of u */
+# define loBits(u)     ((u) & 0x7FFFFFFFU)  /* mask     the highest   bit of u */
+#
+# define mixBits(u, v) (hiBit(u)|loBits(v)) /* move hi bit of u to hi bit of v */
+#
 # define twist(m,u,v)  (m ^ (mixBits(u,v)>>1) ^ ((uint32_t)(-(int32_t)(loBit(v))) & 0x9908b0dfU))
-def twist(m, u, v):
-    return 0
+
+def convert_invert_sign(val):
+    return val
+
+
+def twist(m, u, v, convert_invert_sign):
+    op0 = u & 0x80000000
+    op1 = v & 0x7FFFFFFF
+    op2 = op0 | op1
+    op3 = op2 >> 1
+    op4 = m ^ op3
+
+    op5 = v & 0x00000001
+
+    return m
 
 
 class MersenneTwister(Elaboratable):
     def __init__(self):
         self.seed = Signal(UINT_SIZE)
+
+        self.twist_args = Array([Signal(UINT_SIZE) for _ in range(3)])
+        self.twist_result = Signal(UINT_SIZE)
+        self.twist_convert_invert_sign = Signal(UINT_SIZE)
 
         self.state0 = Array([Signal(unsigned(UINT_SIZE))
                             for _ in range(MT_SCAN_DEPTH)])
@@ -34,6 +61,16 @@ class MersenneTwister(Elaboratable):
 
     def elaborate(self, platform):
         m = Module()
+
+        m.d.comb += self.twist_convert_invert_sign.eq(
+            convert_invert_sign(self.twist_args[2]))
+
+        m.d.comb += self.twist_result.eq(
+            twist(
+                self.twist_args[0],
+                self.twist_args[1],
+                self.twist_args[2],
+                self.twist_convert_invert_sign))
 
         m.d.comb += self.state0[0].eq(self.seed & 0xffffffff)
 

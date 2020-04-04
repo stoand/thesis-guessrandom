@@ -13,6 +13,12 @@ MT_SCAN_DEPTH = 3
 UINT_SIZE = 32
 
 
+# define loBit(u)      ((u) & 0x00000001U)  /* mask all but lowest    bit of u */
+# define twist(m,u,v)  (m ^ (mixBits(u,v)>>1) ^ ((uint32_t)(-(int32_t)(loBit(v))) & 0x9908b0dfU))
+def twist(m, u, v):
+    return 0
+
+
 class MersenneTwister(Elaboratable):
     def __init__(self):
         self.seed = Signal(UINT_SIZE)

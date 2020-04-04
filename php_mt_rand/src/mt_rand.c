@@ -36,10 +36,6 @@ void print_state() {
  */
 static inline void php_mt_initialize(uint32_t seed, uint32_t *state)
 {
-
-	
-        	printf("VAL %X\n", (uint32_t)(-(int32_t)(loBit(1)))     );
-        	printf("VA2 %X\n",(int32_t)(loBit(1))     );
 	/* Initialize generator state with seed
 	   See Knuth TAOCP Vol 2, 3rd Ed, p.106 for multiplier.
 	   In previous versions, most significant bits (MSBs) of the seed affect
@@ -62,7 +58,7 @@ static inline void php_mt_reload(void)
 	register uint32_t *p = state;
 	register int i;
 
-	printf("\n\nTWIST %u, %u, %u = %u \n", 500, 33, 8, twist(500, 33, 7));
+	printf("\n\nTWIST %u, %u, %u = %u \n", 500, 33, 7, twist(500, 33, 7));
 	// return;
 
 	if (mt_rand_mode == MT_RAND_MT19937) {

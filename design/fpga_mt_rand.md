@@ -36,7 +36,7 @@ Running Tests
 
 ```
 source fpga_mt_rand/env/bin/activate
-(cd fpga_mt_rand/src/; nodemon -e py -x 'python3 -m sim_mt_rand || echo')
+(cd fpga_mt_rand/src/; nodemon -e py -x 'python3 -m unittest sim_mt_rand.py || echo')
 ```
 
 Programming FPGA

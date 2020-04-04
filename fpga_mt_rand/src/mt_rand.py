@@ -16,31 +16,38 @@ UINT_SIZE = 32
 class MersenneTwister(Elaboratable):
     def __init__(self):
         self.seed = Signal(UINT_SIZE)
+
+        self.state0 = Array([Signal(unsigned(UINT_SIZE))
+                            for _ in range(MT_SCAN_DEPTH)])
+
+        self.state1 = Array([Signal(unsigned(UINT_SIZE))
+                            for _ in range(MT_SCAN_DEPTH)])
+
         self.outputs = Array([Signal(unsigned(UINT_SIZE))
                              for _ in range(MT_SCAN_DEPTH)])
 
     def elaborate(self, platform):
         m = Module()
 
-        state0 = Array([Signal(unsigned(UINT_SIZE))
-                       for _ in range(MT_SCAN_DEPTH)])
-
-        m.d.comb += state0[0].eq(self.seed & 0xffffffff)
+        m.d.comb += self.state0[0].eq(self.seed & 0xffffffff)
 
         for index in range(1, MT_SCAN_DEPTH):
-            prev = state0[index - 1]
-            
+            prev = self.state0[index - 1]
+
             op0 = prev >> 30
             op1 = prev ^ op0
             op2 = 1812433253 * op1
             op3 = op2 + index
             op4 = op3 & 0xffffffff
 
-            m.d.comb += state0[index].eq(op4)
+            m.d.comb += self.state0[index].eq(op4)
+
+        for index in range(1, MT_SCAN_DEPTH):
+            print()
 
         for index in range(MT_SCAN_DEPTH):
-            m.d.comb += self.outputs[index].eq(state0[index])
-            
+            m.d.comb += self.outputs[index].eq(self.state1[index])
+
         return m
 
 

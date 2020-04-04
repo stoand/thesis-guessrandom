@@ -98,14 +98,12 @@ class MtRand(Elaboratable):
         for index, switch in zip(itertools.cycle(range(len(inverts))), switches):
             inverts[index] ^= switch
 
-        state = Array([Signal(unsigned(UINT_SIZE)) for _ in range(MT_SCAN_DEPTH)])
+        # state = Array([Signal(unsigned(UINT_SIZE)) for _ in range(MT_SCAN_DEPTH)])
 
         clk_freq = platform.default_clk_frequency
         timer = Signal(range(int(clk_freq//speed)),
                        reset=int(clk_freq//speed) - 1)
         flops = Signal(len(leds))
-
-        m.d.sync += flops.eq(state[0])
 
         print("freq:", (clk_freq))
 

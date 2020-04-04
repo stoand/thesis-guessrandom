@@ -11,6 +11,7 @@ twist_expected = 2567483688
 state0_expected = [500, 4273494341, 527150752]
 state0_skipped_expected = [4115431134, 1797084095, 1721022853]
 state1_expected = [1394139811, 615023855, 3652963275]
+output_expected = [1489665453, 160506331, 132536224]
 
 
 def test_twist(self):
@@ -42,6 +43,9 @@ def test_states(self):
 
             actual_state1 = yield self.mt.state1[i]
             self.assertEqual(actual_state1, state1_expected[i])
+            
+            actual_output = yield self.mt.output[i]
+            self.assertEqual(actual_output, output_expected[i])
 
     sim.add_process(process)
     sim.run()

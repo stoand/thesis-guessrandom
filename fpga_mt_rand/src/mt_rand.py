@@ -37,6 +37,14 @@ def init_next(prev, index):
     return op3 & 0xffffffff
 
 
+def final_processing(state):
+    state = state ^ (state >> 11)
+    state = state ^ (state << 7) & 0x9d2c5680
+    state = state ^ (state << 15) & 0xefc60000
+    state = state ^ (state >> 18)
+    return state >> 1
+
+
 class MersenneTwister(Elaboratable):
     def __init__(self):
         self.seed = Signal(UINT_SIZE)
@@ -49,7 +57,7 @@ class MersenneTwister(Elaboratable):
         self.state1 = Array([Signal(unsigned(UINT_SIZE))
                             for _ in range(MT_SCAN_DEPTH)])
 
-        self.outputs = Array([Signal(unsigned(UINT_SIZE))
+        self.output = Array([Signal(unsigned(UINT_SIZE))
                              for _ in range(MT_SCAN_DEPTH)])
 
     def elaborate(self, platform):
@@ -69,10 +77,12 @@ class MersenneTwister(Elaboratable):
 
         for index in range(len(self.state1)):
             m.d.comb += self.state1[index].eq(
-                twist(self.state0[index + MT_SKIP], self.state0[index], self.state0[index + 1]))
+                twist(self.state0[index + MT_SKIP],
+                      self.state0[index], self.state0[index + 1]))
 
         for index in range(MT_SCAN_DEPTH):
-            m.d.comb += self.outputs[index].eq(self.state1[index])
+            m.d.comb += self.output[index].eq(
+                final_processing(self.state1[index]))
 
         return m
 

@@ -12,6 +12,8 @@ speed = 16
 MT_SCAN_DEPTH = 3
 UINT_SIZE = 32
 
+WORKER_COUNT = pow(2, 5)
+
 
 def twist(m, u, v):
     op0 = u & 0x80000000
@@ -96,7 +98,7 @@ class MtRand(Elaboratable):
         for index, switch in zip(itertools.cycle(range(len(inverts))), switches):
             inverts[index] ^= switch
 
-        state = Array([Signal(unsigned(UINT_SIZE)) for _ in range(MT_COUNT)])
+        state = Array([Signal(unsigned(UINT_SIZE)) for _ in range(MT_SCAN_DEPTH)])
 
         clk_freq = platform.default_clk_frequency
         timer = Signal(range(int(clk_freq//speed)),
@@ -117,7 +119,7 @@ class MtRand(Elaboratable):
 
         secret = Const(1, range(secret_range))
 
-        workers = pow(2, 7)
+        workers = WORKER_COUNT
         print("workers:", workers)
 
         scan_iter = Signal(range(pow(2, 32)), reset=pow(2, 32) - 1)

@@ -7,6 +7,8 @@ from nmigen_boards.resources import *
 
 __all__ = ["TinyFPGABXPlatformCustomFreq"]
 
+# Run: icetime fpga_mt_rand/src/build/top.asc
+# to get timing analysis
 class TinyFPGABXPlatformCustomFreq(LatticeICE40Platform):
     device      = "iCE40LP8K"
     package     = "CM81"

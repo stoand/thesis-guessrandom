@@ -1,16 +1,16 @@
 # #SPC-fpga_mt_rand.tst-simulate
 from nmigen.back.pysim import Simulator, Delay
-from mt_rand import MersenneTwister
-
+from mt_rand import MersenneTwister, MT_SCAN_DEPTH
 
 if __name__ == "__main__":
-    dut = MersenneTwister()
-    sim = Simulator(dut)
+    mt = MersenneTwister()
+    sim = Simulator(mt)
 
     def process():
-        for i in range(2):
-            yield dut.input.eq(i)
+        yield mt.seed.eq(500)
+        for i in range(MT_SCAN_DEPTH):
             yield Delay()
-            print((yield dut.output))
+            print((yield mt.outputs[i]))
+
     sim.add_process(process)
     sim.run()

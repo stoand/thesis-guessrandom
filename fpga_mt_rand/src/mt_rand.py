@@ -91,6 +91,9 @@ class MtRand(Elaboratable):
     def elaborate(self, platform):
         m = Module()
 
+        mersenne_twister = MersenneTwister()
+        m.submodules += mersenne_twister
+
         def get_all_resources(name):
             resources = []
             for number in itertools.count():
@@ -125,9 +128,6 @@ class MtRand(Elaboratable):
         m.d.comb += Cat(leds).eq(flops)
 
         secret_bitsize = 32
-        secret_range = pow(2, secret_bitsize)
-
-        secret = Const(1, range(secret_range))
 
         workers = WORKER_COUNT
         print("workers:", workers)
@@ -137,16 +137,21 @@ class MtRand(Elaboratable):
 
         found_secret = Signal(range(1), reset=0)
         started = Signal(range(1), reset=0)
+        
+        output_expected = [104635876, 1716423271, 620858268]
 
         with m.If(found_secret == 0):
             with m.If((scan_iter != scan_iter.reset) | (started == 0)):
                 m.d.sync += started.eq(Const(1))
-                # guess secret
                 for w in range(workers):
-                    with m.If((scan_iter+w)[:secret_bitsize] == secret):
+                    m.d.sync += mersenne_twister.seed.eq(scan_iter+w)
+                    output = mersenne_twister.output
+                    
+                    with m.If((output[0] == output_expected[0]) &
+                              (output[1] == output_expected[1]) &
+                              (output[2] == output_expected[2])):
                         # Exit
-                        m.d.sync += scan_result.eq((scan_iter+w)
-                                                   [:secret_bitsize])
+                        m.d.sync += scan_result.eq(scan_iter+w)
                         m.d.sync += scan_iter.eq(scan_iter.reset)
                         m.d.sync += found_secret.eq(Const(1))
                 m.d.sync += scan_iter.eq(scan_iter - workers)

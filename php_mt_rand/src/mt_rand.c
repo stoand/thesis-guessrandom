@@ -22,6 +22,16 @@ uint32_t * bg_state = &bg_state_vals[0];
 uint32_t * next;
 uint32_t left = 0;
 
+uint32_t PRINT_DEPTH = 3;
+
+void print_state() {
+    for (uint32_t i = 0; i < PRINT_DEPTH; i++) {
+    	if (i <= PRINT_DEPTH) {
+        	printf("%u\n", bg_state[i]);
+    	}
+    }
+}
+
 /* {{{ php_mt_initialize
  */
 static inline void php_mt_initialize(uint32_t seed, uint32_t *state)
@@ -68,11 +78,23 @@ static inline void php_mt_reload(void)
       
 void php_mt_srand(uint32_t seed)
 {
+	printf("\n--- State 1\n");
+	print_state();
+
+    
 	/* Seed the generator with a simple uint32 */
 	php_mt_initialize(seed, bg_state);
+
+	printf("\n--- State 2\n");
+	print_state();
+	
 	php_mt_reload();
 	
+	printf("\n--- State 3\n");
+	print_state();
 
+	printf("\n");
+	
 	/* Seed only once */
 	// mt_rand_is_seeded = 1;
 }

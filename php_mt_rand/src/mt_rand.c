@@ -67,7 +67,7 @@ static inline void php_mt_reload(void)
     		printf("%u = p[m] \n", p[M]);
     	
 			*p = twist(p[M], p[0], p[1]);
-    		// printf("%u = p \n", *p);
+    		printf("%u = p \n", *p);
 		}
 		for (i = M; --i; ++p) {
     		// printf("N \n\n%u = v \n", i);

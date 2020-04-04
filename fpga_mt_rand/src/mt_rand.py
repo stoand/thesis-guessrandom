@@ -67,6 +67,10 @@ class MersenneTwister(Elaboratable):
             m.d.comb += self.state0[index].eq(
                 init_next(self.state0[index - 1], index))
 
+        for index in range(len(self.state1)):
+            m.d.comb += self.state1[index].eq(
+                twist(self.state0[index + MT_SKIP], self.state0[index], self.state0[index + 1]))
+
         for index in range(MT_SCAN_DEPTH):
             m.d.comb += self.outputs[index].eq(self.state1[index])
 

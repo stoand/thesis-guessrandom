@@ -57,3 +57,11 @@ View Logic Cell usage and other Statistics
 
 
 open `fpga_mt_rand/src/build/top.rpt` and go to end of file
+
+
+Timing Analysis
+
+
+```
+icetime fpga_mt_rand/src/build/top.asc
+```

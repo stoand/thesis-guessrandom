@@ -13,6 +13,30 @@ Test style copied from:
 
 [http://blog.lambdaconcept.com/doku.php?id=nmigen:nmigen_sim_testbench](http://blog.lambdaconcept.com/doku.php?id=nmigen:nmigen_sim_testbench)
 
+
+[[.tst-fast_multiplication]]
+
+Multiplication is by far the most expensive operation in the Mersenne Twister algorithm.
+
+This can be checked by adding an algorithm with (say 10) multiplications and checking the logic cell statistics.
+
+Therefore, an optimization mentioned in the post below needs to be applied to make initializing hundreds
+
+of Mersenne Twister states in a single clock cycle viable.
+
+[Blog post with various multiplication optimizations](http://www.andraka.com/multipli.php)
+
+
+[[.tst-deeply_nested_operators]]
+
+Currently, performing an algorithm around 10 times on a single signal, slows down
+compilation time to a few dozen seconds.
+
+However, algorithms that are nested 100 times or more and applied to a single signal result in a stack error.
+
+To fix this, the algorithm used by _nmigen_ needs to be optimized to allow for deeply nested operators.
+
+
 ## Getting Started
 
 [Buy TinyFPGA BX](https://www.crowdsupply.com/tinyfpga/tinyfpga-bx)

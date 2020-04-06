@@ -33,8 +33,6 @@ def init_next(prev, index):
     op0 = prev >> 30
     op1 = prev ^ op0
     op2 = 1812433253 * op1
-    # op2 = 2 * op1
-    # # op2 = 1812433253 + op1
     op3 = op2 + index
     return op3 & 0xffffffff
 
@@ -56,8 +54,12 @@ class MersenneTwister(Elaboratable):
 
         self.state0 = Array([Signal(unsigned(UINT_SIZE))
                             for _ in range(MT_SCAN_DEPTH + 1)])
+
         self.state0_skipped = Array(
             [Signal(unsigned(UINT_SIZE)) for _ in range(MT_SCAN_DEPTH)])
+        self.skipped_calc = Signal(range(MT_SKIP + 1))
+        self.skipped_calc_done = Signal(1)
+        
         self.state1 = Array([Signal(unsigned(UINT_SIZE))
                             for _ in range(MT_SCAN_DEPTH)])
 
@@ -73,29 +75,41 @@ class MersenneTwister(Elaboratable):
                 self.twist_args[1],
                 self.twist_args[2]))
 
+        # Set the initial state
         m.d.comb += self.state0[0].eq(self.seed & 0xffffffff)
 
+        # Set following states
         for index in range(1, len(self.state0)):
             m.d.comb += self.state0[index].eq(
                 init_next(self.state0[index - 1], index))
 
-        # To prevent no clock error
-        m.d.sync += Signal(1).eq(1)
+        # Set following skipped states
+        for index in range(1, len(self.state0_skipped)):
+            m.d.comb += self.state0_skipped[index].eq(
+                init_next(self.state0_skipped[index - 1], index + MT_SKIP))
 
-        prev = self.seed & 0xffffffff
-        for i in range(1):
-            prev = init_next(prev, i+1)
+        # Calculate the first skipped state
+        with m.If(self.skipped_calc_done == 0):
+            # Go to next skip index (applied in the next tick)
+            m.d.sync += self.skipped_calc.eq(self.skipped_calc + 1)
+            with m.If(self.skipped_calc == 0):
+                # Initialize the first state
+                m.d.sync += self.state0_skipped[0].eq(self.state0[0])
+            with m.Else():
+                # Get the next state
+                m.d.sync += self.state0_skipped[0].eq(
+                    init_next(self.state0_skipped[0], self.skipped_calc))
+                with m.If(self.skipped_calc == MT_SKIP):
+                    # Reached end of skip index
+                    m.d.sync += self.skipped_calc_done.eq(1)
 
-        m.d.comb += self.state0_skipped[0].eq(prev)
-        # TODO calculate skip
-        # m.d.comb += self.state0_skipped[0].eq(self.state0_skipped[0] + 1)
-        # m.d.sync += self.state0_skipped[0].eq(self.state0_skipped[0] + 1)
-
+        # States after twisting
         for index in range(len(self.state1)):
             m.d.comb += self.state1[index].eq(
                 twist(self.state0_skipped[index],
                       self.state0[index], self.state0[index + 1]))
 
+        # Do final processing
         for index in range(MT_SCAN_DEPTH):
             m.d.comb += self.output[index].eq(
                 final_processing(self.state1[index]))

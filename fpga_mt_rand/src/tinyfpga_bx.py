@@ -7,15 +7,17 @@ from nmigen_boards.resources import *
 
 __all__ = ["TinyFPGABXPlatformCustomFreq"]
 
+FREQ = 10
+
 # Run: icetime fpga_mt_rand/src/build/top.asc
 # to get timing analysis
 class TinyFPGABXPlatformCustomFreq(LatticeICE40Platform):
     device      = "iCE40LP8K"
     package     = "CM81"
-    default_clk = "clk25"
+    default_clk = "clk" + str(FREQ)
     resources   = [
-        Resource("clk25", 0, Pins("B2", dir="i"),
-                 Clock(25e6), Attrs(IO_STANDARD="SB_LVCMOS")),
+        Resource("clk" + str(FREQ), 0, Pins("B2", dir="i"),
+                 Clock(FREQ * 1e6), Attrs(IO_STANDARD="SB_LVCMOS")),
 
         *LEDResources(pins="B3", attrs=Attrs(IO_STANDARD="SB_LVCMOS")),
 

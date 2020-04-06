@@ -16,32 +16,35 @@ UINT_SIZE = 32
 WORKER_COUNT = pow(2, 5)
 
 
-def twist(m, u, v):
-    op0 = u & 0x80000000
-    op1 = v & 0x7FFFFFFF
-    op2 = op0 | op1
-    op3 = op2 >> 1
-    op4 = m ^ op3
-    op5 = Mux(v & 1, 0xFFFFFFFF, 0)
-    op6 = op5 & 0x9908B0DF
-    op7 = op4 ^ op6
+def trunc(v):
+    return v[:UINT_SIZE]
 
+
+def twist(m, u, v):
+    op0 = trunc(u & 0x80000000)
+    op1 = trunc(v & 0x7FFFFFFF)
+    op2 = trunc(op0 | op1)
+    op3 = trunc(op2 >> 1)
+    op4 = trunc(m ^ op3)
+    op5 = trunc(Mux(v & 1, 0xFFFFFFFF, 0))
+    op6 = trunc(op5 & 0x9908B0DF)
+    op7 = trunc(op4 ^ op6)
     return op7
 
 
 def init_next(prev, index):
-    op0 = prev >> 30
-    op1 = prev ^ op0
-    op2 = 1812433253 * op1
-    op3 = op2 + index
-    return op3 & 0xffffffff
+    op0 = trunc(prev >> 30)
+    op1 = trunc(prev ^ op0)
+    op2 = trunc(1812433253 * op1)
+    op3 = trunc(op2 + index)
+    return op3
 
 
 def final_processing(state):
-    state = state ^ (state >> 11)
-    state = state ^ (state << 7) & 0x9d2c5680
-    state = state ^ (state << 15) & 0xefc60000
-    state = state ^ (state >> 18)
+    state = trunc(state ^ (state >> 11))
+    state = trunc(state ^ (state << 7) & 0x9d2c5680)
+    state = trunc(state ^ (state << 15) & 0xefc60000)
+    state = trunc(state ^ (state >> 18))
     return state >> 1
 
 
@@ -59,7 +62,7 @@ class MersenneTwister(Elaboratable):
             [Signal(unsigned(UINT_SIZE)) for _ in range(MT_SCAN_DEPTH)])
         self.skipped_calc = Signal(range(MT_SKIP + 1))
         self.skipped_calc_done = Signal(1)
-        
+
         self.state1 = Array([Signal(unsigned(UINT_SIZE))
                             for _ in range(MT_SCAN_DEPTH)])
 
@@ -121,9 +124,6 @@ class MtRand(Elaboratable):
     def elaborate(self, platform):
         m = Module()
 
-        mersenne_twister = MersenneTwister()
-        m.submodules += mersenne_twister
-
         def get_all_resources(name):
             resources = []
             for number in itertools.count():
@@ -134,6 +134,7 @@ class MtRand(Elaboratable):
             return resources
 
         leds = [res.o for res in get_all_resources("led")]
+        
         buttons = [res.i for res in get_all_resources("button")]
         switches = [res.i for res in get_all_resources("switch")]
 
@@ -162,32 +163,32 @@ class MtRand(Elaboratable):
         workers = WORKER_COUNT
         print("workers:", workers)
 
-        scan_iter = Signal(range(pow(2, 32)), reset=pow(2, 32) - 1)
-        scan_result = Signal(range(pow(2, 32)))
-
+        scan_iter = Signal(range(pow(2, 32)))
+        # scan_result = Signal(range(pow(2, 32)))
+        # found_secret = Signal(range(1), reset=0)
         found_secret = Signal(range(1), reset=0)
-        started = Signal(range(1), reset=0)
 
-        output_expected = [104635876, 1716423271, 620858268]
+        output_expected = [1489665453, 160506331, 132536224]
+
+        mersenne_twister = MersenneTwister()
+        m.submodules += mersenne_twister
+
+        m.d.comb += mersenne_twister.seed.eq(scan_iter)
 
         with m.If(found_secret == 0):
-            with m.If((scan_iter != scan_iter.reset) | (started == 0)):
-                m.d.sync += started.eq(Const(1))
-                for w in range(workers):
-                    m.d.sync += mersenne_twister.seed.eq(scan_iter+w)
-                    output = mersenne_twister.output
-
-                    with m.If((output[0] == output_expected[0]) &
-                              (output[1] == output_expected[1]) &
-                              (output[2] == output_expected[2])):
-                        # Exit
-                        m.d.sync += scan_result.eq(scan_iter+w)
-                        m.d.sync += scan_iter.eq(scan_iter.reset)
-                        m.d.sync += found_secret.eq(Const(1))
-                m.d.sync += scan_iter.eq(scan_iter - workers)
+            # Will loop indefinitly if no result is found
+            with m.If(mersenne_twister.skipped_calc_done == 1):
+                output = mersenne_twister.output
+                with m.If((output[0] == output_expected[0]) &
+                          (output[1] == output_expected[1]) &
+                          (output[2] == output_expected[2])):
+                    m.d.sync += found_secret.eq(1)
+                with m.Else():
+                    m.d.sync += scan_iter.eq(scan_iter + 1)
+                    m.d.sync += mersenne_twister.skipped_calc_done.eq(0)
         with m.Else():
             display_bit = Signal(range(secret_bitsize), reset=0)
-            secret_bits = Array([scan_result[i]
+            secret_bits = Array([scan_iter[i]
                                 for i in range(secret_bitsize)])
             # display secret in binary by blinking
             with m.If(is_zero):

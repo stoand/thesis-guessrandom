@@ -35,10 +35,8 @@ def test_states(self):
         yield Tick()
         yield Delay()
 
-        for _ in range(MT_SKIP+1):
+        for _ in range(MT_SKIP+2):
             yield Tick()
-
-        print("\nskipped[0]\n", (yield self.mt.state0_skipped[0]))
 
         for i in range(MT_SCAN_DEPTH):
             actual_state0 = yield self.mt.state0[i]
@@ -49,7 +47,7 @@ def test_states(self):
 
             actual_state1 = yield self.mt.state1[i]
             self.assertEqual(actual_state1, state1_expected[i])
-            
+
             actual_output = yield self.mt.output[i]
             self.assertEqual(actual_output, output_expected[i])
 

@@ -13,7 +13,7 @@ MT_SCAN_DEPTH = 3
 MT_SKIP = 397
 UINT_SIZE = 32
 
-WORKER_COUNT = pow(2, 5)
+WORKER_COUNT = 2
 
 
 def trunc(v):
@@ -139,34 +139,37 @@ class MtRand(Elaboratable):
         timer = Signal(range(int(clk_freq//speed)),
                        reset=int(clk_freq//speed) - 1)
 
-        scan_iter = Signal(range(pow(2, 32)))
+        result_bits = Array(Signal(1) for i in range(UINT_SIZE))
+
         found_secret = Signal(range(1), reset=0)
 
         output_expected = [1489665453, 160506331, 132536224]
 
-        mersenne_twister = MersenneTwister()
-        m.submodules += mersenne_twister
-
-        m.d.comb += mersenne_twister.seed.eq(scan_iter)
-
         with m.If(found_secret == 0):
-            # Will loop indefinitly if no result is found
-            with m.If(mersenne_twister.skipped_calc_done == 1):
-                output = mersenne_twister.output
-                with m.If((output[0] == output_expected[0]) &
-                          (output[1] == output_expected[1]) &
-                          (output[2] == output_expected[2])):
-                    m.d.sync += found_secret.eq(1)
-                with m.Else():
-                    m.d.sync += scan_iter.eq(scan_iter + 1)
-                    m.d.sync += mersenne_twister.skipped_calc_done.eq(0)
+            for worker_index in range(WORKER_COUNT):
+                scan_iter = Signal(range(pow(2, 32)), reset=worker_index)
+                mersenne_twister = MersenneTwister()
+                m.submodules += mersenne_twister
+
+                m.d.comb += mersenne_twister.seed.eq(scan_iter)
+
+                # Will loop indefinitly if no result is found
+                with m.If(mersenne_twister.skipped_calc_done == 1):
+                    output = mersenne_twister.output
+                    with m.If((output[0] == output_expected[0]) &
+                              (output[1] == output_expected[1]) &
+                              (output[2] == output_expected[2])):
+                        m.d.sync += found_secret.eq(1)
+                        m.d.sync += Cat(result_bits).eq(scan_iter)
+                    with m.Else():
+                        m.d.sync += scan_iter.eq(scan_iter + WORKER_COUNT)
+                        m.d.sync += mersenne_twister.skipped_calc_done.eq(0)
         with m.Else():
             display_bit = Signal(range(UINT_SIZE), reset=0)
-            secret_bits = Array([scan_iter[i] for i in range(UINT_SIZE)])
             # display secret in binary by blinking
             with m.If(timer == 0):
                 m.d.sync += timer.eq(timer.reset)
-                m.d.sync += led.eq(secret_bits[display_bit])
+                m.d.sync += led.eq(result_bits[display_bit])
                 m.d.sync += display_bit.eq(display_bit + 1)
             with m.Else():
                 m.d.sync += timer.eq(timer - 1)

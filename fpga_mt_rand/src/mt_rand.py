@@ -33,6 +33,8 @@ def init_next(prev, index):
     op0 = prev >> 30
     op1 = prev ^ op0
     op2 = 1812433253 * op1
+    # op2 = 2 * op1
+    # # op2 = 1812433253 + op1
     op3 = op2 + index
     return op3 & 0xffffffff
 
@@ -53,7 +55,9 @@ class MersenneTwister(Elaboratable):
         self.twist_result = Signal(UINT_SIZE)
 
         self.state0 = Array([Signal(unsigned(UINT_SIZE))
-                            for _ in range(MT_SCAN_DEPTH + MT_SKIP)])
+                            for _ in range(MT_SCAN_DEPTH + 1)])
+        self.state0_skipped = Array(
+            [Signal(unsigned(UINT_SIZE)) for _ in range(MT_SCAN_DEPTH)])
         self.state1 = Array([Signal(unsigned(UINT_SIZE))
                             for _ in range(MT_SCAN_DEPTH)])
 
@@ -75,9 +79,21 @@ class MersenneTwister(Elaboratable):
             m.d.comb += self.state0[index].eq(
                 init_next(self.state0[index - 1], index))
 
+        # To prevent no clock error
+        m.d.sync += Signal(1).eq(1)
+
+        prev = self.seed & 0xffffffff
+        for i in range(1):
+            prev = init_next(prev, i+1)
+
+        m.d.comb += self.state0_skipped[0].eq(prev)
+        # TODO calculate skip
+        # m.d.comb += self.state0_skipped[0].eq(self.state0_skipped[0] + 1)
+        # m.d.sync += self.state0_skipped[0].eq(self.state0_skipped[0] + 1)
+
         for index in range(len(self.state1)):
             m.d.comb += self.state1[index].eq(
-                twist(self.state0[index + MT_SKIP],
+                twist(self.state0_skipped[index],
                       self.state0[index], self.state0[index + 1]))
 
         for index in range(MT_SCAN_DEPTH):
@@ -137,7 +153,7 @@ class MtRand(Elaboratable):
 
         found_secret = Signal(range(1), reset=0)
         started = Signal(range(1), reset=0)
-        
+
         output_expected = [104635876, 1716423271, 620858268]
 
         with m.If(found_secret == 0):
@@ -146,7 +162,7 @@ class MtRand(Elaboratable):
                 for w in range(workers):
                     m.d.sync += mersenne_twister.seed.eq(scan_iter+w)
                     output = mersenne_twister.output
-                    
+
                     with m.If((output[0] == output_expected[0]) &
                               (output[1] == output_expected[1]) &
                               (output[2] == output_expected[2])):

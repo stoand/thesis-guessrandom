@@ -133,39 +133,13 @@ class MtRand(Elaboratable):
                     break
             return resources
 
-        leds = [res.o for res in get_all_resources("led")]
-        
-        buttons = [res.i for res in get_all_resources("button")]
-        switches = [res.i for res in get_all_resources("switch")]
-
-        inverts = [0 for _ in leds]
-        for index, button in zip(itertools.cycle(range(len(inverts))), buttons):
-            inverts[index] ^= button
-        for index, switch in zip(itertools.cycle(range(len(inverts))), switches):
-            inverts[index] ^= switch
-
-        # state = Array([Signal(unsigned(UINT_SIZE)) for _ in range(MT_SCAN_DEPTH)])
+        led = get_all_resources("led")[0].o
 
         clk_freq = platform.default_clk_frequency
         timer = Signal(range(int(clk_freq//speed)),
                        reset=int(clk_freq//speed) - 1)
-        flops = Signal(len(leds))
-
-        print("freq:", (clk_freq))
-
-        is_zero = Signal()
-
-        m.d.comb += is_zero.eq(timer == 0)
-        m.d.comb += Cat(leds).eq(flops)
-
-        secret_bitsize = 32
-
-        workers = WORKER_COUNT
-        print("workers:", workers)
 
         scan_iter = Signal(range(pow(2, 32)))
-        # scan_result = Signal(range(pow(2, 32)))
-        # found_secret = Signal(range(1), reset=0)
         found_secret = Signal(range(1), reset=0)
 
         output_expected = [1489665453, 160506331, 132536224]
@@ -187,14 +161,12 @@ class MtRand(Elaboratable):
                     m.d.sync += scan_iter.eq(scan_iter + 1)
                     m.d.sync += mersenne_twister.skipped_calc_done.eq(0)
         with m.Else():
-            display_bit = Signal(range(secret_bitsize), reset=0)
-            secret_bits = Array([scan_iter[i]
-                                for i in range(secret_bitsize)])
+            display_bit = Signal(range(UINT_SIZE), reset=0)
+            secret_bits = Array([scan_iter[i] for i in range(UINT_SIZE)])
             # display secret in binary by blinking
-            with m.If(is_zero):
+            with m.If(timer == 0):
                 m.d.sync += timer.eq(timer.reset)
-                m.d.sync += flops.eq(secret_bits[display_bit])
-                # m.d.sync += flops.eq(~flops)
+                m.d.sync += led.eq(secret_bits[display_bit])
                 m.d.sync += display_bit.eq(display_bit + 1)
             with m.Else():
                 m.d.sync += timer.eq(timer - 1)

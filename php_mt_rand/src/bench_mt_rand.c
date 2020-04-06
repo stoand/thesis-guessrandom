@@ -9,10 +9,13 @@ int main() {
     int dummy = 0;
     for (uint32_t i = 0; i < ITERATIONS; i++) {
         php_mt_srand(i);
-        php_mt_reload();
         
         for(uint32_t a = 0; a < 3; a++) {
-           if (php_mt_rand() == 1234) dummy++; 
+           uint32_t result = php_mt_rand(); 
+           if (i == 500) {
+               printf("res %u = %u\n", i, result);
+           }
+           if (result == 1234) dummy++; 
         }
     }
     

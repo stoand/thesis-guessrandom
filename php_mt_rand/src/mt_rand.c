@@ -58,23 +58,12 @@ static inline void php_mt_reload(void)
 	register uint32_t *p = state;
 	register int i;
 
-	printf("%u = p[M] \n", bg_state[M]);
 	if (mt_rand_mode == MT_RAND_MT19937) {
 		for (i = N - M; i--; ++p) {
-    		printf("N - M \n\n%u = v \n", i);
-    		printf("%u = p0 \n", p[0]);
-    		printf("%u = p1 \n", p[1]);
-    		printf("%u = p[m] \n", p[M]);
-    	
 			*p = twist(p[M], p[0], p[1]);
-    		printf("%u = p \n", *p);
 		}
 		for (i = M; --i; ++p) {
-    		// printf("N \n\n%u = v \n", i);
-    		// printf("%u = p0 \n", p[0]);
-    		// printf("%u = p1 \n", p[1]);
 			*p = twist(p[M-N], p[0], p[1]);
-    		// printf("%u = p \n", *p);
 		}
 		*p = twist(p[M-N], p[0], state[0]);
 	}
@@ -91,22 +80,10 @@ static inline void php_mt_reload(void)
       
 void php_mt_srand(uint32_t seed)
 {
-	printf("\n--- State 1\n");
-	print_state();
-
-    
 	/* Seed the generator with a simple uint32 */
 	php_mt_initialize(seed, bg_state);
-
-	printf("\n--- State 2\n");
-	print_state();
 	
 	php_mt_reload();
-	
-	printf("\n--- State 3\n");
-	print_state();
-
-	printf("\n");
 	
 	/* Seed only once */
 	// mt_rand_is_seeded = 1;

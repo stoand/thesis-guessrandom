@@ -16,4 +16,7 @@ php -e php_mt_rand/src/mt_rand.php
 
 # Run modified C from php 8 source
 (cd php_mt_rand; make watch)
+
+# Benchmarking modified C
+(cd php_mt_rand; make run-bench)
 ```

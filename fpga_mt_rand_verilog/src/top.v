@@ -27,4 +27,10 @@ module top (
     
     // light up the LED according to the pattern
     assign LED = blink_pattern[blink_counter[25:21]];
+    
+    `ifdef FORMAL
+    always @(posedge CLK) begin
+        assert (LED == 1);
+    end
+    `endif
 endmodule

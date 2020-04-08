@@ -18,6 +18,18 @@ Init the 397th mersenne twister state in a single clock cycle.
 
 [Install Icestorm](http://www.clifford.at/icestorm)
 
+[Install Symbiyosys](https://symbiyosys.readthedocs.io/en/latest/quickstart.html#installing)
+
+
+Running Tests
+
+```
+npm i -g nodemon
+
+(cd fpga_mt_rand_verilog/src; nodemon -e v -x 'sby -f mt_rand.sby || echo')
+```
+
+Programming FPGA
 
 ```
 # Don't forget to press reset button before loading program

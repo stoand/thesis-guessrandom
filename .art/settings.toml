@@ -10,10 +10,14 @@ exclude_artifact_paths = []
 code_paths = [
 	"php_mt_rand/src/",
 	"fpga_mt_rand/src/",
+	"fpga_mt_rand_verilog/src/",
 ]
 
 # Paths to exclude when searching through code
 exclude_code_paths = [
 	"fpga_mt_rand/src/__pycache__",
 	"fpga_mt_rand/src/build",
+	"fpga_mt_rand_verilog/src/top.asc",
+	"fpga_mt_rand_verilog/src/top.json",
+	"fpga_mt_rand_verilog/src/top.bin",
 ]

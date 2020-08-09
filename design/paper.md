@@ -2,6 +2,8 @@
 partof: REQ-purpose
 ###
 
+The design was modeled after the paper "Monotonic Aggregation in Deductive Databases". 
+
 ## Building the Latex Paper
 
 ```

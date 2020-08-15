@@ -20,16 +20,28 @@ Using an insecure RNG for a use case where a secure one is needed can lead to ma
 doing something that was not intended.
 
 An RNG can be considered secure if is unfeasable for an attacker to recover the internal 
-state of the RNG and thereby predict future random numbers.
+state of the RNG and thereby predict future random outputs.
 
-One of the most common uses of secure random number generators is the creation of security tokens.
+One of the most common uses of secure random number generators is the creation of session tokens.
 
 The following scenario describes how an attacker can exploit an insecure RNG for priviledge escalation:
 
 The attacker logs in multiple times quickly in succession. A brute-force algorithm is then run by the
 attack to determine what RNG state could have been used to generate the tokens they recieved.
-This RNG state allows future session tokens to be calculated by the attacker. Now, the attacker
-must simply wait for a legitimate user to log in. With the attacker knowing this users session token,
-they are able to hijack their session.
+This RNG state allows future session tokens to be calculated by the attacker. Now the attacker
+must simply wait for a legitimate user to log in. With the attacker knowing this user's session token,
+they are able to use their session as if they logged in as that user.
 
 ## Why do RNGs need Entropy to be secure
+
+The key to making RNGs secure is sufficient entropy. Entropy is a measure of what could be called "randomness".
+
+The greater the entropy, the harder it is for a third party to guess the value.
+
+Entropy is highly context-dependant. For example, one might naively assume that reading the current 32-bit unix
+time might always generate 32-bits of entropy. This is obviously not the case however if
+a server uses the current 32-bit unix time to generate a random seed. Despite the value having a large range (2^32 to be exact),
+the attacker can easily reduce the range they need to search.
+
+If the attacker knows that the current unix time was read no more than 500 milliseconds before they recieved the
+request the effective entropy is so low that initial value can be trivially guessed.

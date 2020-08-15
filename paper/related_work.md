@@ -1,6 +1,3 @@
-# Notes
-
-
 # Related Work
 
 ## Breaking Mersenne Twister without bruteforce

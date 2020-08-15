@@ -15,5 +15,21 @@ and use it to select a value from a given range (there will more on entropy late
 
 ## Why do RNGs need to be secure
 
+RNGs have a wide variety of uses. Some of these uses require an RNG to be secure.
+Using an insecure RNG for a use case where a secure one is needed can lead to malicious users
+doing something that was not intended.
+
+An RNG can be considered secure if is unfeasable for an attacker to recover the internal 
+state of the RNG and thereby predict future random numbers.
+
+One of the most common uses of secure random number generators is the creation of security tokens.
+
+The following scenario describes how an attacker can exploit an insecure RNG for priviledge escalation:
+
+The attacker logs in multiple times quickly in succession. A brute-force algorithm is then run by the
+attack to determine what RNG state could have been used to generate the tokens they recieved.
+This RNG state allows future session tokens to be calculated by the attacker. Now, the attacker
+must simply wait for a legitimate user to log in. With the attacker knowing this users session token,
+they are able to hijack their session.
 
 ## Why do RNGs need Entropy to be secure

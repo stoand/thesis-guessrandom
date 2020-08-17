@@ -1,7 +1,7 @@
 #!/bin/bash
 mkdir -p build_out && \
 echo "pdf build failed" > build_out/index.html && \
- apt install texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-fonts-extra && \
+sudo apt install texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-fonts-extra && \
 cd paper && \
 pdflatex guessrandom.tex && \
 cp guessrandom.pdf ../build_out && \

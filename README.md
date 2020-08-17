@@ -1,8 +1,6 @@
 # Thesis GuessRandom
 
-[View Paper as PDF](https://thesis-guessrandom.netlify.app)
-
-[![Netlify Status](https://api.netlify.com/api/v1/badges/ed9046cb-b74e-4fed-a852-a203c914ce77/deploy-status)](https://app.netlify.com/sites/thesis-guessrandom/deploys)
+[View Paper as PDF](https://thesis-guessrandom.netlify.app/thesis-guessrandom.pdf)
 
 My bachelor thesis - guessing mt_rand internal state in order to predict future random numbers
 

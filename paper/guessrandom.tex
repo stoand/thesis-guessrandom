@@ -1,9 +1,9 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
+\usepackage[margin=0.5in]{geometry}
 \usepackage[document]{ragged2e}
 \usepackage{multicol}
-\usepackage[margin=0.5in]{geometry}
 
 \begin{document}
 
@@ -13,7 +13,7 @@
     \addvspace{20mm}
         
     \begin{center}
-        \huge Novel use of a Functional HDL to Simplify Development of an RNG Brute-Force Algorithm on an FGPA
+        \huge Novel use of a Functional HDL to Simplify Development of an RNG Brute-Force Algorithm
     \end{center}
     
     \begin{center}
@@ -31,15 +31,19 @@
 
     \begin{multicols}{2}
 
-    % Abstract
+    \section*{Abstract}
 
-    In this paper we go over the implementation details of implementing an algorithm that brute forces
-    the state of a random number generator. We do so using a hardware description language whose syntax
+    In this paper we go over the implementation details of an algorithm that brute forces
+    the state of a random number generator (RNG). Recovering the internal state of an RNG can allow
+    future outputs to be predicted, possibly compromising the security of a system.
+    We do so using a hardware description language whose syntax
     resembles that of the Haskell language.
-
-    Throughout this paper we assess the practicality of using this functional-style approach in
-    designing calculation-heavy algorithms for an FPGA.
-        
+    The purpose of this paper is to assess the practicality of using this functional-style approach in
+    designing calculation-heavy algorithms for FPGAs.
+    First, we go over the basics of using this high-level hardware description named "Clash".
+    We do this in a way that even programmers of more mainstream languages like Java should be able to follow.
+    Finally, we go over the difficulties that were overcome as well as any special techniques involved in
+    the implementation of the brute force algorithm.
 
     \section{Introduction}
 
@@ -59,7 +63,7 @@
 
     \begin{enumerate}
 
-    \item S.  Abiteboul  and  R.  Hull,  Data  functions,  Datalog  and  negation,in``Proceedings  of  the  ACM-SIGMOD  International  Conference  onManagement of Data,'' pp. 143153, 1988.
+    \item Chandrasekaran, Shrutisagar, and Abbes Amira. "High performance FPGA implementation of the Mersenne Twister." 4th IEEE International Symposium on Electronic Design, Test and Applications (delta 2008). IEEE, 2008.
 
     \end{enumerate}
     

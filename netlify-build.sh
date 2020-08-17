@@ -7,7 +7,7 @@ mkdir -p build_out && \
 # cp guessrandom.pdf ../build_out && \
 # cd ../build_out &&
 
-cd build_out &&
+cd build_out && \
 echo "<meta http-equiv=\"Refresh\" content=\"0; url='guessrandom.pdf'\" />" > index.html
 
 

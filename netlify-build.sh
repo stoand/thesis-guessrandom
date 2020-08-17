@@ -1,7 +1,7 @@
 #!/bin/bash
 git clone https://github.com/frangio/netlify-latex && \
 cp paper/guessrandom.tex netlify-latex/main.tex && \
-cd netlify-latex && ./build.sh
+cd netlify-latex && bash ./build.sh main.tex
 
 # mkdir -p build_out && \
 # echo "pdf build failed" > build_out/index.html && \

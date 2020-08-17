@@ -4,6 +4,10 @@ partof: REQ-purpose
 
 The design was modeled after the paper "Monotonic Aggregation in Deductive Databases". 
 
+## Title of the Paper
+
+Novel use of a Functional HDL to simplify development of a RNG Brute-Force Algorithm
+
 ## Building the Latex Paper
 
 ```

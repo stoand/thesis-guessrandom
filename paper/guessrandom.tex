@@ -104,7 +104,7 @@
 
     Now concerning the maturity of the Clash project, it has the benefit of having
     a number of years to evolve. At this time of writing it has been actively
-    developed for over ten years.
+    developed for over ten years. [TODO add link to clash docs]
 
     For developers to quickly get started with Clash, there are two main things they
     should be familiar with. First is basic knowledge of hardware description languages
@@ -120,10 +120,26 @@
     virtually any serious hardware design project. When looking back on their workflow,
     seasoned experts that use HDL often lament that they needlessly spent
     large amounts of time fighting bugs that formal verification could have dealt with in
-    a far more efficient manner. [todo add link to youtube talk by zipcpu creator]
+    a far more efficient manner. [TODO add link to youtube talk by zipcpu creator]
 
-    
-     
+    Clash does have a built in testing system so perhaps if the testing framework is
+    powerful and expressive enough it may be able to compensate somewhat
+    for the lack of support for formal verification.
+
+    Finally, Clash does not appear do directly support timing analysis. Timing analysis
+    is again something that only those with HDL experience will likely know about. It is
+    however a critical aspect of FPGA and circuit design in general. Timing analysis is a
+    very complex procedure that calculates how long a signal takes to propagate
+    through a circuit. If a signal is not given enough time to propagate, inconsistencies
+    will arise in the circuit. The main way to mitigate this is to reduce the clock speed
+    of the circuit.
+
+    Despite this lack of direct support for timing analysis in the Clash project itself,
+    it is likely possible to perform timing analysis with standard HDL tools since
+    Clash compiles to lower level HDLs.
+
+    This could present some serious challenges since the compiled output will
+    likely not be human-readable. This is something that will be explored in the paper.
     
     \section{Related Work}
 

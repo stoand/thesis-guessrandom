@@ -98,7 +98,32 @@
     These hardware description languages include VHDL, Verilog and SystemVerilog.
     The second major component of the Clash language are a set of libraries that
     are used for circuit design.
+
+    Not only does Clash reuse the Haskell syntax, it actually reuses parts of the
+    Glasgow Haskel Compiler.
+
+    Now concerning the maturity of the Clash project, it has the benefit of having
+    a number of years to evolve. At this time of writing it has been actively
+    developed for over ten years.
+
+    For developers to quickly get started with Clash, there are two main things they
+    should be familiar with. First is basic knowledge of hardware description languages
+    such as Verilog. Second, is a decent understanding of functional programming
+    languages, especially Haskell.
+
+    Before diving into the details of using Clash there is a major potential issue
+    that presents itself right from the start. Programmers only familiar with
+    conventional high level languages like Java and C++ may not be aware of this,
+    but those with a decent amount of experience with HDLs like Verilog probably will.
+
+    That feature is formal Verification. Formal Verification is indispensable for
+    virtually any serious hardware design project. When looking back on their workflow,
+    seasoned experts that use HDL often lament that they needlessly spent
+    large amounts of time fighting bugs that formal verification could have dealt with in
+    a far more efficient manner. [todo add link to youtube talk by zipcpu creator]
+
     
+     
     
     \section{Related Work}
 

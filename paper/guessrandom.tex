@@ -126,7 +126,7 @@
     powerful and expressive enough it may be able to compensate somewhat
     for the lack of support for formal verification.
 
-    Finally, Clash does not appear do directly support timing analysis. Timing analysis
+    Finally, Clash does not appear to directly support timing analysis. Timing analysis
     is again something that only those with HDL experience will likely know about. It is
     however a critical aspect of FPGA and circuit design in general. Timing analysis is a
     very complex procedure that calculates how long a signal takes to propagate
@@ -140,6 +140,32 @@
 
     This could present some serious challenges since the compiled output will
     likely not be human-readable. This is something that will be explored in the paper.
+    
+    \section{The Algorithm}
+
+    The algorithm chosen for these experiments is Mersenne Twister
+    random number generation.
+
+    The purpose of the algorithm is to provide a calculation that serves not only to benchmark
+    the FPGA's performance vs the CPU, but also to provide a moderately complex
+    scenario to measure the intricacy of the CPU and FPGA implementations.
+
+    The most significant source code comparison will take place between the Verilog and
+    Clash FPGA implementations. The CPU implentation in C is mostly there to provide
+    a baseline that people with experience in conventional programming languages
+    can relate to.
+
+    The implementation algorithm was specifically chosen with the strengths of the FPGA
+    in mind. Namely, the FPGA excels at doing massively parallel computations.
+    Therefore this experiment does not accurately represent how the CPU compares
+    with the FPGA in general. In much of general purpose computing, pieces of code
+    are highly dependant on one another and need to be run in a sequence.
+
+    This is a weakness of benchmarks in general. They obfuscate the real world performance
+    of algorithms by testing very specific problems which are usually much simpler
+    than sophisticated real-world programs. It is possible to benchmark real-world
+    projects but these results are less likely to carry over to other projects since
+    they encapsulate an amalgamation of a diverse number of operations.
     
     \section{Related Work}
 

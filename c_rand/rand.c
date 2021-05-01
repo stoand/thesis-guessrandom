@@ -11,4 +11,15 @@ int copy_rand(void) {
   return (((holdrand = holdrand * 214013L + 2531011L) >> 16) & 0x7fff);
 }
 
-int main() { printf("hello\n"); }
+int main() {
+
+  unsigned int seed = 100;
+
+  copy_srand(100);
+
+  int out0 = copy_rand();
+  int out1 = copy_rand();
+  int out2 = copy_rand();
+
+  printf("first outputs for seed: %i \n%i\n%i\n%i\n", seed, out0, out1, out2);
+}

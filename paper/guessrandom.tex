@@ -4,6 +4,7 @@
 \usepackage[margin=0.7in]{geometry}
 \usepackage[document]{ragged2e}
 \usepackage{multicol}
+\usepackage{listings}
 
 \begin{document}
 
@@ -166,6 +167,45 @@
     than sophisticated real-world programs. It is possible to benchmark real-world
     projects but these results are less likely to carry over to other projects since
     they encapsulate an amalgamation of a diverse number of operations.
+
+    \section{C Reference Implementation}
+
+    \lstset{language=C}
+
+    \begin{lstlisting}
+#include <stdio.h>
+
+long holdrand;
+
+void legacy_srand(unsigned int seed) {
+  holdrand = (long)seed;
+}
+
+int legacy_rand(void) {
+  return (((holdrand =
+    holdrand * 214013L +
+    2531011L) >> 16) & 0x7fff);
+}
+    \end{lstlisting}
+
+    The builtin rand() and srand() function of the C
+    standard library actually uses Mersenne Twister under the
+    hood:
+
+    \begin{lstlisting}
+void __cdecl srand (unsigned int seed)
+{
+    #ifdef _MT
+        ...
+}
+    \end{lstlisting}
+
+    The Mersenne Twister algorithm is far more complex
+    than the legacy C rand implementation. Therefore the older
+    C implementation was used as a reference for the FPGA
+    implementations so the FPGA implentations can focus
+    mostly on the overall basic setup instead of
+    highly involved calculations.
     
     \section{Related Work}
 

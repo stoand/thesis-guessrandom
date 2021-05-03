@@ -206,6 +206,52 @@ void __cdecl srand (unsigned int seed)
     implementations so the FPGA implentations can focus
     mostly on the overall basic setup instead of
     highly involved calculations.
+
+    The downside of chosing this legacy rand algorithm is that
+    this research is less relevant to modern systems.
+
+    For this C implementation, there are several important things
+    that should be noted.
+
+    Since the project aims to guess the random seed it is important
+    to be aware of the search space.
+
+    The holdrand variable is a long data type. This means that in theory
+    this creates a search space of 2 to the power of 32 which is around four billion.
+
+    The larger the search space, the more secure the algorithm is.
+    Four billion is already not a very large number to brute force.
+
+    However the security gets a lot worse upon closer inspection.
+
+    The seed function takes an unsigned int. The size of the unsigned in datatype
+    in C is only 2 to the power of 16. This allows for only 65 thousand values.
+
+    This small search space not only makes it faster to search all possible seeds,
+    it also allows for a longer sequence of random numbers to be examined.
+
+    This is important because in a real-world scenario attackers usually cannot
+    reseed random number generators on demand.
+
+    This means that, depending on how much traffic a target application gets,
+    thousands or even hundreds of thousands of values needs to be searched for
+    every possible random seed.
+
+    So just from the C reference implementation it becomes evident what sort
+    of constraints this algorithm is working under.
+
+    Scanning individual seeds is an algorithm that is well suited to the FPGA
+    because these are completely independant parallel operations.
+
+    Searching a seed very deeply however may present some challenges for the
+    FPGA since these computations that depend on one another, creating a
+    need for intermediate storage.
+
+    It will likely be best to keep storage within logic cells instead of memory.
+
+    Logic cells have far less total memory that the dedicated memory unit of an FPGA,
+    but they can be accessed in parallel unlike the dedicated memory which costs
+    clock cycles for every access.
     
     \section{Related Work}
 

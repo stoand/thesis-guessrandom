@@ -41,11 +41,11 @@ FPGAs
 RNGs
 
 * (5) Random number generator basics
+* (5) History of RNG Implentations back to ancient times
 * (5) Entropy - Mathematical Theory 
 * (5) Real life examples of RNG exploits
 * (5) Stats comparing RNG attacks to other types of exploits
     or why RNG attacks are not more popular
-* (5) History of RNG Implentations back to ancient times
 
 Marriage of the Two, Our Project Itself
 

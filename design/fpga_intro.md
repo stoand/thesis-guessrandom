@@ -6,6 +6,18 @@ partof: REQ-purpose
 
 * 1) `FPGA Architecture: Survey and Challenges` file:///C:/Users/Andreas/Downloads/FPGA%20survey%20and%20challenges.pdf
     Kuon, Ian, Russell Tessier, and Jonathan Rose. FPGA architecture: Survey and challenges. Now Publishers Inc, 2008.
+    [136] FPGA intro, ASIC comparison
+    [138] FPGA architecture
+    [140] History of programmable logic
+    [142] History - The first FPGA
+    [143] Low level tech that FPGAs build on
+    [149] Anti Fuse Pros/Cons
+    [156] Area Trade-offs
+    [162] Area vs Power Consumption
+    [164] Mixing Lut sizes
+    [174] Evolution of FPGAs
+    [177] What is routing
+    [180] Benefits of Island Style Routing
 * 2) Cern: `Introduction to FPGA Design` https://cds.cern.ch/record/1100537/files/p231.pdf
     Serrano, J. "Introduction to FPGA design." (2008).
 * 3) Introduction to CPLD and FPGA Design http://www.pldworld.net/html/technote/intro.cpld.fpga.design.pdf

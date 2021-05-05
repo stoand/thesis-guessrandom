@@ -34,7 +34,7 @@ Fodder Topics with (Page count)
 
 FPGAs
 
-* (5) FPGA business applications / general background
+* (5) FPGA business applications / general background [[SPC-fpga_intro]]
 * (5) FPGA internal architecture
 * (5) FPGA varieties on the market / vendors / toolchains / open source
 

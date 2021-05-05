@@ -42,6 +42,8 @@
 
     TODO
 
+    \break
+
     \section{Introduction to FPGAs}
 
     The sophisticated FPGAs of today are the product numerous incremental improvements
@@ -144,7 +146,45 @@
     SIMD operations [6]. This allows for parallel operations that mimic those of FPGAs.
     This means an operation (like addition for example) can be performed on two fixed
     sized arrays of values.
-    
+
+    \subsection{Open Source and FPGAs}
+
+    When it comes to the development workflow, there is one major place where mainstream CPU programming
+    is ahead of the tools used to develop for FPGAs. That is the arena of open source tools.
+    Open source tools have grown to a point today where virtually all major tech companies
+    either use open source or even contribute to it. These include Google, Apple and Amazon
+    just to name a few.
+    There are a number of benefits to having an open source ecosystem. The first major
+    benefit is accessibility. If anyone can install a tool for free this is great
+    for students and anyone who wants to learn about the project.
+    Another benefit of open source is reliability. If a vendor simply stops updating a closed
+    source project then everyone dependant an it is in serious trouble if bugs
+    crop up and there is no one to fix them.
+    Another factor is security. The more experienced people read and understand a piece of
+    code the more likely it is that issues can be discovered.
+    Open source is also great if the consumers of a project want to add their own features.
+    There are some upsides to closed source software though. Closed source software with
+    licensing fees means that a company can pay experienced developers to work on the project full
+    time. This means the project is not dependant on people working on it on their free time.
+    Of course, this does not apply to all open source projects as some projects are popular
+    enough to have paid full time developers working on them.
+    Also, when in comes to security through obscurity, the argument can be made that
+    if attacker do not have access to the source code of a project, they can't find
+    exploits for it as easily.
+
+    The current state of open source tools for FPGA designs is as follows:
+    project Icestorm provides decently feature-rich tools for a small number of FPGA
+    models. Not only does Icestorm provide most features needed throughout the FPGA
+    design workflow, it is even superious to proprietary tools in some ways. Icestorm
+    does not suffer from the massive bloat and slowness of conventional FPGA tools.
+    Not only are the tools included in Icestorm free from bloat, they can also be
+    a lot faster some times.
+
+    The downside of relying on the open source Icestorm project is that it largely depends
+    on people investing their free time, and if these people lose interest in a particular
+    tool that is part of the project, the entire workflow that uses this project
+    may become untenable.
+        
     \section{FPGA Architecture}
 
     TODO

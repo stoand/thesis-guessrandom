@@ -57,6 +57,93 @@
     Namely, PLAs were generally must faster that PROMs. They could also support a far
     larger number of inputs. Though one drawback was that number of combinations of
     logic elements was slightly more constrained than that of of PROMs.
+
+    Programmable Array Logic (not to be confused with Programmable Logic Arrays) were the next
+    step in the evolution that would culminate in the FPGAs of today [3]. Programmable Array Logic
+    also known as PALS added support for clock elements as well as flip flops. They
+    were much more sophisticated in their support for expressing sequential logic. Futhermore,
+    they had the benefit of great performance.
+
+    The FPGA was designed with the goal of accomplishing the same computations as ASICs but
+    with the added benefit of reprogrammability. Because of this, FPGAs are frequently
+    used to emulate ASICs, as well as to act as temporariy stand-ins while ASICs
+    are still being produced. FPGAs as they are today have benefitted greatly
+    from advances in CMOS design that were initially made with improving CPUs in mind.
+    However, it was precisely because CPUs were becoming so efficient that custom hardware
+    lose a good amount of popularity [6]. It became easier for companies to simply using
+    general purpose CPUs instead of investing in tailor-made hardware level designs.
+    One example of such a use-case where general purpose CPUs won is databases [6].
+    This was in the late 70's and researchers were trying to create a "databse-machine".
+    It was specifically tailored to run database queries on low-level hardware.
+
+    When it comes to the benefits of using FPGAs verses CPUs there are several factors to keep in mind.
+    Image and signal processing are two applications where FPGAs shine [6].
+    Partially this is because FPGAs can generally offer a greater level of determinism
+    that CPUs. In an FPGA latecy for some tasks can often not only be lower, but the latecy
+    and also be predictable. This is crucial for applications where real-time
+    responsiveness is key. Another place where FPGAs shine is parallelism [6].
+    CPUs main unit of parallelism is their cores. FPGAs however, have a far more granular
+    unit of parallelism which is their logic blocks. This allows for orders of magnitude
+    more potential parallelism over CPUs. These factors make FPGAs ideal candidates
+    for high-throughput low-latecy applications.
+
+    When in comes to solving real-world problems, FPGAs are quickly moving out of niche,
+    highly-specialed projects and are becoming more common in commondity setups [6].
+    The main areas where FPGAs are gaining popularity are both in the networking sector
+    as well as the graphics processing sector. One reason for this is that the amount
+    of data generated in the world is growing rapidly. For this reason, the raw processing
+    power of FPGAs is expected to become indispensable for many more companies in the future.
+
+    One concrete use case for FPGAs is database co-processing [6]. This is because
+    streaming databases are required to process data with a low latecy even under heavy
+    load. Ironically, this is one area that is similar to the "database-machine" style
+    projects of the 70's. So perhaps FPGA designers will run into the same sort of
+    problems that "database-machine" researchers encountered [6] all those years ago.
+    Undianiably though, there is a large room for improvement in this sector.
+    One reason FPGAs are still somewhat niche is the fact that FPGA design is not
+    very accessible to "mainstream" programmers. This is because "mainstream" programmers
+    are familiar with the so-called Von Neumann architecture. The Von Neumann architecture
+    assumes instructions are executed from memory and run in a given order. Neither of these
+    factors apply when programming FPGAs.
+
+    There are several projects which aim to overcome the reduced ease of use of FPGAs
+    for mainstream programmers. The "Kiwi" and "Liquid Metal" projects aim to do exactly
+    this [6]. The goal is that FPGAs be used with general purpose languages.
+    However the general sentiment in the FPGA developer community seems to be that these
+    projects that allow mainstream languages be used with FPGAs are not developed
+    enough to be used for mission-critical applications.
+    It could be that at the most fundamental level FPGAs are incompatible with languages
+    designed for Von Neumann runtimes.
+    Another way in which mainstream appeal for FPGAs can be improved is by
+    providing developers with out of the box IP that developers can setup on FPGAs to interface
+    with projects running on CPUs programmed in mainstream languages like C.
+
+    Another point of comparison between FPGAs and CPUs is clock speed [6]. FPGAs need to operate
+    at significatly lower clock speeds than CPUs. Though the amount of work done by FPGAs
+    in a single clock cycle can sometimes be orders of magnitude greater in FPGAs. This benefits
+    FPGAs by reducing the amount of power consumed by the device relative to a CPU. One downside
+    is that the FPGA may be able to do less computations overall due to this slower speed.
+
+    Yet another noteworthy point of comparison between FPGAs and CPUs is their memory model.
+    CPUs with their Von Neumann architecture, generally have memory on a separate chip
+    than the CPU. Though even if memory is technically on the same die as the CPU, like in Apple's
+    M1 architecture, CPUs will always suffer from what is called the "Von Neumann bottleneck".
+    Also termed the "memory wall" occurs because the entire CPU can only access one area
+    of memory at once. One thing that mitigates this disadvantage is the ability to
+    access a continous block on memory at once. This advantage does not exist if the memory
+    is non in a continous block however. Memory is significatly different in FPGAs though.
+    FPGAs have flip-flop registers as well as block ram [6]. Spare lookup tables can
+    also be reprogrammed at runtime and used as additional memory. So in general, FPGA memory
+    boasts far superior locality compared to CPU memory. It therefore has much better
+    throughput, as well as lower latecy compared to the CPU.
+    One nifty feature that exists because of the FPGA's memory model is known as
+    "content addressible memory" (CAM). Content addressible memory can be used
+    to implement a key value store with a constant lookup time.
+
+    One thing modern CPUs have going for them when it comes to competing with FPGAs are
+    SIMD operations [6]. This allows for parallel operations that mimic those of FPGAs.
+    This means an operation (like addition for example) can be performed on two fixed
+    sized arrays of values.
     
     \section{FPGA Architecture}
 

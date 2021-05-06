@@ -220,7 +220,31 @@
     Most of the left over SRAM is used to persist information in lookup tables also known as
     LUTs.
 
-    SRAM is used frequencly in modern FPGAs because it has a number of advantages. 
+    SRAM is used frequencly in modern FPGAs because it has a number of advantages [1]. SRAM
+    does not have a limit to how many times it can be reprogrammed. This is unlike the
+    EPROM of early FPGA which could only be reprogrammed once or a couple hundred times.
+    Second, SRAM does not require any special electrical components and can be etched
+    in silicon with CMOS techniques. These CMOS techniques allow FPGAs to benefit from
+    all the production advancements made for modern CPUs.
+
+    SRAM is not without its drawbacks howerver. Every SRAM cell needs 5-6 transistors
+    which is quite a lot. Second, SRAM cannot persist information if a system is powered
+    off. This necessitates the need for another system of persistent storage which increases
+    the complexity of the system. Persistent storage is often provided by flash or EEPROM.
+    Finally, storing a design in a persistent storage system like flash or EEPROM also
+    makes it far easier to competitors of a company to reverse engineer a design.
+    To mitigate this risk encryption is used.
+
+    An alternative to SRAM is the so called floating gate technology [1]. This is used
+    in flash or EEPROM which do not lose the data stored in them when power is lost.
+    This flash based setup offers a number of benefits besides persistence.
+    Persistence removes the need for a seperate storage mechanism. Persistence also
+    makes it possible to run the device immediately after it starts up because there
+    is no need for the programming step. This is important for certain use cases.
+    Additionally, flash boasts greater area-efficiency compared to SRAM.
+
+    One disadvantage brought by flash is that the floating gate requires that
+    charge injection needs to be prevented. 
     
     \subsection{Lookup Tables}
 

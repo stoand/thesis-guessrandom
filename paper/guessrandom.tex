@@ -346,6 +346,29 @@
     This approach is used instead of increasing LUT size.
     The benefit is that the needed routing only grows quadradically instead
     of exponentially.
+
+    To consider how logic block size affects speed several factors need to be considered.
+    As stated before, increasing the size of logic blocks decreases the number of them
+    that need to be used. Fewer logic blocks being used means that less routing
+    logic needs to be employed. This in turn means greater performance
+    because the electrical signal needs to travel a shorter distance.
+
+    However, this reduction in delay which is outside the logic blocks is
+    accompanied by a larger delay within the logic blocks.
+
+    When it comes to power consumption, the tradeoffs are similar to those
+    with area and speed [1]. Reducing the area also reduces the power needed.
+
+    Calculating power, area, and speed is simpler when considering only
+    one size of LUT. However, a homogenous combination of LUTs can sometimes
+    be more efficient when considering the different metrics.
+
+    In contrast to LUTs, specific purpose logic is more efficient (if its being used) [1].
+    Specific purpose logic is more efficient because internally, it
+    has all the benefits of an ASIC and non of the inefficiencies of programmable logic.
+
+    A downside of specific purpose logic is that it its not being used, its
+    a definite net negative on all fronts.
     
     \subsection{Flipflops}
 

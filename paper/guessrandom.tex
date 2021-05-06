@@ -220,6 +220,8 @@
     Most of the left over SRAM is used to persist information in lookup tables also known as
     LUTs.
 
+    \subsection{Memory Variants}
+
     SRAM is used frequencly in modern FPGAs because it has a number of advantages [1]. SRAM
     does not have a limit to how many times it can be reprogrammed. This is unlike the
     EPROM of early FPGA which could only be reprogrammed once or a couple hundred times.
@@ -290,10 +292,60 @@
     benefit from using a CMOS silicon etching process [1]. Even worse,
     the fabrication process of anti fuse FPGAs is beginning to run into scaling problems
     and is generally lagging behind the sophistication of modern CMOS.
-    
-    \subsection{Lookup Tables}
 
-    TODO
+    To summarize, all three of these memory systems have their own pros and cons and
+    which memory system will be used needs to be considered in light of the application
+    and its constraints and goals. SRAM (as well as the flash SRAM hybrid approach) can
+    be considered to be dominant howerver. This can be attributed to its compatibility
+    with the sophisticated CMOS manufacturing process.
+    
+    \subsection{Logic Blocks}
+
+    The basic unit of computation and storage within an FPGA is known as a logic block [1].
+    The smallest a single logic block can be is to take the form of a single transistor.
+    Though logic blocks can be far larger than that and even take the form of an entire
+    CPU in theory. The size of a logic block, however, is something that needs to be carefully
+    balanced for maxium efficiency to be achieved.
+
+    If a logic block is too small for example, it will suffer from area inefficiency because
+    it will increase the need for programmable routing. Furthermore, performance, and
+    power consumption will also be negatively impacted.
+
+    On the other extreme, logic blocks that encapsulate a large amount of logic may
+    be performant, but they nullify the benefits an FPGA provides in the form of programmable
+    logic. In effect, the circuit will become less and less of an FPGA, and more of
+    a standard ASIC.
+
+    Selecting logic blocks according to their size and functionality is a key consideration
+    that FPGA creators (as in people creating the FGPA itself, not a design for it) need
+    to consider. There are three main factors that need to be considered when selecting logic
+    block type and instance count: these are area, speed and power.
+
+    Logic blocks in modern FGPAs fall into two main categories: normal logic blocks,
+    and blocks that perform specialized computations, like addition for example.
+    What specialized computations will be included need to be carefully considered
+    because unused specialized logic will inevitably lead to wasted area.
+
+    Despite FPGAs being considered a completely general purpose device,
+    creators of the FPGAs will in practice need to consider what kind of designs
+    will run on a target FPGA [1].
+
+    There is one main tradeoff that needs to be considered here:
+    how much functionality is encapsulated into every logic block and how many
+    logic blocks total are needed.
+    Increasing the functionality in a single logic block reduces to total
+    number of logic blocks needed (up to a diminishing point that is).
+    Though as the logic block size increases, the number of wires connecting
+    it in the routing increases.
+
+    Most modern industrial FPGAs use a heirarchical approach that uses
+    clusters of LUTs and flip flops [1]. This helps control the granularity
+    of logic blocks.
+    This involves grouping basic logic components together and connecting
+    them with a local interconnect.
+    This approach is used instead of increasing LUT size.
+    The benefit is that the needed routing only grows quadradically instead
+    of exponentially.
     
     \subsection{Flipflops}
 
@@ -304,6 +356,10 @@
     TODO
     
     \subsection{Memory}
+
+    TODO
+
+    \section{FPGA Design Workflow}
 
     TODO
 

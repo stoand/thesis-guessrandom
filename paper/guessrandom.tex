@@ -244,7 +244,52 @@
     Additionally, flash boasts greater area-efficiency compared to SRAM.
 
     One disadvantage brought by flash is that the floating gate requires that
-    charge injection needs to be prevented. 
+    charge injection needs to be prevented. Another more serious downside of flash
+    is its limited lifespan because can only be reprogrammed a fixed number of times.
+    This is in contrast to SRAM which can be reprogrammed a virtually infinite amount of times.
+    Depending on the application, this can be a serious disadvantage or a non-issue.
+    The "Actel ProASIC3" for example can only be reprogrammed 500 times.
+    This definitely could be an issue at least for prototyping where dozens of reprogramming
+    cycles can occur in a day. Another very serious issue with flash where SRAM
+    is superior is in the production run. One previously mentioned benefit of SRAM
+    is that it can be produced using standard CMOS techniques. This is not the case with
+    flash. Flash requires specialized components can cannot be created by etching
+    silicon like with CMOS.
+
+    In modern FPGAs there is a trend towards using a combination of flash storage and SRAM.
+    This has the benefit of allowing infinite reconfigurability but this comes at a price
+    of greater area overhead.
+
+    The final type of FPGA configuration systems that are common today are anti-fuses [1].
+    The most glaring difference between anti fuses and flash and SRAM is that the former
+    can only be programmed once. This of course makes it unsuitable for many FPGAs applications
+    like ASIC prototyping where multiple configuration runs are a neccesity.
+    The name anti-fuse comes from the idea that the FPGA fabric consists of a number of fuses
+    that can be selectively "blown". Though a more accurate description of this process
+    would be the idea a of connecting these "fuses". This connection occurs when high voltage
+    is sent through the "fuse". Most modern anti-fuses are mental-to-metal based.
+
+    While the fact that anti-fuses cannot be reprogrammed after the initial configuration,
+    they do come with the benefit of greater area efficiency [1]. In metal-to-metal
+    anti-fuses this is because no silicon area is expended to allow configurable connectivity.
+    One thing that does consume a significant amount of area however is the need for
+    programming transistors.
+
+    Another benefit of anti-fuses is the ability to include a greater number of switches
+    because of lower on resistances and parasitic capacitence. Also,
+    another obvious benefit that is shared with flash base FPGAs is the ability to
+    work instantly when powered on since the fabric cannot change once programmed.
+
+    Yet another benefit shared with flash based systems is that the design
+    of the FPGA is harder to reverse engineer because it is not stored anywhere except
+    the logic configuration itself. The security of the FPGA also benefits from the
+    fact that because the FPGA can only be programmed once a malicious actor
+    cannot reprogram the FPGA if given access to the device.
+
+    When it comes to the manufacturing process, however, anti fuse FPGAs cannot
+    benefit from using a CMOS silicon etching process [1]. Even worse,
+    the fabrication process of anti fuse FPGAs is beginning to run into scaling problems
+    and is generally lagging behind the sophistication of modern CMOS.
     
     \subsection{Lookup Tables}
 

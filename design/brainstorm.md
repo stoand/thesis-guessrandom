@@ -4,6 +4,8 @@ partof: REQ-purpose
 
 Paper to use as design reference: https://hottheory.files.wordpress.com/2012/08/hott2.pdf
 
+Use https://www.grammarly.com/ to check for textual errors
+
 # (NOT USED) Pivot Idea - "Onslaught" 
 
 Pivot the project from using old C to 

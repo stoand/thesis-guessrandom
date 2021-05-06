@@ -184,9 +184,44 @@
     on people investing their free time, and if these people lose interest in a particular
     tool that is part of the project, the entire workflow that uses this project
     may become untenable.
+
+    \break
         
     \section{FPGA Architecture}
 
+    An FPGAs internal architecture affects it's speed, area efficiency, and power consumption [1].
+    FPGAs compete with ASICs in that they both allow a digital circuit to be created.
+    They also have several advantages over ASICs because they can be reprogrammed in seconds
+    and cost orders of magnitude less. ASICs can cost millions to produce but they do have
+    their own benefits. FPGAs pay the price for their easy reconfigurability in area, delay,
+    and power usage. ASICs are 20-35 more compact than FPGAs and require 10 times less power.
+    This is because the FPGAs programmable routing circuitry causes overhead. Nevertheless,
+    despite these downsides, FPGAs are far more viable for small to medium sized companies
+    that can't spend millions on ASICs. ASICs cost millions because of three main factors.
+    First, ASICs need expensive software in order for their circuits to be designed.
+    Second, ASICs need a mask so their circuitry can be entched into silicon.
+    The cost of this mask can be reduced by multiple different ASICs sharing a mask.
+    Finally, hiring engineers to design a complex ASIC over multiple years is also quite
+    expensive. These engineers cannot make even a small mistake in their design
+    because that would ruin a mask which costs millions to produce.
+
+    FPGAs suffer from no such complications because they can instantly be reprogrammed.
+    In fact, FPGAs are often used by ASIC engineers to prototype and test their designs.
+
+    Then it comes to their internal architecture, FPGAs consist of a variety of different
+    components [1]. These include logic, memory, and multiplier blocks. All around these
+    blocks is a programmable routing fabric that allows blocks to be configured to both
+    communicate with each other as well as with the outside world through inputs and outputs.
+
+    When it comes to memory, modern FPGAs use either flash, static memory, or anti-fuses [1].
+    SRAM, a type of static memory, is very common in modern FPGAs like from the manufacturers
+    Xilinx, Lattice and Altera. These SRAM cells perform two main roles in their FPGA's
+    architectures. First, a majority of SRAM is used to configure interconnect signals.
+    Most of the left over SRAM is used to persist information in lookup tables also known as
+    LUTs.
+
+    SRAM is used frequencly in modern FPGAs because it has a number of advantages. 
+    
     \subsection{Lookup Tables}
 
     TODO

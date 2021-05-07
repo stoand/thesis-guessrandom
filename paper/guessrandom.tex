@@ -490,6 +490,46 @@
     Again, it is also up to the user to decide on the level of error correction depending
     on their application. Some applications might not cause serious consequences if
     soft errors do occur.
+
+    There is another source of irregularities that can occur in FPGAs. The silicon etching
+    process produces products that exhibit a certain degree of variations.
+    Not all of these variations cause outright errors. Some of these variations simply
+    cause decreased performance or increased power consumption. During manufacturing,
+    as is done with CPUs, every FPGA needs to be individually tested.
+
+    This is another area where shrinking CMOS sizes have caused an increase in complications.
+    The smaller the circuts, the greater the variations in performance and power consumption
+    become.
+    Not only do FPGA have variation between each other as a result of this manufacturing process,
+    there also exists variation within the FPGA itself. This form of variation
+    is far more problematic. This is because entire FPGAs can easily be discarded,
+    whereas malformed areas within an FPGA cannot be removed. These malformed areas
+    mean that the clock speed of the entire FPGA needs to be reduced. For
+    a 22nm process, this variation in performance can be as much as 22.4\% [1].
+
+    Another type of problem that affects FPGA functionality are manufactoring defects.
+    These are different from the process variations mentioned above because an FGPA
+    with process various may still be able to works, whereas an FPGA with defects
+    may be totally unusable. In the chip manufacturing industry there is a concept of
+    "yield". Yield refers the the percentage of chips in a manufacturing run that
+    are usable. Chips that are not part of the yield need to be discarded. These
+    discarded, unusable chips need to be factored into manufacturing costs.
+
+    Yet again, as CMOS processes improve and chips become smaller, complications arise.
+    Smaller, more complex CMOS processes generally result in manufacturing defects and therefor
+    significatly lower yields.
+
+    A possible workaround for manufactoring defects, is to still use FPGAs that have manufacturing
+    defects and simply not to make use of defective areas.
+    The downside of this workaround is that testing a large number of FPGA chips for compatability
+    with a single design may not be economical.
+
+    Instead of simply ignoring defective areas, another approach is to build in redundancy
+    from the start. This sort of approach is common in memory devices [1]. The level of
+    redundancy can either be fine grained or coarse grained. Coarse grained redundancy
+    adds entire rows or columns of tiles. This course grained approach has the downside
+    that a significant amount of additional routing logic become necessary.
+
     
     \section{FPGA Design Workflow}
 

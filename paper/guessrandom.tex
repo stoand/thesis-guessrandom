@@ -528,8 +528,23 @@
     from the start. This sort of approach is common in memory devices [1]. The level of
     redundancy can either be fine grained or coarse grained. Coarse grained redundancy
     adds entire rows or columns of tiles. This course grained approach has the downside
-    that a significant amount of additional routing logic become necessary.
+    that a significant amount of additional routing logic becomes necessary. This
+    additional routing in turn has a negative impact on performance and power consumption.
+    Challenges also arise when coarse grained redundancy interacts with heterogenous
+    block layouts.
+    A more fine grained approach merely adds additional switches. These additional switches
+    are used to bypass defective routing. One benefit of fine grained redundancy is that
+    these additional switches can even be used if no defects are present.
+    One challenge of the fine grained approach is that a very detailed map
+    of defects is needed so place and route tools can work around them.
+    This detailed map adds significant complexity to the design workflow and tooling.
 
+    Coarse grained redundancy also has the benefit of being able to handle defects in
+    routing as well logic. This is in constrast to fine grained redundancy which
+    cannot deal with logic block errors. Though the fine grained approach is better
+    and handling interconnect errors.
+
+    
     
     \section{FPGA Design Workflow}
 

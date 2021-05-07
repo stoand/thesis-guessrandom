@@ -407,6 +407,59 @@
     logic blocks are separated into groups. Logic blocks contained in the same group
     are connected by wire segments. Logic blocks in different groups are connected
     by wires that traverse multiple levels of routing segments.
+    The further routing channels get from logic blocks, the more wires they tend to contain.
+
+    There are several factors that need to be considered when using a hierarchical routing
+    layout. One benefit of the hierarchical routing layout is that the delay
+    between logic blocks is often more predictable. Performance can also be better for
+    certain types of designs.
+    However, if there is a mismatch between the length of a design's wires and the
+    heirarchical distribution, problems may arise. Furthermore, moving between levels
+    of the heirarchy can cause a significant delay. These are some of the reasons
+    why modern FPGAs largely do not make use of the hierarchical routing system.
+
+    What modern FPGAs use now for routing is the so called island style of routing.
+    Island style routing arranges logic blocks in a two dimensional array and surrounds
+    them with routing resources. One key decision that the designers of the FPGA itself
+    need to consider here is the width of a channel.
+    There are several benefits to using the island style of routing and it is likely
+    that these contributed to making it the most popular style of routing in use today.
+
+    Since a logic block has access to a varienty of wire lengths, the most efficient length
+    wire can be selected. Furthermore, minimum routing delay between logic blocks is trivial
+    to estimate.
+
+    Within the island style design, there are a variety of switch block designs that
+    can be used. These include the Wilton, disjoint and universal switch block designs.
+    
+    \subsection{Challenges of using FPGAs}
+
+    Despite all of the improvemnts made in the field of FPGAs, there are a number of challenges
+    that need to be overcome so further development can be made. As CMOS processes
+    have continued to become more sophisticated, several issues have become more prominent.
+    As silicon chips continue to decrease in size, so called soft errors become more and more
+    of a problem. A soft error occurs when ionizing radiation corrupts some data in a circuit.
+    This sort of corruption does not only occur in FPGAs. Its also known problem in
+    regular computer RAM. This is actually the reason why enterprise grade RAM uses
+    ECC technology to detect this sort of corruption.
+
+    The source of the radiation itself can come from both radioactive packaging and
+    from cosmic radiation.
+
+    There are a number of ways in which soft errors can be reduced in an FPGA.
+    The first mitigation is at the circuit and technology level.
+    One useful circuit level change is selecting an optimal memory supply voltage.
+
+
+    A higher level mitigation is at the system level. Here, the designers of the FPGA have added builtin checks
+    to find and correct corruption.
+
+
+    TODO
+    
+    Finally, at the user design level checks can also be made.
+
+    TODO
     
     \section{FPGA Design Workflow}
 

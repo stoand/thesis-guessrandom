@@ -370,18 +370,44 @@
     A downside of specific purpose logic is that it its not being used, its
     a definite net negative on all fronts.
     
-    \subsection{Flipflops}
-
-    TODO
-    
     \subsection{Routing}
 
-    TODO
+    The purpose of routing in an FGPA is to provide a programmable fabric that connects
+    logic blocks and IO ports. Under the hood, routing uses wires which are connected
+    by programmable switches [1]. For routing it is important that a large variety
+    of circuit configurations are possible. Just like with logic blocks, performance
+    and power consumption are in need of consideration when it comes both to designing
+    the routing and configuring it to take the shape of a design.
+
+    "Locality" in routing refers to the level of proximity that interconnected components
+    exhibit. In general, it can be said that circuits exhibit a high level of locality
+    because most components are close. Of course, there is also the need for connecting
+    components that are far from each other.
+
+    There are also special types of signals which need to be available globally
+    in the FPGA. [1] These include clocks and resets. These kinds of signals get
+    special treatment in the form of a dedicated interconnect system. These
+    interconnect systems are designed to minimize skew. This means that the
+    variation or noise added to the signal as it travels is minimized.
+
+    The main type of routing that designers need to keep in mind is the so called
+    general purpose routing. This is different from the global interconnect routing
+    mentioned previously.
     
-    \subsection{Memory}
+    One type of general purpose routing is called global routing. Global routing
+    considers the properties of a routing design on a higher level while not paying attention
+    to the details. general purpose routing mainly considers the locations of routing
+    channels, the number of wires in a given channel, and how various channels communicate.
 
-    TODO
+    In contrast to general purpose routing, detailed routing takes into consideration
+    wire length, switch counts and how wires and logic block pins connect.
 
+    When it comes to the global architecture of an FPGAs routing there are two main styles.
+    The first global routing style is the hierarchical style. In this style,
+    logic blocks are separated into groups. Logic blocks contained in the same group
+    are connected by wire segments. Logic blocks in different groups are connected
+    by wires that traverse multiple levels of routing segments.
+    
     \section{FPGA Design Workflow}
 
     TODO

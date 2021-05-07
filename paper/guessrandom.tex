@@ -435,7 +435,7 @@
     \subsection{Challenges of using FPGAs}
 
     Despite all of the improvemnts made in the field of FPGAs, there are a number of challenges
-    that need to be overcome so further development can be made. As CMOS processes
+    that need to be overcome so further development can be made [1]. As CMOS processes
     have continued to become more sophisticated, several issues have become more prominent.
     As silicon chips continue to decrease in size, so called soft errors become more and more
     of a problem. A soft error occurs when ionizing radiation corrupts some data in a circuit.
@@ -449,17 +449,47 @@
     There are a number of ways in which soft errors can be reduced in an FPGA.
     The first mitigation is at the circuit and technology level.
     One useful circuit level change is selecting an optimal memory supply voltage.
+    Another technique is to add metal capacitors to memory nodes which
+    decreases their sensitivity to radiation.
 
 
     A higher level mitigation is at the system level. Here, the designers of the FPGA have added builtin checks
-    to find and correct corruption.
+    to find and correct corruption [1].
+    One system level mitigation periodically checks the state of configuration memory
+    with its correct value. If an error is found, the FPGA will need to be reprogrammed.
+    A "don't care" flag is set for resources that are not currently in use since
+    corruption in used resources will not affect the FPGAs functionality.
+    Another, far more expensive form of mitigation, is the so called triple modular
+    redundancy. Effectively, the FPGA design is replicated three full times.
+    The circuitry will then vote on what output values are correct.
+    This extreme of an approach would likely not work for most everyday use cases.
+    Though for things like medical equipment, or for any place that handles money this
+    could be useful.
+    It is also noteworthy that routing is the cause for a majority of soft errors.
 
+    When it comes to user visible memory this can also be a source of soft errors,
+    the flip flops used here are actually not as vulnerable to corruption as SRAM.
+    This is because SRAM is far smaller in size than flip flops. Neverthess,
+    like in enterprise grade RAM, error correction can also be used here.
+    It should be noted howeve, that the error correction itself is not perfect. Some
+    errors will still evade detection.
 
-    TODO
-    
-    Finally, at the user design level checks can also be made.
+    Adding such error correction comes with a cost. This is because additional data will
+    need to be stored and because of the need for special encoding and decoding circuits.
 
-    TODO
+    This cost can be reduced in modern FPGAs by the use of hard circuits that
+    do memory encoding. Again however, like with ECC, these error correction mechanisms
+    only reduce errors and do not eliminate them entirely.
+
+    Also, a distinction needs to be made between mere error detection and full error correction.
+    Since the user's design has full control over memory, the onus falls upon the user
+    to hanlde errors. This is less desireable than handling errors at the FPGAs system level.
+    This is because handling errors at the system level would only need to be done once,
+    at the time of the FPGAs creation. These user level checks will add additional complexity
+    to each and every design that uses an FPGA.
+    Again, it is also up to the user to decide on the level of error correction depending
+    on their application. Some applications might not cause serious consequences if
+    soft errors do occur.
     
     \section{FPGA Design Workflow}
 

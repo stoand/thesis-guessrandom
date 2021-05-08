@@ -26,6 +26,7 @@ partof: REQ-purpose
     Zeidman, Bob. "Introduction to CPLD and FPGA Design." Embedded System Conference, San Fransisco. 2004.
     X [3] Evolution of programmable devices
     [10] FPGA architecture
+    [15] The design flow
 * 4) FPGAs 101 file:///C:/Users/Andreas/Downloads/Gina%20Smith%20-%20FPGAs%20101_%20Everything%20you%20need%20to%20know%20to%20get%20started.pdf
     Smith, Gina. FPGAs 101: Everything you need to know to get started. Newnes, 2010.
 * 5) SELF-CONFIGURABLE FPGA http://ena.lp.edu.ua/bitstream/ntb/33994/1/7-39-50.pdf

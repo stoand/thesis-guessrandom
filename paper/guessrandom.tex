@@ -708,6 +708,36 @@
     However there really isn't a magic fix to eliminate all race conditions since
     they depend on a variety of complex, interwoven states.
 
+    Another serious problems that can arise in an FPGA design is hold time violations [3].
+    They are similar to race conditions in that they exist because of a timing problem.
+    A hold time violation occurs if data changes at the exact same time as a clock edge.
+    This means the resulting value is non-deterministic and can go either way.
+
+    Yet another design problem caused by inconsistent timing is glitches. These occur
+    when an output goes high for a very short amount of time. Unlike race conditions
+    and hold time violations, eliminating glitches is more straighforward.
+    To eliminate a glitch an output can be synchronized by sending it through a flip flop.
+
+    "Metastability" is another design problem. Metastability occurs when a asynchronous
+    signal is fed into a synchronous flip flop. In essence, the problem occurs because
+    an asynchronous part of the design is interacting with a synchronous part.
+    The fix occurs by correctly synchronizing an asynchronous signal to a given clock.
+    However, there is no easy fix for metastability. Use of a synchronizer flip flop
+    is a partial solution but there is still the danger of a very small chance
+    that the flip flop will not resume a valid logic level. The danger of this occuring
+    increases with high clock frequences. Some FPGA manufacturers include special
+    synchronizer flip flops for exactly the purpose of mitigating this problem.
+    Another way to decrease the change a synchronizer flip flop will not work is
+    to simply include more of them.
+
+    In general, asynchronous design is prone to a greater number of problems
+    than synchronous design. This is because small, hard to debug timing errors
+    can arise in asynchronous design.
+    In synchronous design the delay is controlled by flip flop that are attached
+    to a single clock.
+    All of the problems discussed previously are because of asynchronous design
+    and can be fixed by using a synchronous style.
+    
     \section{Related Work}
 
     Todo - add this

@@ -596,6 +596,41 @@
     its important that when the team decides to make changes that these changes
     are also committed to the specification.
 
+    Part of the work of drafting a specification deals with selecting what major components
+    the design will have. Weighing the positives and negatives of various FPGA products
+    is one of the major parts of this process. There are numerous factors that need to be
+    considered. These include the cost of the parts, their performance, their compatability
+    with each other, among other factor. Another dominant factor may be
+    the level of experience members of the team have with different vendors and product lines.
+
+    Another incredibly important step in the designing phase is selecting a design
+    entry method [3]. Small and less complex designs may simply use a schematic entry.
+    In a schematic entry all of the routing is done manually.
+    This approach has the upside of designers getting a very fine degree of control over
+    how the FPGA is configured.
+    There is however, a very serious downside to such and approach and that is that it
+    is not viable for any even somewhat sophisticated design.
+
+    The two technologies that are by far the most common for design entry are the languages
+    Verilog and VHDL. These languages are highly portable in that they abstract
+    over the low level differences that exist between FGPA models.
+    They are also far more readable, flexible and expressive. These languages
+    allow for what is called "synthesis" in which a software program is read
+    and a low level logic gate design is generated from it.
+
+    While these languages may share some similarities with mainstrea programming languages
+    like Java, such as a shared concept of a "for" loop, they are in fact quite different.
+    For starters, these languages make a distiction between logic connections that
+    always exist, as well as synchronous changes that occur every clock cycle.
+
+    Another large difference between HDLs and high level programming languages is that
+    they are mostly built on the concept of wires and what connections occur between these
+    wires. There have been some experimental research projects like "Kiwi" [1] that
+    attempted to allow compilation from standard high level languages like C to HDLs.
+    These however, have not gained mainstream traction in industry as well as for any serious
+    projects in general. It seems there is just too much of a mismatch between
+    these systems that prevents elegant abstractions from being created.
+
     \section{Related Work}
 
     Todo - add this

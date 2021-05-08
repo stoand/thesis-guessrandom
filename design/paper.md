@@ -21,7 +21,7 @@ nodemon -e tex -x 'pdflatex guessrandom.tex || echo'
 ```
 
 ```
-nodemon -e tex -x '(pdflatex guessrandom.tex || echo) && cp guessrandom.pdf /mnt/c/Users/Andreas/Documents/ || echo'
+nodemon -e tex -x '(pdflatex guessrandom.tex || echo) && sleep 0.1 && cp guessrandom.pdf /mnt/c/Users/Andreas/Documents/ || echo'
 ```
 
 then open `guessrandom.pdf`

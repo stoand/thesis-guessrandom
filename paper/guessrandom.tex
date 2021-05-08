@@ -559,16 +559,42 @@
     The design flow deals with the steps needed to eventually program an FPGA
     to solve a certain problem [3]. The design flow of FPGAs is actually quite
     similar to the design flow used for CLPDs and ASICs.
-    In the previous section but the creation of the actual FPGA itself was discussed,
+    In the previous section the creation of the actual FPGA itself was discussed,
     as well as programming the FPGA. This seciton will only cover the programming
     part as well as the steps leading up to it.
     The main distinction between creating an FPGA and programming for it is that
     the FPGA creators can chose what components end up on the FPGA while programmers
     merely make use of the components provided on their target FPGA.
 
-    
+    \subsection{The Specification}
 
-    TODO
+    While some may view a formal specification as optional, a serious project
+    will most likely suffer greatly if its creators forgo a real specification [3].
+    Furthermore, in a team setting, a specification helps communicate to each team
+    member not only what their own role is but also how their section fits into the
+    larger project. The prevents multiple engineers from designing pieces that
+    do not work together.
+
+    A specification covers a number of different implementation details.
+    One very useful tool to have in a specification is block diagrams [3].
+    These block diagrams can both show how a design fits into a larger system,
+    as well as the internal design of the FPGA. An internal block diagram shows
+    how major components within the FPGA exist and are connected to one another.
+
+    Another important piece of content is a description of what input and outputs
+    will connect the FPGA to the outsie world. Another important concept that
+    needs to be documented when it comes to I/O are timing estimates.
+
+    The timing estimate for input pins covers setup and hold times.
+    Output pins on the other hand need to have propagation times detailed.
+
+    Finally there is a global clock cycle time that needs to be clearly visible.
+
+    After the intial draft of a specification is complete, it becomes important
+    to prevent the specification from growing stale by always keeping it updated.
+    Its simply not possible to know every aspect of the design beforehand so
+    its important that when the team decides to make changes that these changes
+    are also committed to the specification.
 
     \section{Related Work}
 

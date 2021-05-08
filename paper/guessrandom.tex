@@ -652,6 +652,37 @@
     about, simulations can serve as a reference of what the design is supposed to do.
     Simulations can even be useful to the initial developer of a component if they design
     something and come back to it weeks or months later.
+    Another key role of simulation is to speed up the workflow. Since simulations
+    are running regular CPUs and not on FPGAs themselves, they allow for HDLs to
+    be recompiled far fasters. This is critical to the workflow, since depending on
+    the complexity of the design, spending minutes or even hours resynthesizing for
+    every little change can seriously hamper developer productivity.
+    Not only is simlation faster, it also allows developers to have complete knowledge
+    of the state of a system. This means that developers can inspect the states
+    of wires that are internal to the design instead of just being able to inspect the
+    outputs.
+
+    However, after developers are satisfied with the design and it has been well tested
+    in simulation, a synthesis step indeed becomes necessary.
+    During synthesis, the high level hardware description language needs to be converted
+    to an FPGA configuration. Part of this process involves performing place and route
+    calculations.
+
+    Another key step in converting HDL code into a real FPGA design is timing analysis.
+    Timing analysis ensures that the electrical signals that travel through the FPGA
+    have enough time to propagate. Without proper timing analysis, serious errors
+    can occur due to the FPGA running on too high a clock speed. Once timing analysis
+    is complete, designers will be given a maximum clock speed.
+    Some FPGA tools, like the Icestorm project, will prevent the FPGA from being
+    programmed with too high a clock speed.
+    
+    After a design is generated and the maximum clock speed has been found,
+    it is finally time to program the FPGA.
+
+    Once the design is programmed onto the the FPGA, manual tests can be performed
+    to ensure the FPGA outputs the correct values for a given group of input values.
+
+    
 
     \section{Related Work}
 

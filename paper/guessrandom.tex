@@ -682,7 +682,16 @@
     Once the design is programmed onto the the FPGA, manual tests can be performed
     to ensure the FPGA outputs the correct values for a given group of input values.
 
-    
+    Or if the FPGA is part of a larger circuit, the testing step involves ensuring
+    that the complete system works as intended. If any problems are discovered,
+    the workflow repeats itself and additional changes to the HDL as well as
+    the simulation become necessary. Also, known bugs and other issues that were found
+    should be added to the specification.
+
+    When everything works as intended, the system will be ready to be put into production.
+    A burn in test is used to ensure that a system keeps working over a long amount of time.
+    However, even if a system was perfectly designed, electrical and mechanical issues
+    can still arise and that is why burn in tests are useful.
 
     \section{Related Work}
 

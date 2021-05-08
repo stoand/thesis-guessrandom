@@ -641,7 +641,7 @@
     Following the selection of a synthesis tool, the next step in the process
     is designing a chip [3].
 
-    TODO - ADD CHIP DESIGN STEPS (OCCUR LATER IN PAPER)
+    \subsection{Simulation and Testing}
 
     While chip design is ongoing, it is important to be also meanwhile running simulations.
     Even smaller components should be tested using simulation. A lack of simulations
@@ -692,6 +692,21 @@
     A burn in test is used to ensure that a system keeps working over a long amount of time.
     However, even if a system was perfectly designed, electrical and mechanical issues
     can still arise and that is why burn in tests are useful.
+
+    \subsection{Potential Design Problems}
+
+    One serious design problem that may occur is race conditions [3].
+    A race condition can occur if two signals which affect a given output
+    can be triggered in a non deterministic order. Race conditions are dangerous
+    because they depend on miniscule delays caused by variations in interal timing.
+    Even a tiny change in voltage or temperatue can cause a change in the output.
+
+    This can become a very serous problem because chips that were working perfectly
+    may suddenly exhibit erroneous output after weeks, months, or even years of
+    reliable operation. One way in which race conditions can be dealt with
+    is to introduce a delay by converting an asynchronous operation to a synchronous one.
+    However there really isn't a magic fix to eliminate all race conditions since
+    they depend on a variety of complex, interwoven states.
 
     \section{Related Work}
 

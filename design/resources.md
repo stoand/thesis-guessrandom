@@ -59,3 +59,6 @@ partof: REQ-purpose
     Dooley, John F. History of cryptography and cryptanalysis: Codes, Ciphers, and their algorithms. Springer, 2018.
 * 23) A brief history of cryptography
     Kotas, William August. "A brief history of cryptography." (2000).
+* 24) Modern Cryptography file:///C:/Users/Andreas/Downloads/William%20Easttom%20-%20Modern%20Cryptography%20Applied%20Mathematics%20for%20Encryption%20and%20Information%20Security%20(2021).pdf
+    [257] Random number generators
+    Easttom, Chuck. Modern cryptography. McGraw-Hill Education, 2015.

@@ -55,7 +55,7 @@ partof: REQ-purpose
     Damico, Tony M. "A brief history of cryptography." Inquiries Journal 1.11 (2009).
 * 21) An introduction to cryptography
     Mollin, Richard A. An introduction to cryptography. Chapman and Hall/CRC, 2019.
-* 22) USE THIS - History of cryptography and cryptanalysis
+* 22) USE THIS - History of cryptography and cryptanalysis file:///C:/Users/Andreas/Downloads/[History%20of%20Computing]%20John%20F.%20Dooley%20-%20History%20of%20Cryptography%20and%20Cryptanalysis_%20Codes,%20Ciphers,%20and%20Their%20Algorithms%20(2018,%20Springer)%20-%20libgen.lc.pdf
     Dooley, John F. History of cryptography and cryptanalysis: Codes, Ciphers, and their algorithms. Springer, 2018.
 * 23) A brief history of cryptography
     Kotas, William August. "A brief history of cryptography." (2000).

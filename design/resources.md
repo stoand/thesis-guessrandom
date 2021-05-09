@@ -1,6 +1,8 @@
 # SPC-resources
 partof: REQ-purpose
-### 
+###
+
+## FPGAs
 
 * 1) `FPGA Architecture: Survey and Challenges` file:///C:/Users/Andreas/Downloads/FPGA%20survey%20and%20challenges.pdf
     Kuon, Ian, Russell Tessier, and Jonathan Rose. FPGA architecture: Survey and challenges. Now Publishers Inc, 2008.
@@ -46,3 +48,14 @@ partof: REQ-purpose
 * 11) Sensor Systems Based on FPGAs file:///C:/Users/Andreas/Downloads/sensors-12-12235-v2.pdf
     De La Piedra, Antonio, An Braeken, and Abdellah Touhafi. "Sensor systems based on FPGAs and their applications: A survey." Sensors 12.9 (2012): 12235-12264.
     [2] How FPGAs are used in Wireless Sensor Networks
+
+## Cryptography
+
+* 20) A brief history of cryptography
+    Damico, Tony M. "A brief history of cryptography." Inquiries Journal 1.11 (2009).
+* 21) An introduction to cryptography
+    Mollin, Richard A. An introduction to cryptography. Chapman and Hall/CRC, 2019.
+* 22) USE THIS - History of cryptography and cryptanalysis
+    Dooley, John F. History of cryptography and cryptanalysis: Codes, Ciphers, and their algorithms. Springer, 2018.
+* 23) A brief history of cryptography
+    Kotas, William August. "A brief history of cryptography." (2000).

@@ -44,8 +44,8 @@ FPGAs
 
 RNGs
 
+* (5) History of cryptography implentations back to ancient times
 * (5) Random number generator basics
-* (5) History of RNG Implentations back to ancient times
 * (5) Entropy - Mathematical Theory 
 * (5) Real life examples of RNG exploits
 * (5) Stats comparing RNG attacks to other types of exploits

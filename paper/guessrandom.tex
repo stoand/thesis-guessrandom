@@ -920,7 +920,7 @@
     A better way to obsuring letter frequencies is to use multiple cipher alphabets.
     This means that a letter can be mapped to various different letters.
 
-    \subsection{American at War} 
+    \subsection{America at War} 
 
     A few hundred years later, the American revolution also saw a large
     use of cryptology. This was only in the later parts of the war
@@ -950,7 +950,41 @@
     The first time the telegraph was used in war was actually by
     the British in Crimea in 1853.
     The telegraph was used by both sides in the American Civil War.
-    
+
+    One improvement that came as a consequence of the war,
+    was an step up from traditional codes. This was because
+    codes were both challenging to use in the theater of war,
+    and if one code book was lost, every codebook that contained
+    a copy of those codes would have to be replaced.
+
+    Another downside of using codes was that they were not practical for
+    the sheer amount of information that was flowing through telegraph
+    stations.
+    To fix these downsides, so called field ciphers were implemented.
+
+    One instance of cryptanalysis during the war occurred when a
+    Confederate soldier named Alexander received a Union cryptogram
+    from a captured courier [22].
+    The encryption used here was new to Alexander. He was able
+    to quickly realize that the encryption hid its secret by simply
+    reordering words. He termed this a "jumble". After expending significant
+    effort to try to break the jumble, Alexander was not able to break it.
+
+    This jumble turned out to be the Union's main cipher. This cipher was
+    created by the telegrapher named Anson Stager. Stager initially started
+    with a simple route word transition cipher. Then Stager modified the cipher
+    to make it even harder to break. One thing he did was to add "nulls" or "blind words".
+    One additional benefit of these nulls was their ability to be used for checking
+    the consistency of a message. This was extra useful for telegraph messages which
+    could become corrupted during their encoding and decoding processes.
+    Stager also encoded some special words through the use of code words.
+    Additionally, he added a "commencement word". The purpose of the commencement
+    word was to encode certain encryption properties like the size of the rectangle.
+
+    The complexity of ciphers grew a lot during the war. The cipher used
+    at the start of the war could fit on a small card. In contrast, the fourth cipher
+    that was realeased towards the end of the war was so complex it needed
+    a book with dozens of pages.
 
     \section{Related Work}
 

@@ -1226,7 +1226,47 @@
     The Playfair is a variant of digraphic substition cipher.
     It works by encrypting two letters at a time and encrypting these
     plaintext digraphs into ciphertext digraphs.
-        
+
+    Where cryptanalysis is concerned, the most straighforward technique for
+    breaking a Playfair cipher is freqency analysis.
+    For frequency analysis to work here, a large volumn of ciphertext is needed.
+    The frequency analysis will be performed on two letters at a time since
+    the Playfair cipher uses digraphs.
+
+    Arguably the most famous cipher of the first world war is the
+    ADFGVX cipher. This cipher was created by the Germans who were
+    preparing for a last desperate push to break the standstill.
+    ADFGX was quite unique from anything the Germans had used
+    throughout the war. ADFGX is a variant of fractionating cipher.
+    Its called a fractionating cipher because it produces
+    digraphs which are later broken in two.
+    Encryption entailed three different steps.
+
+    The only way the ADFGX cipher could be broken was by finding
+    the sorted transposition key order.
+    This was the task that Georges Painvin faced as he attempted
+    to break this cipher in March 1918 just as the Germans were
+    launching their offensive.
+    One challenge that Painvin faced was a lack of ciphertext volume.
+
+    Though this changed with the start of the offensive as
+    more and more German communications were intercepted.
+
+    Painvin's first step was find a bunch of messages that had
+    similar beginnings and endings.
+    Within three weeks he was already beginning to recover keys
+    and break the cipher. He grew so proficient in breaking
+    this cipher that on some days he was able to decrypt
+    half of all messages.
+    The Germans threw him a curve ball so to speak when they
+    replaced the ADFGX cipher with a new variant known as ADFGVX.
+    ADFGVX was different because a new row and column were added
+    to the Polybius square.
+    Painvin overcame the challenge of breaking this new cipher
+    by working just one day and night.
+
+    This feat made him the most famous cryptographer of World War 1.
+    
     \section{Related Work}
 
     Todo - add this

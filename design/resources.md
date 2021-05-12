@@ -64,5 +64,13 @@ partof: REQ-purpose
     Easttom, Chuck. Modern cryptography. McGraw-Hill Education, 2015.
 * 25) Random number generators: good ones are hard to find https://www.researchgate.net/profile/Keith-Miller-26/publication/220420979_Random_Number_Generators_Good_Ones_Are_Hard_to_Find/links/56ce355f08ae059e375357e2/Random-Number-Generators-Good-Ones-Are-Hard-to-Find.pdf
     Park, Stephen K., and Keith W. Miller. "Random number generators: good ones are hard to find." Communications of the ACM 31.10 (1988): 1192-1201.
+    [1] Background of RNGs
+    [2] Minimal Standart RNG
+    [8] Inadequate RNGs
+    [10] RNG Conclusion
 * 26) Good random number generators are (not so) easy to find http://mercury.pr.erau.edu/~siewerts/se420/documents/Papers/Good-Random-Number-Generators-are-not-so-Easy-to-Find-A19final.pdf
     Hellekalek, Peter. "Good random number generators are (not so) easy to find." Mathematics and Computers in Simulation 46.5-6 (1998): 485-505.
+* 27) Testing random number generators https://repository.lib.ncsu.edu/bitstream/handle/1840.4/6846/1992_0033.pdf?sequence=1
+    L'Ecuyer, Pierre. Testing random number generators. Institute of Electrical and Electronics Engineers (IEEE), 1992.
+* 28) Efficient and portable combined random number generators https://www.researchgate.net/profile/Pierre-Lecuyer/publication/234789148_L%27ecuyer_P_Efficient_and_portable_combined_random_number_generators_Communications_of_the_ACM/links/00b7d5282b5c3da8cb000000/Lecuyer-P-Efficient-and-portable-combined-random-number-generators-Communications-of-the-ACM.pdf
+    L'ecuyer, Pierre. "Efficient and portable combined random number generators." Communications of the ACM 31.6 (1988): 742-751.

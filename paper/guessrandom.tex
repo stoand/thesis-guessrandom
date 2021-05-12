@@ -1478,6 +1478,50 @@
     between these variations is that the former uses an increment value equal to zero while
     the latter uses a nonzero increment.
 
+    \subsection{Testing an RNG}
+
+    One main attribute of random sequences that are deseriable is that they do
+    not repeat the name numbers again and again when they are used.
+    What this means in practice, is that the period should be high enough so
+    that no repetitions become visible during the intended use of an RNG.
+    The period indicates how many values an RNG will output before reaching its
+    initial state again.
+
+    If a person is asked to generate random numbers manually and write them down,
+    the result won't actually be ranom numbers of very good quality.
+    It's just part of human nature to want certain patterns.
+
+    On the fip side, if a person is asked to give their opinion on
+    a sequence of random numbers the result is likely that the will find some patterns
+    even though the sequence is a statistically sound random sequence.
+
+    This is because people are good at finding patterns and patterns help people remember
+    things.
+
+    Knowledge of statistics is paramount when it comes to analysing the quality
+    of random numbers. There are a virtually endless amount of statistical tests
+    that could be performed on a sequence of random numbers.
+    There are certain tests however that can be considered the best for testing RNGs
+    that also have the useful property of being easy to implement as a computer program.
+
+    There are two main groups of tests that are used to check RNGs.
+    The first of this group are empirical tests. These tests observe
+    actual numerical outputs and make observations about them.
+    The second class of tests are the theoretical tests.
+    These do not work with concrete outputs but with mathematical formulas.
+
+    One statistical test that can be done is known as the Chi square test.
+
+    There is another very important test that is actually also quite good
+    for testing linear congruential generators. It's one of the most powerful
+    tests for RNGs because it has been used to test a large number of
+    RNGs. Most RNGs with good randomness properties will pass the test while
+    RNGs that do not output good random values fail the test.
+
+    This actually makes it one of the best of all RNG tests if not the best.
+    The spectral test is a fusion between empirical and theoretical testing.
+    Its theoretical portion deals with the properties of sequence.
+    While its empirical aspect comes from computationally examining results.
     
     
     \section{Related Work}

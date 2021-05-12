@@ -74,3 +74,5 @@ partof: REQ-purpose
     L'Ecuyer, Pierre. Testing random number generators. Institute of Electrical and Electronics Engineers (IEEE), 1992.
 * 28) Efficient and portable combined random number generators https://www.researchgate.net/profile/Pierre-Lecuyer/publication/234789148_L%27ecuyer_P_Efficient_and_portable_combined_random_number_generators_Communications_of_the_ACM/links/00b7d5282b5c3da8cb000000/Lecuyer-P-Efficient-and-portable-combined-random-number-generators-Communications-of-the-ACM.pdf
     L'ecuyer, Pierre. "Efficient and portable combined random number generators." Communications of the ACM 31.6 (1988): 742-751.
+* 29) The Art of Computer Programming - Volume 2 3rd Edition
+    Knuth, D.E. The Art of Computer Programming. 3rd Ed. Addison- Wesley, Reading, Mass. 1981. 

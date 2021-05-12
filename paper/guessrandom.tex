@@ -1425,17 +1425,42 @@
     of not being able to reproduce a series of number deterministicly
     when using the same seed.
 
-    \subsection{Intro to Random Number Generators}
+    Another downside of using such random number generating machines
+    was that they could seriously malfunction in ways that were very difficult to
+    detect.
+    The practice of distributing lists of random numbers became popular again
+    in the 90's were a billion random numbers could be stored on a CD.
 
-    
+    In 1946, von Neumann came up with an algorithm for generating random
+    numbers completely using arithmetic operations on a computer.
+    Of course, such a sequence that was generated deterministicly through
+    arithmetic operations could be argued to not actually be random.
 
-    \subsection{Early Random Number Generators}
-    
-    \subsection{Flawed Random Number Generators}
+    These numbers would have the appearance of being random however.
+    This early software RNG used a middle square to generate subsequent
+    outputs from a seed.
+    Despite the philosophical concept of these numbers lacking true randomness,
+    it can still be argued that random number generation with
+    arithmetic is still practical for most applications.
 
-    (period too small)
-    
-    \subsection{Testing Random Number Generators}
+    Von Neumann's initial approach using the middle square proved to have
+    some serious flaws though. The problem was that this RNG could
+    reach states where the RNG would repeat the same short sequence of
+    numbers again and again. For instance if zero was reached by the RNG
+    it would stop generating different values entirely and stay at zero.
+
+    Some improvements to the middle square method were made and this allowed
+    the generator to output nearly a million values before it became trapped
+    in an undeseriable cyclic state.
+
+    In 1959, another type of RNG known as "Algorithm K" was created [29].
+    Despite looking promsing from the outset, Algorithm K, upon closing inspection,
+    would be shown to have serious flaws.
+
+    It has a very small period of only three thousand numbers.
+    Algorithm K proved that RNGs need to be crafted very deliberately and cannot simply
+    created by adding various arbitrary instructions and hoping for the best.
+    Greater theoretical understanding was needed.
     
     \section{Related Work}
 

@@ -1357,7 +1357,64 @@
     To this end he built a machine which he called "bombe".
     After some improvements and by using a large number of these "bombe" machines,
     the British were able to break the Enigma's daily keys in mere hours.
-        
+
+    \section{Random Number Generators}
+
+    Random number generators, also known as RNGs, can be used for various different purposes [29].
+    One of the main uses of RNGs is in simulations.
+    Another use of RNGs is in sampling. The purpose of sampling is to choose
+    "samples" at random which are a good representation of the true average.
+
+    Random numbers are also generally used in programming. So called randomized algorithms
+    make use of the indeterminism of random numbers.
+    A very straighforward use of random numbers in programming
+    is the generation of secret tokens that are used in authentication.
+
+    Another use of random numbers is when an unbiased decision needs to be made,
+    like with a coin flip for example.
+
+    When it comes to the actual meaning of randomness, a number of its own cannot be random.
+    Instead we have a sequence of random numbers that follow a given distribution.
+    This means that there should be no observable pattern between the numbers.
+    The concept of uniformity that all numbers are equally likely to show up, without
+    any favoritism making some numbers more common.
+    
+    In a truly random number generator, what numbers were generated in the past
+    should not have any impact on the next number that is generated.
+
+    Though sometimes pseudo random number generators are better for an application
+    because they conform to the gambler's fallacy.
+    The gambler's fallacy assumes that if a "random" result or set of random
+    results has occurred, the next values that appear should skew towards being
+    different to the random results observed so far.
+
+    So for example, if a coin was flipped five times and the result was always heads,
+    the gambler's fallacy would assume that there is a very high probability
+    of the next result being tails. This is of course completely false in
+    a truly random system.
+    However in some cases it becomes desireable to have a pseudo random number system
+    that exhibits this property.
+
+    Why? Because sequences of a few items that skew greatly towards one average
+    are less likely to appear.
+    The final result of this is that the random number generator could be considered
+    to be more "fair".
+    This is no doublt the reasoning behind the creators of the computer game Dota 2
+    implementing a system that has such "random" properties.
+    
+
+    \subsection{Intro to Random Number Generators}
+
+    
+
+    \subsection{Early Random Number Generators}
+    
+    \subsection{Flawed Random Number Generators}
+
+    (period too small)
+    
+    \subsection{Testing Random Number Generators}
+    
     \section{Related Work}
 
     Todo - add this

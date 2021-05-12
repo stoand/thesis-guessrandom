@@ -1522,7 +1522,39 @@
     The spectral test is a fusion between empirical and theoretical testing.
     Its theoretical portion deals with the properties of sequence.
     While its empirical aspect comes from computationally examining results.
-    
+
+    \subsection{Inadequate RNGs}
+
+    There were many implementations of LCGs, both multiplicative and
+    mixed linear congruential generators that suffered from serious problems [25].
+
+    Of of the most well known broken generator was "RANDU". RANDU in turn
+    inspired many other RNGs that were also seriously flawed.
+    Being introduced in the 60's one of RANDU's main flaws
+    was that it used a non-prime modulus. It also suffers from a lack
+    of a full period. The famous computer scientist Donal Knuth called it "really horrible" [29].
+
+    Many flawed implementations of RANDU use a technique called controlled overflow.
+    Despite the major flaws in RANDU, it continued to be featured in textbooks well
+    into the 80's.
+
+    There were some attempts to improve RANDU by selecting another multiplier variable.
+    This did not fix the problem because it still did not have the maximum possible period.
+
+    The random output here was so bad that some companies who used the RNG even
+    took multiple outputs from it and manually randomized those again.
+
+    In 80's there were a number implementations like one proposed by Maryanski as well
+    as that used by the Modula-2 system that were seriously broken.
+    The main problem was that their period was incredibly short, being ony thousands
+    of values long. In one LISP text there was an RNG with a period of only 125.
+
+    In the 60's mixed linear congruential generators were expected to be possibly
+    superior to multiplicative linear congruential generators like RANDU.
+    This did not turn out to be true however and these days experts are against the
+    use of most mixed generators.
+    They still remained quite popular in academia for some time however and were
+    featured in a number of textbooks.
     
     \section{Related Work}
 

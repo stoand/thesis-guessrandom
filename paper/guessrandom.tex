@@ -1369,6 +1369,8 @@
     make use of the indeterminism of random numbers.
     A very straighforward use of random numbers in programming
     is the generation of secret tokens that are used in authentication.
+        
+    \subsection{History of Random Number Generators}
 
     Another use of random numbers is when an unbiased decision needs to be made,
     like with a coin flip for example.
@@ -1461,6 +1463,22 @@
     Algorithm K proved that RNGs need to be crafted very deliberately and cannot simply
     created by adding various arbitrary instructions and hoping for the best.
     Greater theoretical understanding was needed.
+        
+    \subsection{Reliable RNG Algorithms}
+
+    One of the most reliable and widely adopted RNG is the Linear Congruential Method [29].
+    It was first introduced by Lehmer in 1949 and has four internal values
+    that can be adjusted as needed. These include the modulus, multiplier, increment
+    and starting value (also known as the seed). These numbers need
+    to be methodically selected in order for a desirable output or random numbers to appear.
+    A wrong selection of these number can cause the output to have a very small period,
+    repeating only a handful of numbers again and again.
+    There are actually two different variants of this generator, the multiplicative congruential
+    method was well as the mixed congruential method. The difference
+    between these variations is that the former uses an increment value equal to zero while
+    the latter uses a nonzero increment.
+
+    
     
     \section{Related Work}
 

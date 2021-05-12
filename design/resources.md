@@ -62,3 +62,7 @@ partof: REQ-purpose
 * 24) Modern Cryptography file:///C:/Users/Andreas/Downloads/William%20Easttom%20-%20Modern%20Cryptography%20Applied%20Mathematics%20for%20Encryption%20and%20Information%20Security%20(2021).pdf
     [257] Random number generators
     Easttom, Chuck. Modern cryptography. McGraw-Hill Education, 2015.
+* 25) Random number generators: good ones are hard to find https://www.researchgate.net/profile/Keith-Miller-26/publication/220420979_Random_Number_Generators_Good_Ones_Are_Hard_to_Find/links/56ce355f08ae059e375357e2/Random-Number-Generators-Good-Ones-Are-Hard-to-Find.pdf
+    Park, Stephen K., and Keith W. Miller. "Random number generators: good ones are hard to find." Communications of the ACM 31.10 (1988): 1192-1201.
+* 26) Good random number generators are (not so) easy to find http://mercury.pr.erau.edu/~siewerts/se420/documents/Papers/Good-Random-Number-Generators-are-not-so-Easy-to-Find-A19final.pdf
+    Hellekalek, Peter. "Good random number generators are (not so) easy to find." Mathematics and Computers in Simulation 46.5-6 (1998): 485-505.

@@ -1616,8 +1616,33 @@
 
     The known input attack can often be the result of an attacker being able to
     predict some source of entropy that the system owners believe is random.
-    
-    
+
+    The final class of attacks is known as state compromise extension attacks.
+    This type of attack occurs when an attacker is able to recover RNG state
+    by means of gaining access to internal system state that regular users of the system
+    are not given access to. This knowledge of internal state then allows attackers
+    to predict future outputs and use this to their advantage.
+    A very simple source of state compromise attacks can be the lack of an RNG
+    seed that has enough entropy. If the attack knows with what state an RNG
+    will start, this knowledge of the internal state will easily allow them
+    to predict future outputs.
+
+    There are various types of state compromise attacks [34].
+    The first of these variants is the backtracking attack. The purpose
+    of the backtracking attack is to somehow recover an RNGs internal state
+    and use that to guess previouly generated values.
+
+    A permanent compromise attack is somewhat similar to the backtracking variant.
+    The main difference here is that the permanent compromise attack
+    allows future as well as previous values to be known.
+
+    Another type of attack is the iterative guessing attack. This attack uses
+    the knowledge of the state at a certain time along with outputs collected
+    from the RNG in order to recover the RNG's state at a certain time.
+
+    The final attack type, a meet in the middle attack, in a combination
+    of an iterative guessing attack and a backtracking attack.
+        
     \section{Related Work}
 
     Todo - add this

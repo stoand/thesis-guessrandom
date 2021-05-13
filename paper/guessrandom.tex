@@ -1642,6 +1642,56 @@
 
     The final attack type, a meet in the middle attack, in a combination
     of an iterative guessing attack and a backtracking attack.
+
+
+    One RNG that is vulnerable to attack is X9.17 [34]. This RNG algorithm
+    is used to generate DES keys and initialization vectors.
+    Its also been used as a general purpose RNG.
+
+    X9.17 has been used in applications were very high security is paramount like in
+    banking.
+
+    When it comes to direct cryptanalytic attacks, a cryptanalysis of triple-DES
+    would be needed which is not yet known to be possible.
+    This rules out the use of direct cryptanalytic attacks against X9.17.
+
+    Input based attacks against X9.17 could be possible in theory, but in practice
+    require 2 to the power of 63 outputs to be observed. This makes this kind
+    of an attack an "academic" attack since it's only possible in theory.
+
+    One variant of attacks that does work is the state compromise extension attack.
+    This type of attack works if an attacker can somehow get ahold of the X9.17
+    triple-DES key. If this key is found by the attack they will be able
+    to recover the internal state of the X9.17 RNG.
+
+    This kind of attack is possible due to several flaws present in the RNG algorithm.
+
+    The first of these flaws is that the usable seed length is only 64 bits.
+    Another flaw is the fact that the next seed that is generated is a function
+    of a previous output.
+
+    Essentially, the attack can in theory brute force 64 bits to learn the internal state.
+    Though there is a far more efficient way an attack can use.
+
+    The attacker can reduce the entropy of the RNG by making an educated guess
+    about what range of values the timestamp that is used may have.
+    The attack can know the nearest second of the timestamp.
+
+    If an attacker can obtain two successive values they can do a meet in the middle attack.
+    This only requires them to search an eleven bit space of numbers.
+
+    Another possible attack that can be mounted against X9.17 is the iterative guessing
+    attack [34]. Again, the vulnerability being exploited here is a lack of entropy
+    due to a reliance on the timestamp. Here, unlike with the key compromise attack,
+    the adversary merely needs to see a function of the output rather than a raw output
+    value.
+
+    The backtracking attack can also work here. Here, functions of RNG outputs
+    are needed or two successive direct outputs.
+
+    In conclusion, the X9.17 random number generator is mostly secure against
+    attacks except for ones that stop the timer or ones that use a recovered triple-DES
+    key.
         
     \section{Related Work}
 

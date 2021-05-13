@@ -1692,6 +1692,58 @@
     In conclusion, the X9.17 random number generator is mostly secure against
     attacks except for ones that stop the timer or ones that use a recovered triple-DES
     key.
+
+
+    There are several ways in the insecurity of weak RNGs can be overcome [34].
+    One fairly straighforward method of increasing the security of an RNG
+    is to simply send the outputs through a hash function. By hashing the outputs,
+    the attack will not be able to recover the initial outputs without the
+    serious effort of using the inefficient brute force technique.
+
+    Hashing an RNG's outputs improves insecure random number generators by quite
+    a large amount but there is another improvement that builds on this technique.
+    That is, the output that is hash can be combined with either the output
+    of a counter or with a timestamp.
+
+    Another effective way of mitigating RNG attacks is by restarting
+    the RNG state periodically. This is especially useful at preventing
+    attack techniques that involve guessing and other attacks that cannot
+    be performed with a trivial amount of computation.
+    Though even if RNG are being frequently restarted, care still needs
+    to be taken to seed these RNGs with sources that provide sufficient
+    entropy. If an attacker can guess the initial seed, then restarting
+    the RNG will not help.
+    It could also be argued that in some cases frequently restarting
+    an RNG could actually be detrimental.
+    This is because a frequently restarted RNG means that the number
+    of values an attacker needs to check to see if a certain value
+    is the seed is far lower.
+
+    Finally, to improve the security of potentially weak RNGs it is paramount
+    to ensure they are seeded with reliable sources of entropy.
+
+    When it comes to designing new RNGs, there are several factors
+    that warrant consideration [34].
+
+    First, this new RNG needs to be built on a foundation
+    of algorithms that are secure against cryptanalysis.
+    If would be best if these primitives are theoretically proven to be secure.
+
+    Second, one needs to ensure that the entire secret internal state of the RNG
+    changes over time.
+    The keeps the system from suffering from single state compromise.
+
+    Another technique, which was mentioned before, deals with reseeding.
+    The internal state should be kept seperate from whatever source of entropy
+    is used. The system should only be reseeded if the source of entropy used
+    is large enough. This prevents iterative guessing attacks.
+
+    Newly designed secure RNGs also need to be engineered in such a way that
+    makes backtracking attacks very difficult.
+    One straighforward mitigation that can be used here is the use of a
+    one way function. Every few outputs the entire RNG state can be sent
+    through this function to prevent backtracking.
+    
         
     \section{Related Work}
 

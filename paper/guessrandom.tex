@@ -1588,7 +1588,34 @@
     They can also be rendered insecure as a result of a normally secure random number
     generator being used in a wrong way.
 
+    If a poorly designed RNG algorithm is used, there usually isn't anything that
+    can be done but switching to another, more secure, algorithm [34].
+
+    The basic idea behind attacking an RNG is to grain the ability to predict
+    or even control future RNG outputs [34].
+
+    One type of attack is the "Direct Cryptoanalytic Attack". This attack
+    relies on the attack being able to know how an RNG was used to generate
+    random outputs.
+    If the attacker cannot directly see RNG outputs this attack will not work.
+
+    Input based attacks happens when an attacker has knowledge or control of RNG outputs.
+    There are three different categories of input based attacks.
     
+    Chosen input attacks often involve the attacker being able to control sources
+    of entropy that are fed into RNGs. If an attacker knows how these
+    sources of entropy are used, they may be able to cause random numbers
+    to be generated that somehow give them an advantage.
+
+    Another type of input based attack other than the chosen input attack is
+    the replayed input attack. With replayed input attacks the attack
+    needs less control over the target system than with chosen input attacks.
+
+    The third subclass of input attacks is the known input attack. These attacks
+    rely on the attack being able to guess or recover some internal state of the RNG.
+
+    The known input attack can often be the result of an attacker being able to
+    predict some source of entropy that the system owners believe is random.
     
     
     \section{Related Work}

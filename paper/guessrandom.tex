@@ -1743,7 +1743,30 @@
     One straighforward mitigation that can be used here is the use of a
     one way function. Every few outputs the entire RNG state can be sent
     through this function to prevent backtracking.
-    
+
+    Resistance to chosen input attacks should also be considered. To prevent these,
+    one needs to be sure an attacker can never have both the RNG state and the
+    input sequence.
+
+    One aspect of RNG design is performance. When it comes to builing faster RNGs
+    there may arise the need for designing completely novel algorithms.
+    This is not small feat because most RNGs today are built on proven cryptographic
+    primitives.
+
+    New RNGs could also benefit from the use of the reliability of theoretical proves
+    about their properties.
+
+    In conclusion, there are a number of different factors that need to be considered
+    when it comes to the creation of secure RNGs. Though even for fundamentally insecure
+    RNGs there are ways to quickly make them a lot harder for attackers to break.
+    Hashing, especially, is one of such techniques.
+    One can also conclude that RNG security is a topic that has not recieved a large
+    amount of attention in research. Perhaps this is because software developers
+    largely use RNGs as a sort of black box without much thought to their internal
+    mechanisms.
+    Attackers or security researchers in general though, can benefit greatly from
+    being aware of what weaknesses random number generators can have and
+    how these can be exploited.
         
     \section{Related Work}
 

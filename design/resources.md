@@ -75,4 +75,16 @@ partof: REQ-purpose
 * 28) Efficient and portable combined random number generators https://www.researchgate.net/profile/Pierre-Lecuyer/publication/234789148_L%27ecuyer_P_Efficient_and_portable_combined_random_number_generators_Communications_of_the_ACM/links/00b7d5282b5c3da8cb000000/Lecuyer-P-Efficient-and-portable-combined-random-number-generators-Communications-of-the-ACM.pdf
     L'ecuyer, Pierre. "Efficient and portable combined random number generators." Communications of the ACM 31.6 (1988): 742-751.
 * 29) The Art of Computer Programming - Volume 2 3rd Edition
-    Knuth, D.E. The Art of Computer Programming. 3rd Ed. Addison- Wesley, Reading, Mass. 1981. 
+    Knuth, D.E. The Art of Computer Programming. 3rd Ed. Addison- Wesley, Reading, Mass. 1981.
+
+
+* 30) The frequency injection attack on ring-oscillator-based true random number generators https://link.springer.com/content/pdf/10.1007/978-3-642-04138-9_23.pdf
+    Markettos, A. Theodore, and Simon W. Moore. "The frequency injection attack on ring-oscillator-based true random number generators." International Workshop on Cryptographic Hardware and Embedded Systems. Springer, Berlin, Heidelberg, 2009.
+* 31) PRNG: Pwning Random Number Generators https://paper.bobylive.com/Meeting_Papers/BlackHat/USA-2012/BH_US_12_Argyros_PRNG_WP.pdf
+    Argyros, George, and Aggelos Kiayias. "PRNG: Pwning Random Number Generators." BlackHat 2012 (2012).
+* 32) Security analysis of pseudo-random number generators with input: /dev/random is not robust https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.636.7698&rep=rep1&type=pdf
+    Dodis, Yevgeniy, et al. "Security analysis of pseudo-random number generators with input: /dev/random is not robust." Proceedings of the 2013 ACM SIGSAC conference on Computer & communications security. 2013.
+* 33) Practical seed-recovery for the PCG Pseudo-Random Number Generator file:///C:/Users/Andreas/AppData/Local/Temp/8700-Article%20Text-5386-1-10-20200929.pdf
+    Bouillaguet, Charles, Florette Martinez, and Julia Sauvage. "Practical seed-recovery for the PCG Pseudo-Random Number Generator." IACR Transactions on Symmetric Cryptology (2020): 175-196.
+* 34) Cryptanalytic attacks on pseudorandom number generators https://link.springer.com/content/pdf/10.1007/3-540-69710-1_12.pdf
+    Kelsey, John, et al. "Cryptanalytic attacks on pseudorandom number generators." International workshop on fast software encryption. Springer, Berlin, Heidelberg, 1998.

@@ -1767,8 +1767,22 @@
     Attackers or security researchers in general though, can benefit greatly from
     being aware of what weaknesses random number generators can have and
     how these can be exploited.
-        
-    \section{Related Work}
+
+    \section{Using an FPGA to Recover RNG State}
+
+    The purpose of this section is to demonstrate how a real FPGA device
+    can be used in the cryptanalysis of a toy, vulnerable on purpose,
+    LCG random number generation algorithm variant.
+
+    The FPGA used for this experiment belongs to the Lattice Ice40 family of FPGA's.
+    The FPGA board that houses this FPGA is the TinyFPGA BX board.
+
+    \section{Possible Improvements}
+
+    1 - use a more powerful FPGA
+    2 - use multiple FPGAs at the same time
+    3 - use an army of cloud FPGAs
+    4 - use more mathematically sophisticated algorithms other the brute force
 
     Todo - add this
 

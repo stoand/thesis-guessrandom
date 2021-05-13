@@ -1558,6 +1558,37 @@
     
     \section{Breaking RNGs}
 
+    It can be argued that random number generators need to be as secure
+    as any other cryptologic primitive [34].
+    The security of RNGs needs to be thoroughly verified due to their
+    various sensitive use cases.
+    These use cases range from generating session keys, initialization vectors and
+    also generating random salts to hash passwords.
+    Other applications include generating parameters for digital signatures
+    as well as nonces for secure communication protocols.
+
+    Often however, random numbers are not generated from reliable sources
+    of entropy like thermal noise or Geiger counter clicks.
+    Instead random values are instead created by pseudo random number generators.
+
+    What a PRNG does is collect a small amount of randomness from a input stream
+    and then uses that randomness to generate a sequence of random values that
+    have no surface level relationship to each other.
+
+    When an attacker wants to target a RNG, possibly one of their main goals
+    is to use previous outputs to predict future ones.
+    One aspect of the security of RNGs is a lack of general knowledge of
+    attacking them. This knowledge of how RNGs can be compromised is critical however
+    it comes to being able to secure them properly.
+    RNGs are a desirable attack target for malicious actors because even if all
+    other aspects of a system are hardened against attack, an insecure random
+    number generator can lead to the entire system being compromised.
+
+    Insecure random number generators can be the result of selecting an insecure algorithm.
+    They can also be rendered insecure as a result of a normally secure random number
+    generator being used in a wrong way.
+
+    
     
     
     \section{Related Work}

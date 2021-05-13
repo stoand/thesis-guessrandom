@@ -1775,7 +1775,22 @@
     LCG random number generation algorithm variant.
 
     The FPGA used for this experiment belongs to the Lattice Ice40 family of FPGA's.
-    The FPGA board that houses this FPGA is the TinyFPGA BX board.
+    The board that houses this FPGA is the TinyFPGA BX board.
+
+    This toy random number generator has the following purposeful vulnerability:
+    the seed length is only 32 bits, small enough to make it easy to brute force.
+
+    The 32 bit seed can only have about 4 billion different values which
+    is not very high when considering the number of computations modern hardware can perform
+    per second.
+
+    It order to verify the FPGA's implemention is correct, an implentation in the C
+    language will be used for comparison.
+
+    As mentioned in a previous section about best practices in FPGA design,
+    the design workflow will first make use of a simulation.
+    This simulation will be used to get the first working version of the RNG
+    on the FPGA.
 
     \section{Possible Improvements}
 

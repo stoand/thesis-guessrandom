@@ -2064,6 +2064,28 @@ endmodule
 
     \section{Conclusion}
 
+    This experiment showed that FPGAs can be quite useful for
+    cryptanalysis, specifically for breaking random number generators.
+
+    Running at 16Mhz, it would only take this specific model of FPGA
+    a mere four minutes to search the 4 billion permutations possible in
+    32-bit space.
+
+    And this FPGA, which costs only around 15 dollars, pales in comparison
+    when compared to the resources FPGAs costing thousands of dollars posses.
+
+    Of course, the actual calculations this FPGA design performed, are not
+    strictly speaking a real linear congruential generator
+    do to the lack of a modulus. Though adding this modulus back
+    in is as simple as changing a few lines of commented out code.
+    It is also very likely that higher end FPGA modules will have
+    dedicated modulus logic blocks.
+
+    Another than using a modulus operation and getting a more powerful
+    FPGA there are additional ways of improving this project.
+
+    
+
     1 - use a more powerful FPGA
     2 - use multiple FPGAs at the same time
     3 - use an army of cloud FPGAs

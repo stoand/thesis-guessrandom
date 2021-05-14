@@ -69,11 +69,3 @@ open `build/lcg/engine_0/trace.vcd`
 [TinyFPGA_BX guide](http://www.latticesemi.com/~/media/LatticeSemi/Documents/DataSheets/iCE/iCE40LPHXFamilyDataSheet.pdf)
 
 [TinyFPGA_BX memory guide](http://www.latticesemi.com/-/media/LatticeSemi/Documents/ApplicationNotes/MO/MemoryUsageGuideforiCE40Devices.ashx?document_id=47775)
-
-[ultimate calculus](https://github.com/MaiaVictor/ultimate-calculus)
-
-[abstract calculus blog post](https://medium.com/@maiavictor/the-abstract-calculus-fe8c46bcf39c)
-
-[symmetric interaction calculus](https://github.com/MaiaVictor/Symmetric-Interaction-Calculus)
-
-[Elementary Affine Logic](https://github.com/MaiaVictor/Elementary-Affine-Core-legacy/blob/master/spec.md)

@@ -21,6 +21,10 @@ module lcg (
         .done(done),
         // .valid_seed(valid_seed),
         
+        // check if the fpga is doing real calculations by 
+        // setting a wrong sequence value and ensuring the light stays off
+        
+        // .expected_v0(0),
         .expected_v0(444307),
         .expected_v1(1777732518),
         .expected_v2(242022553),

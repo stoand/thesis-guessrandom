@@ -2,8 +2,8 @@ module lcg(
     input CLK,
     
     input [31:0] MODULUS, // m
-    input [31:0] MULTIPLIER = 4001, // a
-    input [31:0] INCREMENT = 60211, // c
+    input [31:0] MULTIPLIER, // a
+    input [31:0] INCREMENT, // c
     
     input [31:0] value, // X
     
@@ -12,19 +12,20 @@ module lcg(
     
     
     always @(posedge CLK) begin
-        next_value = value + 1;
-        // counter = 33;
+        next_value = ((value * MULTIPLIER) + INCREMENT) % MODULUS;
     end
 endmodule
 
 module testbench(input CLK);
     
-    reg [5:0] counter = 33;
+    reg [31:0] counter = 0;
     
-    reg started = 0;
-    
-    reg [31:0] value = 96;
+    // initial seed
+    reg [31:0] value;
     reg [31:0] next_value;
+    
+    initial 
+        value = 96;
     
     lcg lcg0(
         .CLK(CLK),
@@ -39,10 +40,15 @@ module testbench(input CLK);
     
     always @(posedge CLK) begin
         
-        if(started == 1) begin
-            assert (next_value == (value + 1)); 
+        if(counter == 1) begin
+            assert (next_value == 444307); 
         end
         
-        started = 1;
+        if(counter == 2) begin
+            // assert (next_value == 466569); 
+        end
+        
+        counter = counter + 1;
+        value = next_value;
     end
 endmodule

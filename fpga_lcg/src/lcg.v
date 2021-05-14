@@ -1,56 +1,72 @@
-module lcg(
+module lcg_guess(
     input CLK,
     
     input [31:0] MODULUS, // m
     input [31:0] MULTIPLIER, // a
     input [31:0] INCREMENT, // c
     
-    input [31:0] seed, // X
+    input [31:0] expected_v0,
+    input [31:0] expected_v1,
+    input [31:0] expected_v2,
     
-    output [31:0] v0,
-    output [31:0] v1,
-    output [31:0] v2,
+    output done,
+    output [31:0] valid_seed,
 );
+
+    reg [31:0] scan_seed = 0;
+    reg [31:0] scan_v0;
+    reg [31:0] scan_v1;
+    reg [31:0] scan_v2;
+    
+    initial 
+        done = 0;
     
     always @(posedge CLK) begin
-        v0 = ((seed * MULTIPLIER) + INCREMENT) % MODULUS;
-        v1 = ((v0 * MULTIPLIER) + INCREMENT) % MODULUS;
-        v2 = ((v1 * MULTIPLIER) + INCREMENT) % MODULUS;
+        scan_v0 = ((scan_seed * MULTIPLIER) + INCREMENT) % MODULUS;
+        scan_v1 = ((scan_v0 * MULTIPLIER) + INCREMENT) % MODULUS;
+        scan_v2 = ((scan_v1 * MULTIPLIER) + INCREMENT) % MODULUS;
+        
+        if (expected_v0 == scan_v0 &&
+            expected_v1 == scan_v1 &&
+            expected_v2 == scan_v2) begin
+            
+            done = 1;
+            valid_seed = scan_seed;
+        end
+        
+        scan_seed = scan_seed + 1;
     end
 endmodule
 
 module testbench(input CLK);
     
+    reg done;
+    reg [31:0] valid_seed;
+    
     reg [31:0] counter = 0;
     
-    reg [31:0] seed;
-    
-    reg [31:0] v0;
-    reg [31:0] v1;
-    reg [31:0] v2;
-    
-    lcg lcg0(
+    lcg_guess lcg0(
         .CLK(CLK),
         
         .MODULUS(993441),
         .MULTIPLIER(4001),
         .INCREMENT(60211),
         
-        .seed(seed),
-        .v0(v0),
-        .v1(v1),
-        .v2(v2),
+        .valid_seed(valid_seed),
+        .done(done),
+        
+        .expected_v0(444307),
+        .expected_v1(466569),
+        .expected_v2(127141),
     );
     
     always @(posedge CLK) begin
         
-        if(counter == 2) begin
-            assert (v0 == 444307); 
-            assert (v1 == 466569); 
-            assert (v2 == 127141); 
+        if(counter == 100) begin
+            assert (done == 1); 
+            assert (valid_seed == 96); 
         end
         
-        seed = 96;
         counter = counter + 1;
     end
 endmodule

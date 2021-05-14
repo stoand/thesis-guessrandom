@@ -2,10 +2,10 @@
 partof: REQ-purpose
 ###
 
+Verilog implementation of a brute for program for a  Linear Congruential Random Number Generator.
+
 __DANGER: writing to the wrong location in ram can CORRUPT THE BOOTLOADER. See `tinyprog -m` for memory ranges.__
 
-
-Verilog implementation on functional language evaluation engine.
 
 ## Getting Started
 

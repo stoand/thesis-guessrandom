@@ -1,31 +1,33 @@
 module lcg (
     input CLK,    // 16MHz clock
     output LED,   // User/boot LED next to power LED
-    output USBPU  // USB pull-up resistor
 );
 
     // scans expected rng outputs
     // the led will light up if a valid seed is found
     
     
+    reg done;
 
     lcg_guess lcg_guess0(
         .CLK(CLK),
         
+        .done(done),
+                
         .MODULUS(993441),
         .MULTIPLIER(4001),
         .INCREMENT(60211),
         
-        .done(LED),
+        .done(done),
         // .valid_seed(valid_seed),
         
         .expected_v0(444307),
-        .expected_v1(466569),
-        .expected_v2(127141),
+        .expected_v1(1777732518),
+        .expected_v2(242022553),
+        
     );
     
-    always @(posedge CLK) begin
-    end
+    assign LED = done;
 
 endmodule
 

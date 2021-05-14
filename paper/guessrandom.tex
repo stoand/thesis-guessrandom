@@ -1792,12 +1792,67 @@
     This simulation will be used to get the first working version of the RNG
     on the FPGA.
 
+    \break
+
+    \subsection{The C Implementation}
+
+    \lstset{language=C}
+
+    \begin{lstlisting}
+#include <stdio.h>
+
+int MODULUS = 993441; // m
+int MULTIPLIER = 4001; // a
+int INCREMENT = 60211; // c
+
+int gen_rand(int prev) {
+    // TODO - add the modulus back
+    // return ((prev * MULTIPLIER) + INCREMENT) % MODULUS;
+    return ((prev * MULTIPLIER) + INCREMENT);
+}
+
+int main() {
+
+  int seed = 96; // aka the starting value or X0
+
+  int out0 = gen_rand(seed);
+  int out1 = gen_rand(out0);
+  int out2 = gen_rand(out1);
+
+  printf("first outputs for seed: %i \n%i\n%i\n%i\n", seed, out0, out1, out2);
+}
+    \end{lstlisting}
+
+    This implementation has a number of significant properties.
+    First of all, it only support a seed with 32 bits of length.
+    The seed is purposefully limited in size for demonstration purposes.
+
+    This algorithm is actually not even a real LCG though it can
+    be trivially converted to be one.
+
+    The reason a full fledges LCG was not used was due
+    to the issues the modulus operation caused for the non-simulated,
+    real world FPGA program.
+
+    Another noteworthy attribute of this C operation is
+    that no special effort has been made to select secure constants.
+
+    Donald Knuth offers a great amount of detail in his book [29] on
+    how secure LCG constants can be found.
+
+    
+
     \section{Possible Improvements}
 
     1 - use a more powerful FPGA
     2 - use multiple FPGAs at the same time
     3 - use an army of cloud FPGAs
     4 - use more mathematically sophisticated algorithms other the brute force
+
+    5 - use higher clockspeed
+    6 - find a way to support modulus 
+
+    The clockspeed used would break the algorithm
 
     Todo - add this
 

@@ -2068,7 +2068,7 @@ endmodule
     cryptanalysis, specifically for breaking random number generators.
 
     Running at 16Mhz, it would only take this specific model of FPGA
-    a mere four minutes to search the 4 billion permutations possible in
+    a mere 4 minutes to search the 4 billion permutations possible in
     32-bit space.
 
     And this FPGA, which costs only around 15 dollars, pales in comparison
@@ -2084,22 +2084,13 @@ endmodule
     Another than using a modulus operation and getting a more powerful
     FPGA there are additional ways of improving this project.
 
+    The work of searching the possible seeds of a random number generator
+    could easily be split among multiple different FPGAs.
+    The average software developer does not own an expensive FPGA
+    but they could rent FPGAs on the cloud from cloud providers like Amazon.
+    Another improvement to the algorithm could be looking for mathematical
+    methods that could be a lot more efficient the a simple brute force method.
     
-
-    1 - use a more powerful FPGA
-    2 - use multiple FPGAs at the same time
-    3 - use an army of cloud FPGAs
-    4 - use more mathematically sophisticated algorithms other the brute force
-
-    5 - use higher clockspeed
-    6 - find a way to support modulus 
-
-    The clockspeed used would break the algorithm
-
-    Todo - add this
-
-    THIS COMES NEAR THE END
-
     \break
     \section*{References}
 

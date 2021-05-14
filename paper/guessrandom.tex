@@ -47,7 +47,7 @@
     \section{Introduction to FPGAs}
 
     The sophisticated FPGAs of today are the product numerous incremental improvements
-    over the years [3]. One such step in the evolution are Programmable Read Only Memories
+    over the years [2]. One such step in the evolution are Programmable Read Only Memories
     also known as PROMs. These proms were used to implement logic gates. There are also
     different varieties of PROMs where some of them can only be programmed once and
     others which could be reprogrammed multiple times. PROMs had a drawback in that
@@ -55,13 +55,13 @@
     to be added to a circuit as separate components. Another glaring drawback of PROMs was
     their lack of speed.
 
-    Programmable Logic Arrays also known as PLAs made significat improvements over PROMs [3].
+    Programmable Logic Arrays also known as PLAs made significat improvements over PROMs [2].
     Namely, PLAs were generally must faster that PROMs. They could also support a far
     larger number of inputs. Though one drawback was that number of combinations of
     logic elements was slightly more constrained than that of of PROMs.
 
     Programmable Array Logic (not to be confused with Programmable Logic Arrays) were the next
-    step in the evolution that would culminate in the FPGAs of today [3]. Programmable Array Logic
+    step in the evolution that would culminate in the FPGAs of today [2]. Programmable Array Logic
     also known as PALS added support for clock elements as well as flip flops. They
     were much more sophisticated in their support for expressing sequential logic. Futhermore,
     they had the benefit of great performance.
@@ -72,35 +72,35 @@
     are still being produced. FPGAs as they are today have benefitted greatly
     from advances in CMOS design that were initially made with improving CPUs in mind.
     However, it was precisely because CPUs were becoming so efficient that custom hardware
-    lose a good amount of popularity [6]. It became easier for companies to simply using
+    lose a good amount of popularity [3]. It became easier for companies to simply using
     general purpose CPUs instead of investing in tailor-made hardware level designs.
-    One example of such a use-case where general purpose CPUs won is databases [6].
+    One example of such a use-case where general purpose CPUs won is databases [3].
     This was in the late 70's and researchers were trying to create a "databse-machine".
     It was specifically tailored to run database queries on low-level hardware.
 
     When it comes to the benefits of using FPGAs verses CPUs there are several factors to keep in mind.
-    Image and signal processing are two applications where FPGAs shine [6].
+    Image and signal processing are two applications where FPGAs shine [3].
     Partially this is because FPGAs can generally offer a greater level of determinism
     that CPUs. In an FPGA latecy for some tasks can often not only be lower, but the latecy
     and also be predictable. This is crucial for applications where real-time
-    responsiveness is key. Another place where FPGAs shine is parallelism [6].
+    responsiveness is key. Another place where FPGAs shine is parallelism [3].
     CPUs main unit of parallelism is their cores. FPGAs however, have a far more granular
     unit of parallelism which is their logic blocks. This allows for orders of magnitude
     more potential parallelism over CPUs. These factors make FPGAs ideal candidates
     for high-throughput low-latecy applications.
 
     When in comes to solving real-world problems, FPGAs are quickly moving out of niche,
-    highly-specialed projects and are becoming more common in commondity setups [6].
+    highly-specialed projects and are becoming more common in commondity setups [3].
     The main areas where FPGAs are gaining popularity are both in the networking sector
     as well as the graphics processing sector. One reason for this is that the amount
     of data generated in the world is growing rapidly. For this reason, the raw processing
     power of FPGAs is expected to become indispensable for many more companies in the future.
 
-    One concrete use case for FPGAs is database co-processing [6]. This is because
+    One concrete use case for FPGAs is database co-processing [3]. This is because
     streaming databases are required to process data with a low latecy even under heavy
     load. Ironically, this is one area that is similar to the "database-machine" style
     projects of the 70's. So perhaps FPGA designers will run into the same sort of
-    problems that "database-machine" researchers encountered [6] all those years ago.
+    problems that "database-machine" researchers encountered [3] all those years ago.
     Undianiably though, there is a large room for improvement in this sector.
     One reason FPGAs are still somewhat niche is the fact that FPGA design is not
     very accessible to "mainstream" programmers. This is because "mainstream" programmers
@@ -110,7 +110,7 @@
 
     There are several projects which aim to overcome the reduced ease of use of FPGAs
     for mainstream programmers. The "Kiwi" and "Liquid Metal" projects aim to do exactly
-    this [6]. The goal is that FPGAs be used with general purpose languages.
+    this [3]. The goal is that FPGAs be used with general purpose languages.
     However the general sentiment in the FPGA developer community seems to be that these
     projects that allow mainstream languages be used with FPGAs are not developed
     enough to be used for mission-critical applications.
@@ -120,7 +120,7 @@
     providing developers with out of the box IP that developers can setup on FPGAs to interface
     with projects running on CPUs programmed in mainstream languages like C.
 
-    Another point of comparison between FPGAs and CPUs is clock speed [6]. FPGAs need to operate
+    Another point of comparison between FPGAs and CPUs is clock speed [3]. FPGAs need to operate
     at significatly lower clock speeds than CPUs. Though the amount of work done by FPGAs
     in a single clock cycle can sometimes be orders of magnitude greater in FPGAs. This benefits
     FPGAs by reducing the amount of power consumed by the device relative to a CPU. One downside
@@ -134,7 +134,7 @@
     of memory at once. One thing that mitigates this disadvantage is the ability to
     access a continous block on memory at once. This advantage does not exist if the memory
     is non in a continous block however. Memory is significatly different in FPGAs though.
-    FPGAs have flip-flop registers as well as block ram [6]. Spare lookup tables can
+    FPGAs have flip-flop registers as well as block ram [3]. Spare lookup tables can
     also be reprogrammed at runtime and used as additional memory. So in general, FPGA memory
     boasts far superior locality compared to CPU memory. It therefore has much better
     throughput, as well as lower latecy compared to the CPU.
@@ -143,7 +143,7 @@
     to implement a key value store with a constant lookup time.
 
     One thing modern CPUs have going for them when it comes to competing with FPGAs are
-    SIMD operations [6]. This allows for parallel operations that mimic those of FPGAs.
+    SIMD operations [3]. This allows for parallel operations that mimic those of FPGAs.
     This means an operation (like addition for example) can be performed on two fixed
     sized arrays of values.
 
@@ -557,7 +557,7 @@
     \section{FPGA Design Workflow}
 
     The design flow deals with the steps needed to eventually program an FPGA
-    to solve a certain problem [3]. The design flow of FPGAs is actually quite
+    to solve a certain problem [2]. The design flow of FPGAs is actually quite
     similar to the design flow used for CLPDs and ASICs.
     In the previous section the creation of the actual FPGA itself was discussed,
     as well as programming the FPGA. This seciton will only cover the programming
@@ -569,14 +569,14 @@
     \subsection{The Specification}
 
     While some may view a formal specification as optional, a serious project
-    will most likely suffer greatly if its creators forgo a real specification [3].
+    will most likely suffer greatly if its creators forgo a real specification [2].
     Furthermore, in a team setting, a specification helps communicate to each team
     member not only what their own role is but also how their section fits into the
     larger project. The prevents multiple engineers from designing pieces that
     do not work together.
 
     A specification covers a number of different implementation details.
-    One very useful tool to have in a specification is block diagrams [3].
+    One very useful tool to have in a specification is block diagrams [2].
     These block diagrams can both show how a design fits into a larger system,
     as well as the internal design of the FPGA. An internal block diagram shows
     how major components within the FPGA exist and are connected to one another.
@@ -604,7 +604,7 @@
     the level of experience members of the team have with different vendors and product lines.
 
     Another incredibly important step in the designing phase is selecting a design
-    entry method [3]. Small and less complex designs may simply use a schematic entry.
+    entry method [2]. Small and less complex designs may simply use a schematic entry.
     In a schematic entry all of the routing is done manually.
     This approach has the upside of designers getting a very fine degree of control over
     how the FPGA is configured.
@@ -639,7 +639,7 @@
     which is quite rare in the hardware design industry in general.
 
     Following the selection of a synthesis tool, the next step in the process
-    is designing a chip [3].
+    is designing a chip [2].
 
     \subsection{Simulation and Testing}
 
@@ -695,7 +695,7 @@
 
     \subsection{Potential Design Problems}
 
-    One serious design problem that may occur is race conditions [3].
+    One serious design problem that may occur is race conditions [2].
     A race condition can occur if two signals which affect a given output
     can be triggered in a non deterministic order. Race conditions are dangerous
     because they depend on miniscule delays caused by variations in interal timing.
@@ -708,7 +708,7 @@
     However there really isn't a magic fix to eliminate all race conditions since
     they depend on a variety of complex, interwoven states.
 
-    Another serious problems that can arise in an FPGA design is hold time violations [3].
+    Another serious problems that can arise in an FPGA design is hold time violations [2].
     They are similar to race conditions in that they exist because of a timing problem.
     A hold time violation occurs if data changes at the exact same time as a clock edge.
     This means the resulting value is non-deterministic and can go either way.
@@ -740,7 +740,7 @@
 
     \section{History of Cryptology}
 
-    Cryptology is the study of secret writing [22]. This study of secret writing
+    Cryptology is the study of secret writing [4]. This study of secret writing
     can be broken down into two main disciplines.
     The first of these, "cryptography", concerns itself with techniques
     for creating secret writing. In a way, cryptography represents what could
@@ -755,7 +755,7 @@
 
     \subsection{Ancient Times}
 
-    On of the earliest recorded uses of cryptography starts with the ancient Greeks [22].
+    On of the earliest recorded uses of cryptography starts with the ancient Greeks [4].
     Polybius, a Greek historian, developed a monoalphabetic substitution cipher. It
     was so influencial that the techniques it used influced cryptography two thousand
     years after its creation.
@@ -768,7 +768,7 @@
 
     A few hundred years after Polybius the Roman empire had risen to prominence.
     The famous Julius Caesar himself actually was recorded as having used cryptography
-    in his miliary campaigns in Gaul [22].
+    in his miliary campaigns in Gaul [4].
 
     Though this is not Caesars only use of cryptography during his lifetime.
     The chipher he used here was fairly straightforward. It takes the letters A-Z
@@ -964,7 +964,7 @@
 
     One instance of cryptanalysis during the war occurred when a
     Confederate soldier named Alexander received a Union cryptogram
-    from a captured courier [22].
+    from a captured courier [4].
     The encryption used here was new to Alexander. He was able
     to quickly realize that the encryption hid its secret by simply
     reordering words. He termed this a "jumble". After expending significant
@@ -1048,7 +1048,7 @@
     \subsection{World Wars}
 
     The first World War saw the introduction of cryptographic systems that
-    were quite similar to what is used today [22]. Like telegraphs in the nineteen
+    were quite similar to what is used today [4]. Like telegraphs in the nineteen
     hundreds, the introduction of radio revolutioned communication.
     This also had a large influence on the development of cryptography and cryptanalytic
     techniques. Army commanders were using radio to send commands to their troops.
@@ -1132,7 +1132,7 @@
     army cryptologists for a number of decades.
 
     When America joined the first world war, the American army had only a handful of
-    cryptologists [22].
+    cryptologists [4].
     One significant American cryptologists at this time was Herbert Yardley.
     He worked as a code clerk for the Washington State Department.
     Within the span of only a few hours, Yardley was able to break the encryption
@@ -1141,7 +1141,7 @@
     that covered the codes and ciphers that the state used.
 
     Soon after the war started, Yardley was put in charge of the new cryptologic section
-    named MI-8 or Section 8 [22]. In under a year, Section 8 grew from a handful of people,
+    named MI-8 or Section 8 [4]. In under a year, Section 8 grew from a handful of people,
     to being composed of various departments. By the time the war had ended
     it was composed of 165 people.
     Towards the end of the war, Yardley traveled to England and France to improve
@@ -1360,7 +1360,7 @@
 
     \section{Random Number Generators}
 
-    Random number generators, also known as RNGs, can be used for various different purposes [29].
+    Random number generators, also known as RNGs, can be used for various different purposes [6].
     One of the main uses of RNGs is in simulations.
     Another use of RNGs is in sampling. The purpose of sampling is to choose
     "samples" at random which are a good representation of the true average.
@@ -1455,7 +1455,7 @@
     the generator to output nearly a million values before it became trapped
     in an undeseriable cyclic state.
 
-    In 1959, another type of RNG known as "Algorithm K" was created [29].
+    In 1959, another type of RNG known as "Algorithm K" was created [6].
     Despite looking promsing from the outset, Algorithm K, upon closing inspection,
     would be shown to have serious flaws.
 
@@ -1466,7 +1466,7 @@
         
     \subsection{Reliable RNG Algorithms}
 
-    One of the most reliable and widely adopted RNG is the Linear Congruential Method [29].
+    One of the most reliable and widely adopted RNG is the Linear Congruential Method [6].
     It was first introduced by Lehmer in 1949 and has four internal values
     that can be adjusted as needed. These include the modulus, multiplier, increment
     and starting value (also known as the seed). These numbers need
@@ -1526,13 +1526,13 @@
     \subsection{Inadequate RNGs}
 
     There were many implementations of LCGs, both multiplicative and
-    mixed linear congruential generators that suffered from serious problems [25].
+    mixed linear congruential generators that suffered from serious problems [5].
 
     Of of the most well known broken generator was "RANDU". RANDU in turn
     inspired many other RNGs that were also seriously flawed.
     Being introduced in the 60's one of RANDU's main flaws
     was that it used a non-prime modulus. It also suffers from a lack
-    of a full period. The famous computer scientist Donal Knuth called it "really horrible" [29].
+    of a full period. The famous computer scientist Donal Knuth called it "really horrible" [6].
 
     Many flawed implementations of RANDU use a technique called controlled overflow.
     Despite the major flaws in RANDU, it continued to be featured in textbooks well
@@ -1559,7 +1559,7 @@
     \section{Breaking RNGs}
 
     It can be argued that random number generators need to be as secure
-    as any other cryptologic primitive [34].
+    as any other cryptologic primitive [7].
     The security of RNGs needs to be thoroughly verified due to their
     various sensitive use cases.
     These use cases range from generating session keys, initialization vectors and
@@ -1589,10 +1589,10 @@
     generator being used in a wrong way.
 
     If a poorly designed RNG algorithm is used, there usually isn't anything that
-    can be done but switching to another, more secure, algorithm [34].
+    can be done but switching to another, more secure, algorithm [7].
 
     The basic idea behind attacking an RNG is to grain the ability to predict
-    or even control future RNG outputs [34].
+    or even control future RNG outputs [7].
 
     One type of attack is the "Direct Cryptanalytic Attack". This attack
     relies on the attack being able to know how an RNG was used to generate
@@ -1627,7 +1627,7 @@
     will start, this knowledge of the internal state will easily allow them
     to predict future outputs.
 
-    There are various types of state compromise attacks [34].
+    There are various types of state compromise attacks [7].
     The first of these variants is the backtracking attack. The purpose
     of the backtracking attack is to somehow recover an RNGs internal state
     and use that to guess previouly generated values.
@@ -1644,7 +1644,7 @@
     of an iterative guessing attack and a backtracking attack.
 
 
-    One RNG that is vulnerable to attack is X9.17 [34]. This RNG algorithm
+    One RNG that is vulnerable to attack is X9.17 [7]. This RNG algorithm
     is used to generate DES keys and initialization vectors.
     Its also been used as a general purpose RNG.
 
@@ -1681,7 +1681,7 @@
     This only requires them to search an eleven bit space of numbers.
 
     Another possible attack that can be mounted against X9.17 is the iterative guessing
-    attack [34]. Again, the vulnerability being exploited here is a lack of entropy
+    attack [7]. Again, the vulnerability being exploited here is a lack of entropy
     due to a reliance on the timestamp. Here, unlike with the key compromise attack,
     the adversary merely needs to see a function of the output rather than a raw output
     value.
@@ -1694,7 +1694,7 @@
     key.
 
 
-    There are several ways in the insecurity of weak RNGs can be overcome [34].
+    There are several ways in the insecurity of weak RNGs can be overcome [7].
     One fairly straighforward method of increasing the security of an RNG
     is to simply send the outputs through a hash function. By hashing the outputs,
     the attack will not be able to recover the initial outputs without the
@@ -1723,7 +1723,7 @@
     to ensure they are seeded with reliable sources of entropy.
 
     When it comes to designing new RNGs, there are several factors
-    that warrant consideration [34].
+    that warrant consideration [7].
 
     First, this new RNG needs to be built on a foundation
     of algorithms that are secure against cryptanalysis.
@@ -1840,7 +1840,7 @@ int main() {
     Another noteworthy attribute of this C operation is
     that no special effort has been made to select secure constants.
 
-    Donald Knuth offers a great amount of detail in his book [29] on
+    Donald Knuth offers a great amount of detail in his book [6] on
     how secure LCG constants can be found.
 
     \subsection{The FPGA Simulation}
@@ -2096,7 +2096,13 @@ endmodule
 
     \begin{enumerate}
 
-    \item Chandrasekaran, Shrutisagar, and Abbes Amira. "High performance FPGA implementation of the Mersenne Twister." 4th IEEE International Symposium on Electronic Design, Test and Applications (delta 2008). IEEE, 2008.
+    \item Kuon, Ian, Russell Tessier, and Jonathan Rose. FPGA architecture: Survey and challenges. Now Publishers Inc, 2008.
+    \item Zeidman, Bob. "Introduction to CPLD and FPGA Design." Embedded System Conference, San Fransisco. 2004.
+    \item Mueller, Rene, and Jens Teubner. "Fpga: What's in it for a database?." Proceedings of the 2009 ACM SIGMOD International Conference on Management of data. 2009.
+    \item Dooley, John F. History of cryptography and cryptanalysis: Codes, Ciphers, and their algorithms. Springer, 2018.
+    \item Park, Stephen K., and Keith W. Miller. "Random number generators: good ones are hard to find." Communications of the ACM 31.10 (1988): 1192-1201.
+    \item Knuth, D.E. The Art of Computer Programming. 3rd Ed. Addison- Wesley, Reading, Mass. 1981.
+    \item Kelsey, John, et al. "Cryptanalytic attacks on pseudorandom number generators." International workshop on fast software encryption. Springer, Berlin, Heidelberg, 1998.
 
     \end{enumerate}
     

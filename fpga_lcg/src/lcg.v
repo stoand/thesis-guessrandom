@@ -4,27 +4,29 @@ module lcg (
     output USBPU  // USB pull-up resistor
 );
 
-    // drive USB pull-up resistor to '0' to disable USB
-    assign USBPU = 0;
-
-    ////////
-    // make a simple blink circuit
-    ////////
-
-    // keep track of time and location in blink_pattern
-    reg [25:0] blink_counter;
-
-    // pattern that will be flashed over the LED over time
-    wire [31:0] blink_pattern = 32'b010101010101010101010101010;
+    // scans expected rng outputs
+    // the led will light up if a valid seed is found
+    
     
 
-    // increment the blink_counter every clock
+    lcg_guess lcg_guess0(
+        .CLK(CLK),
+        
+        .MODULUS(993441),
+        .MULTIPLIER(4001),
+        .INCREMENT(60211),
+        
+        .done(LED),
+        // .valid_seed(valid_seed),
+        
+        .expected_v0(444307),
+        .expected_v1(466569),
+        .expected_v2(127141),
+    );
+    
     always @(posedge CLK) begin
-        blink_counter = blink_counter + 1;
     end
-    
-    // light up the LED according to the pattern
-    assign LED = blink_pattern[blink_counter[25:21]];
+
 endmodule
 
 module lcg_guess(
@@ -78,7 +80,7 @@ module testbench(input CLK);
     
     reg [31:0] expected_valid_seed = 96;
     
-    lcg_guess lcg0(
+    lcg_guess lcg_guess0(
         .CLK(CLK),
         
         .MODULUS(993441),

@@ -1840,7 +1840,73 @@ int main() {
     Donald Knuth offers a great amount of detail in his book [29] on
     how secure LCG constants can be found.
 
-    
+    \subsection{The FPGA Simulation}
+
+    As recommended in a previous section, most of the development
+    of the Verilog code was done in a simulated environment.
+    This was especially important for this project because
+    the only way in which the developer could extract any data
+    from the FPGA was by checking a blinking light.
+
+    For a more involved computation, the FPGA could be configured to
+    send data over ethernet. This data could in turn then be read
+    using a progrma like Wireshark.
+
+    Though because most work was done in a simulation, this lack of detailed
+    outputs did not cause significant problems or slowdowns in the workflow.
+
+    Another aspect of the workflow that was somewhat primitive was a lack
+    of verification. The simulation merely consisted of assertions combined
+    with 120 interations.
+
+    The simlation itself was quite convenient for the development workflow
+    because it took less than two seconds.
+
+    Also, the Verilog code in general suffers from a lack of developer
+    experience in Verilog specifically, but also a lack of hardware design
+    experience.
+
+    \subsection{The Real FPGA Program}
+
+    When it came to programming an actual FPGA with this project,
+    there were a few issues that posed significant roadbloacks to development.
+
+    The most serious roadblock came in the form of the synthesis tools
+    limiting the clock speed of the overall design to a mere 2 - 5 Mhz.
+
+    Attempts to slow the system clock to this lower frequency were
+    met with significant roadblocks.
+    The Ice40 model of FPGAs comes with a logic element known as
+    a phase locked loop. These PLL allow an input clock to be converted
+    to a clock with a different frequency.
+
+    However the specific PLL used by the Ice40 FPGA does not allow clock speeds
+    under 16 Mhz to be generated.
+    This led to naive attempts to generate a lower clock speed using
+    generic Verilog operations.
+    These attempts simply did not work.
+
+    Luckily, beside reducing the clock speed on an FPGA, a slow design
+    can be sped up by removing functionality.
+    This approach ultimately made it possible to forgo all PLLs and
+    frequency modification methods.
+
+    One possible compromised that was considered was the radical step
+    of simply halving the size of all numeric values from 32 bits to 16
+    bits.
+
+    This alone was not enough however and the max allowed frequency was still
+    too low even after this change was made.
+    Another change that was made was to reduce the depth of random values
+    that would be scanned for each seed.
+    This, combined with the bit reduction method still proved not to be enough.
+
+    However, there was still a ray of hope, a compromize that could be made
+    to radically simplify the design.
+    This final method took some effort to find however. The reason
+    it wasn't obvious from the start, lies in the fact that
+    the Verilog language greatly obsures what the low level logic block
+    layout it.
 
     \section{Possible Improvements}
 

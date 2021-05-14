@@ -41,9 +41,12 @@ endmodule
 module testbench(input CLK);
     
     reg done;
+    
     reg [31:0] valid_seed;
     
     reg [31:0] counter = 0;
+    
+    reg [31:0] expected_valid_seed = 96;
     
     lcg_guess lcg0(
         .CLK(CLK),
@@ -52,8 +55,8 @@ module testbench(input CLK);
         .MULTIPLIER(4001),
         .INCREMENT(60211),
         
-        .valid_seed(valid_seed),
         .done(done),
+        .valid_seed(valid_seed),
         
         .expected_v0(444307),
         .expected_v1(466569),
@@ -62,9 +65,10 @@ module testbench(input CLK);
     
     always @(posedge CLK) begin
         
+        // 100 > 96 so we just scan deep enough
         if(counter == 100) begin
             assert (done == 1); 
-            assert (valid_seed == 96); 
+            assert (valid_seed == expected_valid_seed); 
         end
         
         counter = counter + 1;

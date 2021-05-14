@@ -1,5 +1,5 @@
 all:
-	gcc c_lcg.c -o c_lcg
+	gcc src/c_lcg.c -o c_lcg
 	./c_lcg
 
 watch:

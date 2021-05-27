@@ -1,6 +1,9 @@
 \documentclass{beamer}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{multicol}
+\graphicspath{{./images/}}
 
 \usetheme{Arguelles}
 
@@ -28,8 +31,15 @@
 
   \begin{frame}
     \frametitle{What are FPGAs?}
+
+
+    \begin{multicols}{2}
+
+    \includegraphics[scale=0.15,angle=-90]{tinyfpga-bx}
     
     \vfill
+    
+    \vspace*{\fill}
     
     \AlegreyaExtraBold FPGA \ttfamily stands for:
     \begin{enumerate}
@@ -39,9 +49,9 @@
       \item Array
     \end{enumerate}
     
-    \vfill
-    
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\par
+    \vspace*{\fill}
+
+    \end{multicols}
     
   \end{frame}
    

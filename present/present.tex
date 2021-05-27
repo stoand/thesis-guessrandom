@@ -13,19 +13,30 @@
 \begin{document}
 
   \frame[plain]{\titlepage}
-
-  \Section{Demo}
+  
 
   \begin{frame}
-    \frametitle{A frame with title and subtitle}
+    \frametitle{Abstract}
+    \framesubtitle{The purpose of this paper}
+
+    This paper combines two somewhat unrelated subjects, FPGAs and cryptanalysis.
+    It provides background on both of these subjects and then culminates
+    in an experiment that combines the two.
+  \end{frame}
+
+  \Section{FPGAs}
+
+  \begin{frame}
+    \frametitle{What are FPGAs?}
     \framesubtitle{The subtitle goes here}
     Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\par
     \vfill
-    Ordered list:
+    FPGA stands for:
     \begin{enumerate}
-      \item First item
-      \item Second item
-      \item Third item
+      \item Field
+      \item Programmable
+      \item Gate
+      \item Array
     \end{enumerate}
     \vfill
     Unordered list:
@@ -39,65 +50,13 @@
       \end{itemize}
     \end{itemize}
   \end{frame}
-
-  \Section{Awesome}
-  
-
-  \begin{frame}
-    \frametitle{A frame with title only}
-    \begin{theorem}
-      \[e^{i\pi}+1=0\]
-      \begin{proof}
-        \begin{equation*}
-          e^{iz}=\cos{z}+i\sin{z}
-        \end{equation*}
-        \center{therefore}
-        \begin{align*}
-          e^{i\pi}+1 & \null=\cos\pi+i\sin\pi+1 \\
-          & \null=-1+i\times0+1 \\
-          & \null=0
-        \end{align*}
-      \end{proof}
-    \end{theorem}
-  \end{frame}
-
-  \Section{Boss}
-  
-
-  \begin{frame}[plain]
-    \frametitle{A plain frame has no headline}
-    \begin{table}
-      \small
-      \begin{tabular}{rl}
-        \ttfamily\textbackslash Alegreya & \Alegreya Lorem ipsum dolor sit amet \\
-        \ttfamily\textbackslash AlegreyaExtraBold & \AlegreyaExtraBold Lorem ipsum dolor sit amet \\
-        \ttfamily\textbackslash AlegreyaBlack & \AlegreyaBlack Lorem ipsum dolor sit amet \\
-        \ttfamily\textbackslash AlegreyaMedium & \AlegreyaMedium Lorem ipsum dolor sit amet \\
-        \ttfamily\textbackslash AlegreyaSans & \AlegreyaSans Lorem ipsum dolor sit amet \\
-        \ttfamily\textbackslash AlegreyaSansThin & \AlegreyaSansThin Lorem ipsum dolor sit amet \\
-        \ttfamily\textbackslash AlegreyaSansLight & \AlegreyaSansLight Lorem ipsum dolor sit amet \\
-        \ttfamily\textbackslash AlegreyaSansMedium & \AlegreyaSansMedium Lorem ipsum dolor sit amet \\
-        \ttfamily\textbackslash AlegreyaSansExtraBold & \AlegreyaSansExtraBold Lorem ipsum dolor sit amet \\
-        \ttfamily\textbackslash AlegreyaSansBlack & \AlegreyaSansBlack Lorem ipsum dolor sit amet
-      \end{tabular}
-    \end{table}
-    \vfill
-    \begin{alert}{Alert!}
-      A plain frame will appear in the navigation bar unless it is the first frame or it is placed after \texttt{\textbackslash ThankYou}.
-    \end{alert}
-  \end{frame}
-
-  \begin{frame}[standout]
-    \Large
-    A \textbf{\itshape\scshape standout} frame can be used to focus attention
-  \end{frame}
-
+   
   \ThankYou
   \begin{frame}[plain,standout]
     In combination with \textit{plain},\par
     it makes a nice thank-you slide!
-    \vfill\scalebox{4}{\faGithub}\par\bigskip
-    \url{https://github.com/piazzai/arguelles}
+
+    \vfill{Generated using \textit{Beamer} and the \textit{Arguelles} Theme}
   \end{frame}
 
 \end{document}

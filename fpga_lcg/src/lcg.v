@@ -63,8 +63,10 @@ module lcg_guess(
         // scan_v0 = ((scan_seed * MULTIPLIER) + INCREMENT) % MODULUS;
         scan_v0 = ((scan_seed * MULTIPLIER) + INCREMENT) - MODULUS *
             ( ((scan_seed * MULTIPLIER) + INCREMENT) / MODULUS);
-        scan_v1 = ((scan_v0 * MULTIPLIER) + INCREMENT) % MODULUS;
-        scan_v2 = ((scan_v1 * MULTIPLIER) + INCREMENT) % MODULUS;
+        scan_v1 = ((scan_v0 * MULTIPLIER) + INCREMENT) - MODULUS *
+            ( ((scan_v0 * MULTIPLIER) + INCREMENT) / MODULUS);
+        scan_v2 = ((scan_v1 * MULTIPLIER) + INCREMENT) - MODULUS *
+            ( ((scan_v1 * MULTIPLIER) + INCREMENT) / MODULUS);
         
         if (expected_v0 == scan_v0 &&
             expected_v1 == scan_v1 &&

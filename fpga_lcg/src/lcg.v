@@ -61,9 +61,10 @@ module lcg_guess(
     always @(posedge CLK) begin
         // TODO - add the modulus back
         // scan_v0 = ((scan_seed * MULTIPLIER) + INCREMENT) % MODULUS;
-        scan_v0 = ((scan_seed * MULTIPLIER) + INCREMENT);
-        scan_v1 = ((scan_v0 * MULTIPLIER) + INCREMENT);
-        scan_v2 = ((scan_v1 * MULTIPLIER) + INCREMENT);
+        scan_v0 = ((scan_seed * MULTIPLIER) + INCREMENT) - MODULUS *
+            ( ((scan_seed * MULTIPLIER) + INCREMENT) / MODULUS);
+        scan_v1 = ((scan_v0 * MULTIPLIER) + INCREMENT) % MODULUS;
+        scan_v2 = ((scan_v1 * MULTIPLIER) + INCREMENT) % MODULUS;
         
         if (expected_v0 == scan_v0 &&
             expected_v1 == scan_v1 &&
@@ -99,11 +100,14 @@ module testbench(input CLK);
         .valid_seed(valid_seed),
         
         .expected_v0(444307),
-        .expected_v1(1777732518),
-        .expected_v2(242022553),
+        .expected_v1(466569),
+        .expected_v2(127141),
     );
     
     always @(posedge CLK) begin
+        // emulate modulus using division and multiplication
+        assert(9 - 22 * ( 9 / 22) == 9 % 22);
+        
         
         // 100 > 96 so we just scan deep enough
         if(counter == 100) begin

@@ -6,8 +6,8 @@ int INCREMENT = 60211; // c
 
 int gen_rand(int prev) {
     // TODO - add the modulus back
-    // return ((prev * MULTIPLIER) + INCREMENT) % MODULUS;
-    return ((prev * MULTIPLIER) + INCREMENT);
+    return ((prev * MULTIPLIER) + INCREMENT) % MODULUS;
+    // return ((prev * MULTIPLIER) + INCREMENT);
 }
 
 int main() {

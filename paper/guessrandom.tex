@@ -1931,6 +1931,19 @@ int main() {
     logic blocks available on the FPGA.
     Though this did not appear to be the case for the modulus operation.
 
+    Attempts were made to emulate the modulus operation using division
+    and multiplication. This modulus emulation worked correctly in the
+    simulations. Though it turned out to be even more expensive to
+    actually synthesize than a regular modulus.
+
+    \lstset{language=Verilog}
+
+    \begin{lstlisting}
+        scan_v0 = ((scan_seed * MULTIPLIER) + INCREMENT) - MODULUS *
+            ( ((scan_seed * MULTIPLIER) + INCREMENT) / MODULUS);
+    \end{lstlisting}   
+    
+
     Without the modulus operation, the FPGA could run this design at it's
     standart 16Mhz. That is, it would do 16 million iterations per second.
     With the design now working on a real FPGA, more attempts were made

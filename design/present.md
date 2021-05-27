@@ -21,3 +21,25 @@ The overall presentation must be concluded in 20 minutes, so please plan accordi
 Make sure to send to your committee members your report (in pdf please) a
 few days before your presentation (3-4 days).
 ```
+
+## Themes
+
+https://github.com/martinbjeldbak/ultimate-beamer-theme-list
+
+## Building the Beamer Latex Presentation
+
+```
+sudo apt install texlive-latex-recommended texlive-pictures texlive-latex-extra texlive-fonts-extra
+
+pdflatex present.tex
+
+# Or watch
+npm i -g nodemon
+nodemon -e tex -x 'pdflatex present.tex || echo'
+```
+
+```
+nodemon -e tex -x '(pdflatex present.tex || echo) && sleep 0.1 && cp present.pdf /mnt/c/Users/Andreas/Documents/ || echo'
+```
+
+then open `present.pdf`

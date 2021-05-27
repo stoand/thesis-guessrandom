@@ -39,7 +39,7 @@ nodemon -e tex -x 'pdflatex present.tex || echo'
 ```
 
 ```
-nodemon -e tex -x '(pdflatex present.tex || echo) && sleep 0.1 && cp present.pdf /mnt/c/Users/Andreas/Documents/ || echo'
+nodemon -e tex -x '(pdflatex present.tex || echo) && cp present.pdf /mnt/c/Users/Andreas/Documents/ || echo'
 ```
 
 then open `present.pdf`

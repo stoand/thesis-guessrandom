@@ -97,11 +97,11 @@
     power of FPGAs is expected to become indispensable for many more companies in the future.
 
     One concrete use case for FPGAs is database co-processing [3]. This is because
-    streaming databases are required to process data with a low latecy even under heavy
+    streaming databases are required to process data with a low latency even under heavy
     load. Ironically, this is one area that is similar to the "database-machine" style
     projects of the 70's. So perhaps FPGA designers will run into the same sort of
     problems that "database-machine" researchers encountered [3] all those years ago.
-    Undianiably though, there is a large room for improvement in this sector.
+    Undenyably though, there is a large room for improvement in this sector.
     One reason FPGAs are still somewhat niche is the fact that FPGA design is not
     very accessible to "mainstream" programmers. This is because "mainstream" programmers
     are familiar with the so-called Von Neumann architecture. The Von Neumann architecture
@@ -111,10 +111,10 @@
     There are several projects which aim to overcome the reduced ease of use of FPGAs
     for mainstream programmers. The "Kiwi" and "Liquid Metal" projects aim to do exactly
     this [3]. The goal is that FPGAs be used with general purpose languages.
-    However the general sentiment in the FPGA developer community seems to be that these
+    However, the general sentiment in the FPGA developer community seems to be that these
     projects that allow mainstream languages be used with FPGAs are not developed
     enough to be used for mission-critical applications.
-    It could be that at the most fundamental level FPGAs are incompatible with languages
+    It could be that, at the most fundamental level, FPGAs are incompatible with languages
     designed for Von Neumann runtimes.
     Another way in which mainstream appeal for FPGAs can be improved is by
     providing developers with out of the box IP that developers can setup on FPGAs to interface
@@ -127,13 +127,13 @@
     is that the FPGA may be able to do less computations overall due to this slower speed.
 
     Yet another noteworthy point of comparison between FPGAs and CPUs is their memory model.
-    CPUs with their Von Neumann architecture, generally have memory on a separate chip
+    CPUs with their Von Neumann architecture generally have memory on a separate chip
     than the CPU. Though even if memory is technically on the same die as the CPU, like in Apple's
     M1 architecture, CPUs will always suffer from what is called the "Von Neumann bottleneck".
-    Also termed the "memory wall" occurs because the entire CPU can only access one area
+    Also termed the "memory wall", this occurs because the entire CPU can only access one area
     of memory at once. One thing that mitigates this disadvantage is the ability to
     access a continous block on memory at once. This advantage does not exist if the memory
-    is non in a continous block however. Memory is significatly different in FPGAs though.
+    is not in a continous block however. Memory is significatly different in FPGAs though.
     FPGAs have flip-flop registers as well as block ram [3]. Spare lookup tables can
     also be reprogrammed at runtime and used as additional memory. So in general, FPGA memory
     boasts far superior locality compared to CPU memory. It therefore has much better

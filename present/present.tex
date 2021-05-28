@@ -248,13 +248,54 @@
 
     Cryptography has been used since ancient times. \\
     Julius Caesar used encryption to communicate with allies.
+    
+    \vfill
+
+    Crytographic and cryptanalytic machines became prominent in the 20th century.
+    
+    \vfill
+    
+    In WW2, the Enigma machine and the machines created to break it by Alan Turing
+    are some of the most well known examples.
+
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{Random Number Generators}
+
+    Generate a sequence of numbers that \textit{appear} to be random.
 
     \vfill
 
-    Crytographic and cryptanalytic machines became prominent in the 20th century. \\
-    In WW2, the Enigma machine and the machines created to break by Alan Turing its \\
-    are some of the most well known examples.
+    RNGs need to have several attributes to be secure and work well:
+    
+    \begin{enumerate}
+      \item Sufficient initital entropy
+      \item Long period
+      \item Even distribution of outputs
+    \end{enumerate}
+    
+  \end{frame}
+  
+  \begin{frame}
+    \frametitle{Linear Congruential Generators}
 
+    Early implentations suffered from serious problems:
+    \begin{enumerate}
+        \item Get stuck at one value
+        \item Short period
+        \item Lack of even distribution
+    \end{enumerate}
+
+    \vfill
+
+    Have three constant values that need to be tuned:
+    \begin{enumerate}
+        \item "m" - Modulus
+        \item "a" - Multiplier
+        \item "c" - Increment
+    \end{enumerate}
+    
   \end{frame}
 
    

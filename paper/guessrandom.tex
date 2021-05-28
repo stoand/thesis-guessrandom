@@ -481,16 +481,16 @@
 
     Also, a distinction needs to be made between mere error detection and full error correction.
     Since the user's design has full control over memory, the onus falls upon the user
-    to hanlde errors. This is less desireable than handling errors at the FPGAs system level.
+    to hanlde errors. This is less desirable than handling errors at the FPGAs system level.
     This is because handling errors at the system level would only need to be done once,
-    at the time of the FPGAs creation. These user level checks will add additional complexity
+    at the time of the FPGA's creation. These user level checks will add additional complexity
     to each and every design that uses an FPGA.
     Again, it is also up to the user to decide on the level of error correction depending
     on their application. Some applications might not cause serious consequences if
     soft errors do occur.
 
     There is another source of irregularities that can occur in FPGAs. The silicon etching
-    process produces products that exhibit a certain degree of variations.
+    process produces products that exhibit a certain degree of variation.
     Not all of these variations cause outright errors. Some of these variations simply
     cause decreased performance or increased power consumption. During manufacturing,
     as is done with CPUs, every FPGA needs to be individually tested.
@@ -507,17 +507,17 @@
 
     Another type of problem that affects FPGA functionality are manufactoring defects.
     These are different from the process variations mentioned above because an FGPA
-    with process various may still be able to works, whereas an FPGA with defects
-    may be totally unusable. In the chip manufacturing industry there is a concept of
+    with process variations may still be able to work, whereas an FPGA with defects
+    may be totally unusable. In the chip manufacturing industry there is the concept of
     "yield". Yield refers the the percentage of chips in a manufacturing run that
     are usable. Chips that are not part of the yield need to be discarded. These
     discarded, unusable chips need to be factored into manufacturing costs.
 
     Yet again, as CMOS processes improve and chips become smaller, complications arise.
-    Smaller, more complex CMOS processes generally result in manufacturing defects and therefor
-    significatly lower yields.
+    Smaller, more complex CMOS processes generally result in manufacturing defects and therefore
+    significantly lower yields.
 
-    A possible workaround for manufactoring defects, is to still use FPGAs that have manufacturing
+    A possible workaround for manufactoring defects is to still use FPGAs that have manufacturing
     defects and simply not to make use of defective areas.
     The downside of this workaround is that testing a large number of FPGA chips for compatability
     with a single design may not be economical.
@@ -569,7 +569,7 @@
     While some may view a formal specification as optional, a serious project
     will most likely suffer greatly if its creators forgo a real specification [2].
     Furthermore, in a team setting, a specification helps communicate to each team
-    member not only what their own role is but also how their section fits into the
+    member not only what their own role is, but also how their section fits into the
     larger project. The prevents multiple engineers from designing pieces that
     do not work together.
 
@@ -580,7 +580,7 @@
     how major components within the FPGA exist and are connected to one another.
 
     Another important piece of content is a description of what input and outputs
-    will connect the FPGA to the outsie world. Another important concept that
+    will connect the FPGA to the outside world. Another important concept that
     needs to be documented when it comes to I/O are timing estimates.
 
     The timing estimate for input pins covers setup and hold times.
@@ -590,15 +590,15 @@
 
     After the intial draft of a specification is complete, it becomes important
     to prevent the specification from growing stale by always keeping it updated.
-    Its simply not possible to know every aspect of the design beforehand so
-    its important that when the team decides to make changes that these changes
+    It's simply not possible to know every aspect of the design beforehand so
+    it's important that when the team decides to make changes, that these changes
     are also committed to the specification.
 
     Part of the work of drafting a specification deals with selecting what major components
     the design will have. Weighing the positives and negatives of various FPGA products
     is one of the major parts of this process. There are numerous factors that need to be
-    considered. These include the cost of the parts, their performance, their compatability
-    with each other, among other factor. Another dominant factor may be
+    considered. These include the cost of the parts, their performance, and their compatability
+    with each other, among other factors. Another dominant factor may be
     the level of experience members of the team have with different vendors and product lines.
 
     Another incredibly important step in the designing phase is selecting a design
@@ -616,10 +616,10 @@
     allow for what is called "synthesis" in which a software program is read
     and a low level logic gate design is generated from it.
 
-    While these languages may share some similarities with mainstrea programming languages
+    While these languages may share some similarities with mainstream programming languages
     like Java, such as a shared concept of a "for" loop, they are in fact quite different.
     For starters, these languages make a distiction between logic connections that
-    always exist, as well as synchronous changes that occur every clock cycle.
+    always exist, and synchronous changes that occur every clock cycle.
 
     Another large difference between HDLs and high level programming languages is that
     they are mostly built on the concept of wires and what connections occur between these
@@ -630,7 +630,7 @@
     these systems that prevents elegant abstractions from being created.
 
     After an HDL has been selected, the next step in the design process is to choose a
-    synthesis tool. The purpose of the synthesis tool is to generate a logic gate
+    synthesis tool. The purpose of the synthesis tool is to generate logic gates
     from an HDL. Various different synthesis tools exist, but one tool that
     is particularly notable is the tool that is included in the Icestorm project.
     The Icestorm project is notable because it is completely open source, something

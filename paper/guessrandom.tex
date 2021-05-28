@@ -38,7 +38,7 @@
     culminate in a simple project that shows how these can be used together.
     The hunger for parallel computation that cryptanalysis has is a
     natural match for the FPGA. One interesting aspect of this project is
-    that it combines two fields were experts in one field often will not
+    that it combines two fields where experts in one field often will not
     be experts in another. When it comes to attacking real world systems the technique
     used here is not really useful for that and is rather academic.
     Though if principles described here were to be used to handle more complex systems those
@@ -47,22 +47,22 @@
     \section{Introduction to FPGAs}
 
     The sophisticated FPGAs of today are the product numerous incremental improvements
-    over the years [2]. One such step in the evolution are Programmable Read Only Memories
+    over the years [2]. One such step in this evolution are Programmable Read Only Memories
     also known as PROMs. These proms were used to implement logic gates. There are also
-    different varieties of PROMs where some of them can only be programmed once and
-    others which could be reprogrammed multiple times. PROMs had a drawback in that
+    different varieties of PROMs. Some of them can only be programmed once and
+    others could be reprogrammed multiple times. PROMs had a drawback in that
     sequential logic could not be completely encapsulated within a PROM and would need
     to be added to a circuit as separate components. Another glaring drawback of PROMs was
     their lack of speed.
 
     Programmable Logic Arrays also known as PLAs made significat improvements over PROMs [2].
     Namely, PLAs were generally must faster that PROMs. They could also support a far
-    larger number of inputs. Though one drawback was that number of combinations of
+    larger number of inputs. Though one drawback was that the number of combinations of
     logic elements was slightly more constrained than that of of PROMs.
 
     Programmable Array Logic (not to be confused with Programmable Logic Arrays) were the next
-    step in the evolution that would culminate in the FPGAs of today [2]. Programmable Array Logic
-    also known as PALS added support for clock elements as well as flip flops. They
+    step in the evolution that would culminate in the FPGAs of today [2]. Programmable Array Logic,
+    also known as PALS, added support for clock elements as well as flip flops. They
     were much more sophisticated in their support for expressing sequential logic. Futhermore,
     they had the benefit of great performance.
 
@@ -72,25 +72,25 @@
     are still being produced. FPGAs as they are today have benefitted greatly
     from advances in CMOS design that were initially made with improving CPUs in mind.
     However, it was precisely because CPUs were becoming so efficient that custom hardware
-    lose a good amount of popularity [3]. It became easier for companies to simply using
+    lost a good amount of popularity [3]. It became easier for companies to simply use
     general purpose CPUs instead of investing in tailor-made hardware level designs.
     One example of such a use-case where general purpose CPUs won is databases [3].
-    This was in the late 70's and researchers were trying to create a "databse-machine".
+    This was in the late 70's and researchers were trying to create a "database-machine".
     It was specifically tailored to run database queries on low-level hardware.
 
     When it comes to the benefits of using FPGAs verses CPUs there are several factors to keep in mind.
     Image and signal processing are two applications where FPGAs shine [3].
     Partially this is because FPGAs can generally offer a greater level of determinism
-    that CPUs. In an FPGA latecy for some tasks can often not only be lower, but the latecy
+    than CPUs. In an FPGA, latecy for some tasks can often not only be lower, but the latecy
     and also be predictable. This is crucial for applications where real-time
     responsiveness is key. Another place where FPGAs shine is parallelism [3].
-    CPUs main unit of parallelism is their cores. FPGAs however, have a far more granular
+    CPU's main unit of parallelism is their cores. FPGAs however, have a far more granular
     unit of parallelism which is their logic blocks. This allows for orders of magnitude
     more potential parallelism over CPUs. These factors make FPGAs ideal candidates
-    for high-throughput low-latecy applications.
+    for high-throughput low-latency applications.
 
     When in comes to solving real-world problems, FPGAs are quickly moving out of niche,
-    highly-specialed projects and are becoming more common in commondity setups [3].
+    highly-specialized projects and are becoming more common in commodity setups [3].
     The main areas where FPGAs are gaining popularity are both in the networking sector
     as well as the graphics processing sector. One reason for this is that the amount
     of data generated in the world is growing rapidly. For this reason, the raw processing

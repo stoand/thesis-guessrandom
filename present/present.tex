@@ -337,14 +337,37 @@
 
     For the sake of comparison, an LCG was implemented in C
     to ensure the FPGA generated the correct values.    
+
+    \vfill
+
+    The make things easier for the proof of concept,
+    the LCG uses only 32 bit numbers instead of 64 bit ones.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{LCG Breaker in Verilog}
+
+    Iterates over all 4 billion possible seeds in a 32 bit space.
+
+    Runs at a clock speed of 16Mhz.
+
+    \vfill
+
+    Includes a testbench simulation which uses bounded model
+    checking to go over a fixed number of iterations (120 in this case).
+
+    \vfill
+
+    The real design runs on an FPGA and turns on an LED if
+    a solution is found.
+
+    
   \end{frame}
    
   \ThankYou
   \begin{frame}[plain,standout]
-    In combination with \textit{plain},\par
-    it makes a nice thank-you slide!
-
-    \vfill{Generated using \textit{Beamer} and the \textit{Arguelles} Theme}
+    \AlegreyaSansExtraBold Thank You
+    \AlegreyaSansLight \vfill{Generated using \textit{Beamer} and the \textit{Arguelles} Theme}
   \end{frame}
 
 \end{document}

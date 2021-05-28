@@ -261,29 +261,29 @@
     of greater area overhead.
 
     The final type of FPGA configuration systems that are common today are anti-fuses [1].
-    The most glaring difference between anti fuses and flash and SRAM is that the former
-    can only be programmed once. This of course makes it unsuitable for many FPGAs applications
+    The most glaring difference between anti-fuses and flash and SRAM is that the former
+    can only be programmed once. This of course makes it unsuitable for many FPGA applications
     like ASIC prototyping where multiple configuration runs are a neccesity.
     The name anti-fuse comes from the idea that the FPGA fabric consists of a number of fuses
     that can be selectively "blown". Though a more accurate description of this process
-    would be the idea a of connecting these "fuses". This connection occurs when high voltage
-    is sent through the "fuse". Most modern anti-fuses are mental-to-metal based.
+    would be the idea of connecting these "fuses". This connection occurs when high voltage
+    is sent through the "fuse". Most modern anti-fuses are metal-to-metal based.
 
-    While the fact that anti-fuses cannot be reprogrammed after the initial configuration,
+    While anti-fuses cannot be reprogrammed after the initial configuration,
     they do come with the benefit of greater area efficiency [1]. In metal-to-metal
-    anti-fuses this is because no silicon area is expended to allow configurable connectivity.
-    One thing that does consume a significant amount of area however is the need for
+    anti-fuses, this is because no silicon area is expended to allow configurable connectivity.
+    One thing that does consume a significant amount of area however, is the need for
     programming transistors.
 
     Another benefit of anti-fuses is the ability to include a greater number of switches
     because of lower on resistances and parasitic capacitence. Also,
-    another obvious benefit that is shared with flash base FPGAs is the ability to
+    another obvious benefit that is shared with flash based FPGAs is the ability to
     work instantly when powered on since the fabric cannot change once programmed.
 
     Yet another benefit shared with flash based systems is that the design
     of the FPGA is harder to reverse engineer because it is not stored anywhere except
     the logic configuration itself. The security of the FPGA also benefits from the
-    fact that because the FPGA can only be programmed once a malicious actor
+    fact that, because the FPGA can only be programmed once, a malicious actor
     cannot reprogram the FPGA if given access to the device.
 
     When it comes to the manufacturing process, however, anti fuse FPGAs cannot
@@ -294,19 +294,19 @@
     To summarize, all three of these memory systems have their own pros and cons and
     which memory system will be used needs to be considered in light of the application
     and its constraints and goals. SRAM (as well as the flash SRAM hybrid approach) can
-    be considered to be dominant howerver. This can be attributed to its compatibility
+    be considered to be dominant however. This can be attributed to its compatibility
     with the sophisticated CMOS manufacturing process.
     
     \subsection{Logic Blocks}
 
     The basic unit of computation and storage within an FPGA is known as a logic block [1].
-    The smallest a single logic block can be is to take the form of a single transistor.
+    The smallest a single logic block can be is when it takes the form of a single transistor.
     Though logic blocks can be far larger than that and even take the form of an entire
     CPU in theory. The size of a logic block, however, is something that needs to be carefully
     balanced for maxium efficiency to be achieved.
 
     If a logic block is too small for example, it will suffer from area inefficiency because
-    it will increase the need for programmable routing. Furthermore, performance, and
+    it will increase the need for programmable routing. Furthermore, performance and
     power consumption will also be negatively impacted.
 
     On the other extreme, logic blocks that encapsulate a large amount of logic may
@@ -321,11 +321,11 @@
 
     Logic blocks in modern FGPAs fall into two main categories: normal logic blocks,
     and blocks that perform specialized computations, like addition for example.
-    What specialized computations will be included need to be carefully considered
+    What specialized computations will be included needs to be carefully considered
     because unused specialized logic will inevitably lead to wasted area.
 
     Despite FPGAs being considered a completely general purpose device,
-    creators of the FPGAs will in practice need to consider what kind of designs
+    creators of FPGAs will in practice need to consider what kind of designs
     will run on a target FPGA [1].
 
     There is one main tradeoff that needs to be considered here:
@@ -363,9 +363,9 @@
 
     In contrast to LUTs, specific purpose logic is more efficient (if its being used) [1].
     Specific purpose logic is more efficient because internally, it
-    has all the benefits of an ASIC and non of the inefficiencies of programmable logic.
+    has all the benefits of an ASIC and none of the inefficiencies of programmable logic.
 
-    A downside of specific purpose logic is that it its not being used, its
+    A downside of specific purpose logic is that if it's not being used, it's
     a definite net negative on all fronts.
     
     \subsection{Routing}
@@ -388,19 +388,19 @@
     interconnect systems are designed to minimize skew. This means that the
     variation or noise added to the signal as it travels is minimized.
 
-    The main type of routing that designers need to keep in mind is the so called
+    The main type of routing that designers need to keep in mind is
     general purpose routing. This is different from the global interconnect routing
     mentioned previously.
     
     One type of general purpose routing is called global routing. Global routing
     considers the properties of a routing design on a higher level while not paying attention
-    to the details. general purpose routing mainly considers the locations of routing
+    to the details. General purpose routing mainly considers the locations of routing
     channels, the number of wires in a given channel, and how various channels communicate.
 
     In contrast to general purpose routing, detailed routing takes into consideration
     wire length, switch counts and how wires and logic block pins connect.
 
-    When it comes to the global architecture of an FPGAs routing there are two main styles.
+    When it comes to the global architecture of an FPGA's routing there are two main styles.
     The first global routing style is the hierarchical style. In this style,
     logic blocks are separated into groups. Logic blocks contained in the same group
     are connected by wire segments. Logic blocks in different groups are connected
@@ -416,7 +416,7 @@
     of the heirarchy can cause a significant delay. These are some of the reasons
     why modern FPGAs largely do not make use of the hierarchical routing system.
 
-    What modern FPGAs use now for routing is the so called island style of routing.
+    What modern FPGAs use for routing is the so called island style of routing.
     Island style routing arranges logic blocks in a two dimensional array and surrounds
     them with routing resources. One key decision that the designers of the FPGA itself
     need to consider here is the width of a channel.
@@ -456,7 +456,7 @@
     One system level mitigation periodically checks the state of configuration memory
     with its correct value. If an error is found, the FPGA will need to be reprogrammed.
     A "don't care" flag is set for resources that are not currently in use since
-    corruption in used resources will not affect the FPGAs functionality.
+    corruption in unused resources will not affect the FPGA's functionality.
     Another, far more expensive form of mitigation, is the so called triple modular
     redundancy. Effectively, the FPGA design is replicated three full times.
     The circuitry will then vote on what output values are correct.

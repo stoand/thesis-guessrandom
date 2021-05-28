@@ -305,7 +305,7 @@
     Ways of attacking RNGs:
     \begin{enumerate}
         \item Recovering the internal state through another channel
-        \item Brute force to recover seed and counter state
+        \item Guessing to recover seed and counter state
         \item "Backtracking" - obtaining previous states
     \end{enumerate}
     
@@ -323,6 +323,21 @@
     
   \end{frame}
 
+  \Section{Experiment}
+
+  \begin{frame}
+    \frametitle{Basic Idea}
+
+    Recover a random number generator's internal state
+    by using an FPGA to iterate through a large number of possible seeds.
+  \end{frame}
+
+  \begin{frame}
+    \frametitle{LCG implemented in C}
+
+    For the sake of comparison, an LCG was implemented in C
+    to ensure the FPGA generated the correct values.    
+  \end{frame}
    
   \ThankYou
   \begin{frame}[plain,standout]

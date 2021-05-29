@@ -651,8 +651,8 @@
     Simulations can even be useful to the initial developer of a component if they design
     something and come back to it weeks or months later.
     Another key role of simulation is to speed up the workflow. Since simulations
-    are running regular CPUs and not on FPGAs themselves, they allow for HDLs to
-    be recompiled far fasters. This is critical to the workflow, since depending on
+    are running on regular CPUs and not on FPGAs themselves, they allow for HDLs to
+    be recompiled far faster. This is critical to the workflow, since depending on
     the complexity of the design, spending minutes or even hours resynthesizing for
     every little change can seriously hamper developer productivity.
     Not only is simlation faster, it also allows developers to have complete knowledge
@@ -706,7 +706,7 @@
     However there really isn't a magic fix to eliminate all race conditions since
     they depend on a variety of complex, interwoven states.
 
-    Another serious problems that can arise in an FPGA design is hold time violations [2].
+    Another serious problem that can arise in an FPGA design is hold time violations [2].
     They are similar to race conditions in that they exist because of a timing problem.
     A hold time violation occurs if data changes at the exact same time as a clock edge.
     This means the resulting value is non-deterministic and can go either way.
@@ -722,16 +722,16 @@
     The fix occurs by correctly synchronizing an asynchronous signal to a given clock.
     However, there is no easy fix for metastability. Use of a synchronizer flip flop
     is a partial solution but there is still the danger of a very small chance
-    that the flip flop will not resume a valid logic level. The danger of this occuring
-    increases with high clock frequences. Some FPGA manufacturers include special
+    that the flip flop will not resume with a valid logic level. The danger of this occuring
+    increases with higher clock frequences. Some FPGA manufacturers include special
     synchronizer flip flops for exactly the purpose of mitigating this problem.
-    Another way to decrease the change a synchronizer flip flop will not work is
+    Another way to decrease the chance a synchronizer flip flop will not work is
     to simply include more of them.
 
     In general, asynchronous design is prone to a greater number of problems
     than synchronous design. This is because small, hard to debug timing errors
     can arise in asynchronous design.
-    In synchronous design the delay is controlled by flip flop that are attached
+    In synchronous design the delay is controlled by flip flops that are attached
     to a single clock.
     All of the problems discussed previously are because of asynchronous design
     and can be fixed by using a synchronous style.
@@ -753,9 +753,9 @@
 
     \subsection{Ancient Times}
 
-    On of the earliest recorded uses of cryptography starts with the ancient Greeks [4].
+    One of the earliest recorded uses of cryptography starts with the ancient Greeks [4].
     Polybius, a Greek historian, developed a monoalphabetic substitution cipher. It
-    was so influencial that the techniques it used influced cryptography two thousand
+    was so influencial that the techniques it used influenced cryptography two thousand
     years after its creation.
     When creating the cipher, Polybius' goal was initially not even to hide a message.
     He started with the intention of creating a system that could allow signal fires
@@ -764,30 +764,30 @@
     as necessary, though some inefficiencies could be expected given that this
     was one a very early variant.
 
-    A few hundred years after Polybius the Roman empire had risen to prominence.
+    A few hundred years after Polybius, the Roman empire had risen to prominence.
     The famous Julius Caesar himself actually was recorded as having used cryptography
     in his miliary campaigns in Gaul [4].
 
     Though this is not Caesars only use of cryptography during his lifetime.
-    The chipher he used here was fairly straightforward. It takes the letters A-Z
+    The cipher he used here was fairly straightforward. It takes the letters A-Z
     and randomly reorders them. This is the first time a monoalphabetic substitution
     cipher with a shifted alphabet was used.
     Caesar used this cipher to communicate confidentially with people loyal to him.
 
     After the decline of Rome, cryptography become less and less used in the western
     world for some time.
-    This decline also coincided with downtrend of literacy and general scholarly activity.
+    This decline also coincided with a downtrend of literacy and general scholarly activity.
 
     Though in the Arab world in the middle ages there is some recorded use of cryptography.
     For nearly a thousand years, the monoalphabetic substitution cipher was one
-    of the strongest ciphers known. Though in the Arab world a ciphe would be developed
+    of the strongest ciphers known. Though in the Arab world a cipher would be developed
     that finally improved upon the status quo.
 
-    During the ninth century AD, in a period also known as the Islamic Golden Age,
+    During the ninth century AD, in a period known as the Islamic Golden Age,
     there was a polymath scholar named Al-Kindi. Al-Kindi, being a polymath, was
     well versed in various scientific disciplines which included astronomy, philosophy
-    and medicine amoung other fields. He also authored a book intended for
-    secretaries in royal counts which showed how secret messages can be used.
+    and medicine among other fields. He also authored a book intended for
+    secretaries in royal courts which showed how secret messages can be used.
 
     \subsection{The Renaissance}
 
@@ -802,13 +802,13 @@
     One of his most significant scholarly achievements was the translation
     of various Arabic texts on science and mathematics.
     
-    He did not write a letter on cyprography but instead included various
+    He did not write a paper on cyprography but instead included various
     cryptographic techiques in a letter for William of Paris.
 
     Seven techniques were described by him in total.
    
     His philosophy about cryptography was that it was good for keeping secrets
-    from the ignorant or uneducated.
+    from those he deemed ignorant or uneducated.
 
     Around this time there was another user of cryptography who was arguably
     far more influencial. This influencial figure was none other than Geoffrey Chaucer.

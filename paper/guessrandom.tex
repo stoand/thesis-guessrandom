@@ -39,26 +39,26 @@
     The hunger for parallel computation that cryptanalysis has is a
     natural match for the FPGA. One interesting aspect of this project is
     that it combines two fields where experts in one field often will not
-    be experts in another. When it comes to attacking real world systems the technique
+    be experts in the other. When it comes to attacking real world systems the technique
     used here is not really useful for that and is rather academic.
-    Though if principles described here were to be used to handle more complex systems those
+    Though if the principles described here were to be used to handle more complex systems those
     could be significant in the world of computer security.
 
     \section{Introduction to FPGAs}
 
     The sophisticated FPGAs of today are the product numerous incremental improvements
     over the years [2]. One such step in this evolution are Programmable Read Only Memories
-    also known as PROMs. These proms were used to implement logic gates. There are also
+    also known as PROMs. These PROMs were used to implement logic gates. There are also
     different varieties of PROMs. Some of them can only be programmed once and
     others could be reprogrammed multiple times. PROMs had a drawback in that
     sequential logic could not be completely encapsulated within a PROM and would need
     to be added to a circuit as separate components. Another glaring drawback of PROMs was
     their lack of speed.
 
-    Programmable Logic Arrays also known as PLAs made significat improvements over PROMs [2].
-    Namely, PLAs were generally must faster that PROMs. They could also support a far
+    Programmable Logic Arrays, also known as PLAs, made significat improvements over PROMs [2].
+    Namely, PLAs were generally must faster than PROMs. They could also support a far
     larger number of inputs. Though one drawback was that the number of combinations of
-    logic elements was slightly more constrained than that of of PROMs.
+    logic elements was slightly more constrained than that of PROMs.
 
     Programmable Array Logic (not to be confused with Programmable Logic Arrays) were the next
     step in the evolution that would culminate in the FPGAs of today [2]. Programmable Array Logic,
@@ -75,7 +75,7 @@
     lost a good amount of popularity [3]. It became easier for companies to simply use
     general purpose CPUs instead of investing in tailor-made hardware level designs.
     One example of such a use-case where general purpose CPUs won is databases [3].
-    This was in the late 70's and researchers were trying to create a "database-machine".
+    This was in the late 70s and researchers were trying to create a "database-machine."
     It was specifically tailored to run database queries on low-level hardware.
 
     When it comes to the benefits of using FPGAs verses CPUs there are several factors to keep in mind.
@@ -91,7 +91,7 @@
 
     When in comes to solving real-world problems, FPGAs are quickly moving out of niche,
     highly-specialized projects and are becoming more common in commodity setups [3].
-    The main areas where FPGAs are gaining popularity are both in the networking sector
+    The main areas where FPGAs are gaining popularity are in the networking sector
     as well as the graphics processing sector. One reason for this is that the amount
     of data generated in the world is growing rapidly. For this reason, the raw processing
     power of FPGAs is expected to become indispensable for many more companies in the future.
@@ -99,7 +99,7 @@
     One concrete use case for FPGAs is database co-processing [3]. This is because
     streaming databases are required to process data with a low latency even under heavy
     load. Ironically, this is one area that is similar to the "database-machine" style
-    projects of the 70's. So perhaps FPGA designers will run into the same sort of
+    projects of the 70s. So perhaps FPGA designers will run into the same sort of
     problems that "database-machine" researchers encountered [3] all those years ago.
     Undenyably though, there is a large room for improvement in this sector.
     One reason FPGAs are still somewhat niche is the fact that FPGA design is not
@@ -112,7 +112,7 @@
     for mainstream programmers. The "Kiwi" and "Liquid Metal" projects aim to do exactly
     this [3]. The goal is that FPGAs be used with general purpose languages.
     However, the general sentiment in the FPGA developer community seems to be that these
-    projects that allow mainstream languages be used with FPGAs are not developed
+    projects that allow mainstream languages to be used with FPGAs are not developed
     enough to be used for mission-critical applications.
     It could be that, at the most fundamental level, FPGAs are incompatible with languages
     designed for Von Neumann runtimes.
@@ -143,7 +143,7 @@
     to implement a key value store with a constant lookup time.
 
     One thing modern CPUs have going for them when it comes to competing with FPGAs are
-    SIMD operations [3]. This allows for parallel operations that mimic those of FPGAs.
+    SIMD operations [3]. These allow for parallel operations that mimic those of FPGAs.
     This means an operation (like addition for example) can be performed on two fixed
     sized arrays of values.
 
@@ -178,7 +178,7 @@
     design workflow, it is even superior to proprietary tools in some ways. Icestorm
     does not suffer from the massive bloat and slowness of conventional FPGA tools.
     Not only are the tools included in Icestorm free from bloat, they can also be
-    a lot faster some times.
+    a lot faster sometimes.
 
     The downside of relying on the open source Icestorm project is that it largely depends
     on people investing their free time, and if these people lose interest in a particular
@@ -193,7 +193,7 @@
     and cost orders of magnitude less. ASICs can cost millions to produce but they do have
     their own benefits. FPGAs pay the price for their easy reconfigurability in area, delay,
     and power usage. ASICs are 20-35 times more compact than FPGAs and require 10 times less power.
-    This is because the FPGAs programmable routing circuitry causes overhead. Nevertheless,
+    This is because the FPGA's programmable routing circuitry causes overhead. Nevertheless,
     despite these downsides, FPGAs are far more viable for small to medium sized companies
     that can't spend millions on ASICs. ASICs cost millions because of three main factors.
     First, ASICs need expensive software in order for their circuits to be designed.
@@ -213,14 +213,14 @@
 
     When it comes to memory, modern FPGAs use either flash, static memory, or anti-fuses [1].
     SRAM, a type of static memory, is very common in modern FPGAs made by the manufacturers
-    Xilinx, Lattice and Altera. These SRAM cells perform two main roles in their FPGA's
+    Xilinx, Lattice and Intel/Altera. These SRAM cells perform two main roles in their FPGA's
     architectures. First, a majority of SRAM is used to configure interconnect signals.
     Most of the left over SRAM is used to persist information in lookup tables (also known as
     LUTs).
 
     \subsection{Memory Variants}
 
-    SRAM is used frequencly in modern FPGAs because it has a number of advantages [1]. SRAM
+    SRAM is used frequently in modern FPGAs because it has a number of advantages [1]. SRAM
     does not have a limit to how many times it can be reprogrammed. This is unlike the
     EPROM of early FPGAs which could only be reprogrammed once or a couple hundred times.
     Second, SRAM does not require any special electrical components and can be etched
@@ -235,7 +235,7 @@
     makes it far easier to competitors of a company to reverse engineer a design.
     To mitigate this risk encryption is used.
 
-    An alternative to SRAM is the so called floating gate technology [1]. This is used
+    An alternative to SRAM is floating gate technology [1]. This is used
     in flash or EEPROM which do not lose the data stored in them when power is lost.
     This flash based setup offers a number of benefits besides persistence.
     Persistence removes the need for a seperate storage mechanism. Persistence also
@@ -244,7 +244,7 @@
     Additionally, flash boasts greater area-efficiency compared to SRAM.
 
     One disadvantage brought by flash is that the floating gate requires that
-    charge injection needs to be prevented. Another more serious downside of flash
+    charge injection be prevented. Another more serious downside of flash
     is its limited lifespan because can only be reprogrammed a fixed number of times.
     This is in contrast to SRAM which can be reprogrammed a virtually infinite amount of times.
     Depending on the application, this can be a serious disadvantage or a non-issue.
@@ -253,7 +253,7 @@
     cycles can occur in a day. Another very serious issue with flash where SRAM
     is superior is in the production run. One previously mentioned benefit of SRAM
     is that it can be produced using standard CMOS techniques. This is not the case with
-    flash. Flash requires specialized components can cannot be created by etching
+    flash. Flash requires specialized components that cannot be created by etching
     silicon like with CMOS.
 
     In modern FPGAs there is a trend towards using a combination of flash storage and SRAM.
@@ -261,12 +261,12 @@
     of greater area overhead.
 
     The final type of FPGA configuration systems that are common today are anti-fuses [1].
-    The most glaring difference between anti-fuses and flash and SRAM is that the former
+    The most glaring difference between anti-fuses, flash and SRAM is that the former
     can only be programmed once. This of course makes it unsuitable for many FPGA applications
     like ASIC prototyping where multiple configuration runs are a neccesity.
     The name anti-fuse comes from the idea that the FPGA fabric consists of a number of fuses
     that can be selectively "blown". Though a more accurate description of this process
-    would be the idea of connecting these "fuses". This connection occurs when high voltage
+    would be the idea of connecting these "fuses". This connection occurs when a high voltage
     is sent through the "fuse". Most modern anti-fuses are metal-to-metal based.
 
     While anti-fuses cannot be reprogrammed after the initial configuration,
@@ -276,7 +276,7 @@
     programming transistors.
 
     Another benefit of anti-fuses is the ability to include a greater number of switches
-    because of lower on resistances and parasitic capacitence. Also,
+    because of lower on-resistances and parasitic capacitence. Also,
     another obvious benefit that is shared with flash based FPGAs is the ability to
     work instantly when powered on since the fabric cannot change once programmed.
 
@@ -286,9 +286,9 @@
     fact that, because the FPGA can only be programmed once, a malicious actor
     cannot reprogram the FPGA if given access to the device.
 
-    When it comes to the manufacturing process, however, anti fuse FPGAs cannot
+    When it comes to the manufacturing process, however, anti-fuse FPGAs cannot
     benefit from using a CMOS silicon etching process [1]. Even worse,
-    the fabrication process of anti fuse FPGAs is beginning to run into scaling problems
+    the fabrication process of anti-fuse FPGAs is beginning to run into scaling problems
     and is generally lagging behind the sophistication of modern CMOS.
 
     To summarize, all three of these memory systems have their own pros and cons and
@@ -303,7 +303,7 @@
     The smallest a single logic block can be is when it takes the form of a single transistor.
     Though logic blocks can be far larger than that and even take the form of an entire
     CPU in theory. The size of a logic block, however, is something that needs to be carefully
-    balanced for maxium efficiency to be achieved.
+    balanced in order for maximum efficiency to be achieved.
 
     If a logic block is too small for example, it will suffer from area inefficiency because
     it will increase the need for programmable routing. Furthermore, performance and
@@ -315,11 +315,11 @@
     a standard ASIC.
 
     Selecting logic blocks according to their size and functionality is a key consideration
-    that FPGA creators (as in people creating the FGPA itself, not a design for it) need
+    that FPGA creators (as in people creating the FPGA itself, not a design for it) need
     to consider. There are three main factors that need to be considered when selecting logic
     block type and instance count: these are area, speed and power.
 
-    Logic blocks in modern FGPAs fall into two main categories: normal logic blocks,
+    Logic blocks in modern FPGAs fall into two main categories: normal logic blocks,
     and blocks that perform specialized computations, like addition for example.
     What specialized computations will be included needs to be carefully considered
     because unused specialized logic will inevitably lead to wasted area.
@@ -330,7 +330,7 @@
 
     There is one main tradeoff that needs to be considered here:
     how much functionality is encapsulated into every logic block and how many
-    logic blocks total are needed.
+    logic blocks in total are needed.
     Increasing the functionality in a single logic block reduces to total
     number of logic blocks needed (up to a diminishing point that is).
     Though as the logic block size increases, the number of wires connecting
@@ -342,10 +342,10 @@
     This involves grouping basic logic components together and connecting
     them with a local interconnect.
     This approach is used instead of increasing LUT size.
-    The benefit is that the needed routing only grows quadradically instead
+    The benefit is that the needed routing only grows quadratically instead
     of exponentially.
 
-    To consider how logic block size affects speed several factors need to be considered.
+    To consider how logic block size affects speed, several factors need to be considered.
     As stated before, increasing the size of logic blocks decreases the number of them
     that need to be used. Fewer logic blocks being used means that less routing
     logic needs to be employed. This in turn means greater performance
@@ -386,7 +386,7 @@
     in the FPGA. [1] These include clocks and resets. These kinds of signals get
     special treatment in the form of a dedicated interconnect system. These
     interconnect systems are designed to minimize skew. This means that the
-    variation or noise added to the signal as it travels is minimized.
+    variation, noise added to the signal as it travels, is minimized.
 
     The main type of routing that designers need to keep in mind is
     general purpose routing. This is different from the global interconnect routing
@@ -413,7 +413,7 @@
     certain types of designs.
     However, if there is a mismatch between the length of a design's wires and the
     heirarchical distribution, problems may arise. Furthermore, moving between levels
-    of the heirarchy can cause a significant delay. These are some of the reasons
+    of the hierarchy can cause a significant delay. These are some of the reasons
     why modern FPGAs largely do not make use of the hierarchical routing system.
 
     What modern FPGAs use for routing is the so called island style of routing.

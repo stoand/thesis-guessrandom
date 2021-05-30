@@ -469,7 +469,7 @@
     the flip flops used here are actually not as vulnerable to corruption as SRAM.
     This is because SRAM is far smaller in size than flip flops. Neverthess,
     like in enterprise grade RAM, error correction can also be used here.
-    It should be noted howeve, that the error correction itself is not perfect. Some
+    It should be noted however, that the error correction itself is not perfect. Some
     errors will still evade detection.
 
     Adding such error correction comes with a cost. This is because additional data will
@@ -505,7 +505,7 @@
     mean that the clock speed of the entire FPGA needs to be reduced. For
     a 22nm process, this variation in performance can be as much as 22.4\% [1].
 
-    Another type of problem that affects FPGA functionality are manufactoring defects.
+    Another type of problem that affects FPGA functionality are manufacturing defects.
     These are different from the process variations mentioned above because an FGPA
     with process variations may still be able to work, whereas an FPGA with defects
     may be totally unusable. In the chip manufacturing industry there is the concept of
@@ -538,9 +538,9 @@
     This detailed map adds significant complexity to the design workflow and tooling.
 
     Coarse grained redundancy also has the benefit of being able to handle defects in
-    routing as well logic. This is in constrast to fine grained redundancy which
+    routing as well as logic. This is in constrast to fine grained redundancy which
     cannot deal with logic block errors. Though the fine grained approach is better
-    and handling interconnect errors.
+    at handling interconnect errors.
 
     
     \subsection{FPGA Architecture Conclusion}
@@ -557,7 +557,7 @@
     The design flow deals with the steps needed to eventually program an FPGA
     to solve a certain problem [2]. The design flow of FPGAs is actually quite
     similar to the design flow used for CLPDs and ASICs.
-    In the previous section the creation of the actual FPGA itself was discussed,
+    In the previous section, the creation of the actual FPGA itself was discussed,
     as well as programming the FPGA. This seciton will only cover the programming
     part as well as the steps leading up to it.
     The main distinction between creating an FPGA and programming for it is that
@@ -574,13 +574,13 @@
     do not work together.
 
     A specification covers a number of different implementation details.
-    One very useful tool to have in a specification is block diagrams [2].
-    These block diagrams can both show how a design fits into a larger system,
+    One very useful tool to have in a specification are block diagrams [2].
+    These block diagrams can both show how a design fits into a larger system
     as well as the internal design of the FPGA. An internal block diagram shows
-    how major components within the FPGA exist and are connected to one another.
+    how major components within the FPGA exist and are connected to each other.
 
     Another important piece of content is a description of what input and outputs
-    will connect the FPGA to the outside world. Another important concept that
+    will connect the FPGA to the outside world. One more concept that
     needs to be documented when it comes to I/O are timing estimates.
 
     The timing estimate for input pins covers setup and hold times.
@@ -625,7 +625,7 @@
     they are mostly built on the concept of wires and what connections occur between these
     wires. There have been some experimental research projects like "Kiwi" [1] that
     attempted to allow compilation from standard high level languages like C to HDLs.
-    These however, have not gained mainstream traction in industry as well as for any serious
+    These however, have not gained mainstream traction in the industry as well as for any serious
     projects in general. It seems there is just too much of a mismatch between
     these systems that prevents elegant abstractions from being created.
 
@@ -633,7 +633,7 @@
     synthesis tool. The purpose of the synthesis tool is to generate logic gates
     from an HDL. Various different synthesis tools exist, but one tool that
     is particularly notable is the tool that is included in the Icestorm project.
-    The Icestorm project is notable because it is completely open source, something
+    The Icestorm project is significant because it is completely open source, something
     which is quite rare in the hardware design industry in general.
 
     Following the selection of a synthesis tool, the next step in the process
@@ -642,7 +642,7 @@
     \subsection{Simulation and Testing}
 
     While chip design is ongoing, it is important to be also meanwhile running simulations.
-    Even smaller components should be tested using simulation. A lack of simulations
+    Even smaller components should be tested using simulation. A lack of simulation
     can become a serious issue due to the rise of bugs that can be hard to trace if
     the design becomes a huge black box. Another great benefit of simulation is that
     in addition to getting a design running correctly, simulations are very useful
@@ -693,11 +693,11 @@
 
     \subsection{Potential Design Problems}
 
-    One serious design problem that may occur is race conditions [2].
+    One serious design problem that may occur are race conditions [2].
     A race condition can occur if two signals which affect a given output
     can be triggered in a non deterministic order. Race conditions are dangerous
     because they depend on miniscule delays caused by variations in interal timing.
-    Even a tiny change in voltage or temperatue can cause a change in the output.
+    Even a tiny change in voltage or temperature can cause a change in the output.
 
     This can become a very serous problem because chips that were working perfectly
     may suddenly exhibit erroneous output after weeks, months, or even years of
@@ -706,7 +706,7 @@
     However there really isn't a magic fix to eliminate all race conditions since
     they depend on a variety of complex, interwoven states.
 
-    Another serious problem that can arise in an FPGA design is hold time violations [2].
+    Another serious problem that can arise in an FPGA design are hold time violations [2].
     They are similar to race conditions in that they exist because of a timing problem.
     A hold time violation occurs if data changes at the exact same time as a clock edge.
     This means the resulting value is non-deterministic and can go either way.
@@ -714,7 +714,7 @@
     Yet another design problem caused by inconsistent timing is glitches. These occur
     when an output goes high for a very short amount of time. Unlike race conditions
     and hold time violations, eliminating glitches is more straighforward.
-    To eliminate a glitch an output can be synchronized by sending it through a flip flop.
+    To eliminate a glitch, an output can be synchronized by sending it through a flip flop.
 
     "Metastability" is another design problem. Metastability occurs when a asynchronous
     signal is fed into a synchronous flip flop. In essence, the problem occurs because
@@ -784,14 +784,14 @@
     that finally improved upon the status quo.
 
     During the ninth century AD, in a period known as the Islamic Golden Age,
-    there was a polymath scholar named Al-Kindi. Al-Kindi, being a polymath, was
+    there was a polymath scholar named Al-Kindi. Al-Kindi was
     well versed in various scientific disciplines which included astronomy, philosophy
     and medicine among other fields. He also authored a book intended for
     secretaries in royal courts which showed how secret messages can be used.
 
     \subsection{The Renaissance}
 
-    As stated before, after the Romans, there was a significant decline in
+    As stated before, after the Romans there was a significant decline in
     virtually all fields of scholarship in the western world, specifically Europe.
 
     This changed with the start of the Renaissance in the 13th century.
@@ -803,7 +803,7 @@
     of various Arabic texts on science and mathematics.
     
     He did not write a paper on cyprography but instead included various
-    cryptographic techiques in a letter for William of Paris.
+    cryptographic techiques in a letter to William of Paris.
 
     Seven techniques were described by him in total.
    
@@ -811,18 +811,18 @@
     from those he deemed ignorant or uneducated.
 
     Around this time there was another user of cryptography who was arguably
-    far more influencial. This influencial figure was none other than Geoffrey Chaucer.
+    far more influencial. This prominent figure was none other than Geoffrey Chaucer.
     Chaucer was a poet who also dabbled in astronomy. He makes use of encryption
     in one of his astronomical books in sections where the usage of some atronomical tools
-    are described.
+    is described.
     The cipher Chaucer used was the monoalphabetic substitution cipher which was hundreds
     of years old by this point.
+
+    \subsection{Cryptanalysis}
 
     So far, all the people described here where only mentioned working with cyprography.
     That is, they only dealt with the protection of a secret. In this section, the development
     of cryptanalysis which deals with ways of breaking cryptography, will be explored.
-
-    \subsection{Cryptanalysis}
 
     One of the first cryptanalytic tools that was created was frequency analysis.
     Frequency analysis allowed ciphers to be broken by examining the frequency of
@@ -899,7 +899,7 @@
     growing in popularity, the arms race
     between code authors and code breakers continued.
 
-    Cryptoanalysis had begun to gain an upper hand over cryptography,
+    Cryptanalysis had begun to gain an upper hand over cryptography,
     meaning that it became harder and harder to make unbreakable
     encryption.
     This created a need for stronger cryptography.
@@ -985,7 +985,7 @@
     a book with dozens of pages.
 
     When it comes to comparing cipher complexity used by both sides, the Union used
-    just one somewhat simple cipher. This is in contrast to the confederates who
+    just one somewhat simple cipher. This is in contrast to the Confederates who
     used two completely different ciphers. On of these ciphers was the
     Vigenere cipher. The Vigenere cipher was supposed to be very secure.
     Though somehow the Union was able to break many messages that made use of this cipher.
@@ -1076,7 +1076,7 @@
     were built up from scratch at the start of every conflict and dispanded soon after.
     This changed with the creation of permanent intelligence agencies during this period.
     Not only were intelligence agencies permanent, their percieved importance by goverments
-    grew. With this increase in percieved importance the amount of resources made available
+    grew. With this increase in perceived importance the amount of resources made available
     to them grew as well.
 
     One such agency was "Room 40". Room 40 was created by the British and at the beginning
@@ -1109,13 +1109,13 @@
     knowledge with their allies. The French for example, shared all of their
     information with the British despite Room 40 not sharing anything with them.
 
-    Arguable, Room 40's greatest achievement during the first world war was when
+    Arguably, Room 40's greatest achievement during the first world war was when
     it decrypted a message about the Germans increasing submarine warfare.
     Room 40 also decrypted a German message that promised Mexico territory
     in the United States in exchange for their help. This message was significant
     because it would be important in America's decision to go to war.
 
-    When it came to America's cryptological offices, it was quite far behind.
+    When it came to America's cryptological offices it was quite far behind.
     Whereas the Europeans had had their Black Chambers for hundreds of years by now,
     by the start of the twentieth century the Americans had no offical office
     for cryptography. The cryptographic organizaitons that America had been using
@@ -1123,10 +1123,10 @@
 
     This finally changed with the creation of the American "Army Signal School" in 1911.
     Notable figures that worked here included Joseph Mauborgne and Parker Hitt.
-    In 1916, Hitt published the "Manual for the Solution of Military Ciphers".
+    In 1916, Hitt published the "Manual for the Solution of Military Ciphers."
     This manual detailed various kinds of ciphers as well as cryptanalytic techniques
     that could be used in breaking them. Despite being somewhat outdated compared
-    to techniques used in Europe, this book remained the go to handbook for American
+    to techniques used in Europe, this book remained the go-to handbook for American
     army cryptologists for a number of decades.
 
     When America joined the first world war, the American army had only a handful of
@@ -1147,7 +1147,7 @@
     Again however, the British only shared very little with their American allies and did
     not even let Yardley visit Room 40.
     On his visit to France however, Yardley met with many French cryptanalysts.
-    Though even the French did not share the diplomatic codes and ciphers they had recovered.
+    Though the French did not share the diplomatic codes and ciphers they had recovered.
     By the end of the war, Yardley was part of the American delegation at
     the Versailles Peace Conference. MI-8 however, was already being scaled back
     in preparation for peace.
@@ -1155,7 +1155,7 @@
     Another major American intelligence unit during the war was the A.E.F. which
     operated in France. This unit was more geared towards tactical codes and ciphers.
     The American army in France had two main cryptologic branches.
-    There was Military Intelligence and the Army Signal Corps.
+    There were the Military Intelligence and the Army Signal Corps.
     Military Intelligence also had a Radio Intelligence section. Radio Intelligence
     was not only focused on code and cipher cryptanalysis, but also did traffic
     analysis and telephone interception. Futhermore, it also kept an eye on American
@@ -1198,7 +1198,7 @@
     Another nice feature the code had was the use of a font that was easy to read.
 
     The American 2nd Army recieved its own variation of the code dubbed the "Lake" series.
-    This system proved to be every effective throughout the war.
+    This system proved to be very effective throughout the war.
     Despite codebooks being captured by the Germans on three occasions,
     security was maintained due to new codes being issued within days.
 
@@ -1267,7 +1267,7 @@
 
 
     The first world war saw many advances in cryptography and cryptanalysis.
-    One of the main lessons of the war was that the sheer volumn of
+    One of the main lessons of the war was that the sheer volume of
     messages as well as the risk of human error made manual encryption and
     decryption unreliable. These flaws could be overcome with the
     introduction of specialized cryptographic machines.
@@ -1308,7 +1308,7 @@
     to break them.
     These early attempts at breaking the Enigma machine were met with failure.
     It was arguably the Poles however that had the greatest need to break the Enigma
-    machine. They invested the most resources in breaking the Enigma machine
+    machine. They initially invested the most resources in breaking the Enigma machine
     because they knew that in the event of war, they would be among the first the Germans
     would attack. Poland had been part of the Prussian empire so the Germans
     were expected to want this territory back.
@@ -1329,14 +1329,14 @@
     Then in 1938 the Germans made a large change in how the Enigma machine operated
     that made the techniques developed by the Poles so far useless.
     They accomplished this first by changing the indicator settings and later
-    by adding two more rotors. These, among other improvement the Germans made,
+    by adding two more rotors. These, among other improvements the Germans made,
     made the Enigma ciphers orders of magnitude harder to break.
     The Polish simply did not have the resources to overcome these new
     difficulties so they passed the knowledge they had gained so far to
     their allies.
     The Enigma machines were so sophisticated that attempting to break their
-    encryption by hand would be impossible and the Allies would need to build specialized
-    machines to break the encryption.
+    encryption by hand would be impossible. The Allies would need to build specialized
+    machines to break this encryption.
 
     Arguably the most notable figure in the story of the Enigma machines
     is Alan Turing. He graduated from Cambridge with first class honors in
@@ -1348,11 +1348,10 @@
     machine. This theoretical machine would later be known as the Turing Machine.
 
     In 1939, after German modifications to their Enigma machines thwarted
-    Polish cryptanalytic techniques, the British began looking
-    for other cryptanalytic techniques.
-    In general, Turings approach for breaking the Enigma ciphers was
+    Polish efforts, the British began looking for other cryptanalytic techniques.
+    In general, Turing's approach for breaking the Enigma ciphers was
     to rule out as many impossible answers as possible.
-    To this end he built a machine which he called "bombe".
+    To this end he built a machine which he called "Bombe."
     After some improvements and by using a large number of these "bombe" machines,
     the British were able to break the Enigma's daily keys in mere hours.
 

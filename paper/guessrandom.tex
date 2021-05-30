@@ -1375,7 +1375,7 @@
     When it comes to the actual meaning of randomness, a number of its own cannot be random.
     Instead we have a sequence of random numbers that follow a given distribution.
     This means that there should be no observable pattern between the numbers.
-    The concept of uniformity that all numbers are equally likely to show up, without
+    The concept of uniformity means that all numbers are equally likely to show up, without
     any favoritism making some numbers more common.
     
     In a truly random number generator, what numbers were generated in the past
@@ -1391,10 +1391,10 @@
     the gambler's fallacy would assume that there is a very high probability
     of the next result being tails. This is of course completely false in
     a truly random system.
-    However in some cases it becomes desireable to have a pseudo random number system
+    However in some cases it becomes desirable to have a pseudo random number system
     that exhibits this property.
 
-    Why? Because sequences of a few items that skew greatly towards one average
+    This is because sequences of a few items that skew greatly towards one average
     are less likely to appear.
     The final result of this is that the random number generator could be considered
     to be more "fair".
@@ -1428,9 +1428,9 @@
     was that they could seriously malfunction in ways that were very difficult to
     detect.
     The practice of distributing lists of random numbers became popular again
-    in the 90's were a billion random numbers could be stored on a CD.
+    in the 90s where a billion random numbers could be stored on a CD.
 
-    In 1946, von Neumann came up with an algorithm for generating random
+    In 1946, Von Neumann came up with an algorithm for generating random
     numbers completely using arithmetic operations on a computer.
     Of course, such a sequence that was generated deterministicly through
     arithmetic operations could be argued to not actually be random.
@@ -1485,7 +1485,7 @@
     initial state again.
 
     If a person is asked to generate random numbers manually and write them down,
-    the result won't actually be ranom numbers of very good quality.
+    the result won't actually be random numbers of very good quality.
     It's just part of human nature to want certain patterns.
 
     On the fip side, if a person is asked to give their opinion on
@@ -1517,13 +1517,13 @@
 
     This actually makes it one of the best of all RNG tests if not the best.
     The spectral test is a fusion between empirical and theoretical testing.
-    Its theoretical portion deals with the properties of sequence.
-    While its empirical aspect comes from computationally examining results.
+    Its theoretical portion deals with the properties of sequences,
+    while its empirical aspect comes from computationally examining results.
 
     \subsection{Inadequate RNGs}
 
     There were many implementations of LCGs, both multiplicative and
-    mixed linear congruential generators that suffered from serious problems [5].
+    mixed linear congruential generators, that suffered from serious problems [5].
 
     One of the most well known broken generators was "RANDU". RANDU in turn
     inspired many other RNGs that were also seriously flawed.
@@ -1541,16 +1541,16 @@
     The random output here was so bad that some companies who used the RNG even
     took multiple outputs from it and manually randomized those again.
 
-    In 80's there were a number implementations like the one proposed by Maryanski as well
+    In 80s there were a number implementations like the one proposed by Maryanski as well
     as the one used by the Modula-2 system that were seriously broken.
-    The main problem was that their period was incredibly short, being ony thousands
-    of values long. In one LISP text there was an RNG with a period of only 125.
+    The main problem was that their periods where incredibly short, being ony thousands
+    of values long. In one LISP textbook there was an RNG with a period of only 125.
 
     In the 60s mixed linear congruential generators were expected to be possibly
     superior to multiplicative linear congruential generators like RANDU.
     This did not turn out to be true however and these days experts are against the
     use of most mixed generators.
-    They still remained quite popular in academia for some time however and were
+    They still remained quite popular in academia for some time, however, and were
     featured in a number of textbooks.
     
     \section{Breaking RNGs}
@@ -1559,7 +1559,7 @@
     as any other cryptologic primitive [7].
     The security of RNGs needs to be thoroughly verified due to their
     various sensitive use cases.
-    These use cases range from generating session keys, initialization vectors and
+    These use cases range from generating session keys and initialization vectors and
     also generating random salts to hash passwords.
     Other applications include generating parameters for digital signatures
     as well as nonces for secure communication protocols.
@@ -1568,7 +1568,7 @@
     of entropy like thermal noise or Geiger counter clicks.
     Instead, random values are created by pseudo random number generators.
 
-    What a PRNG does is collect a small amount of randomness from a input stream
+    What a PRNG does is collect a small amount of entropy from a input stream
     and then use that randomness to generate a sequence of random values that
     have no surface level relationship to each other.
 
@@ -1586,7 +1586,7 @@
     generator being used in a wrong way.
 
     If a poorly designed RNG algorithm is used, there usually isn't anything that
-    can be done but switching to another, more secure, algorithm [7].
+    can be done but switch to another more secure algorithm [7].
 
     The basic idea behind attacking an RNG is to gain the ability to predict
     or even control future RNG outputs [7].
@@ -1658,7 +1658,7 @@
 
     One variant of attacks that does work is the state compromise extension attack.
     This type of attack works if an attacker can somehow get ahold of the X9.17
-    triple-DES key. If this key is found by the attack they will be able
+    triple-DES key. If this key is found by the attacker they will be able
     to recover the internal state of the X9.17 RNG.
 
     This kind of attack is possible due to several flaws present in the RNG algorithm.
@@ -1747,10 +1747,10 @@
 
     One aspect of RNG design is performance. When it comes to building faster RNGs
     there may arise the need for designing completely novel algorithms.
-    This is not small feat because most RNGs today are built on proven cryptographic
+    This is not a small feat because most RNGs today are built on proven cryptographic
     primitives.
 
-    New RNGs could also benefit from the use of the reliability of theoretical proves
+    New RNGs could also benefit from the use of the reliability of theoretical proofs
     about their properties.
 
     In conclusion, there are a number of different factors that need to be considered
@@ -1771,7 +1771,7 @@
     can be used in the cryptanalysis of a toy, vulnerable on purpose,
     LCG random number generation algorithm variant.
 
-    The FPGA used for this experiment belongs to the Lattice Ice40 family of FPGA's.
+    The FPGA used for this experiment belongs to the Lattice Ice40 family of FPGAs.
     The board that houses this FPGA is the TinyFPGA BX board.
 
     This toy random number generator has the following purposeful vulnerability:
@@ -1830,15 +1830,12 @@ int main() {
     This algorithm is actually not even a real LCG though it can
     be trivially converted to be one.
 
-    The reason a full fledges LCG was not used was due
+    The reason a full fledged LCG was not used was due
     to the issues the modulus operation caused for the non-simulated,
     real world FPGA program.
 
     Another noteworthy attribute of this C operation is
     that no special effort has been made to select secure constants.
-
-    Donald Knuth offers a great amount of detail in his book [6] on
-    how secure LCG constants can be found.
 
     \subsection{The FPGA Simulation}
 
@@ -1868,10 +1865,6 @@ int main() {
     The simlation itself was quite convenient for the development workflow
     because it took less than two seconds.
 
-    Also, the Verilog code in general suffers from a lack of developer
-    experience in Verilog specifically, but also a lack of hardware design
-    experience.
-
     \subsection{The Real FPGA Program}
 
     When it came to programming an actual FPGA with this project,
@@ -1888,11 +1881,10 @@ int main() {
 
     However the specific PLL used by the Ice40 FPGA does not allow clock speeds
     under 16 Mhz to be generated.
-    This led to naive attempts to generate a lower clock speed using
-    generic Verilog operations.
+    This led to attempts to generate a lower clock speed using generic Verilog operations.
     These attempts simply did not work.
 
-    Luckily, beside reducing the clock speed on an FPGA, a slow design
+    Luckily, instead of reducing the clock speed on an FPGA, a slow design
     can be sped up by removing functionality.
     This approach ultimately made it possible to forgo all PLLs and
     frequency modification methods.
@@ -1914,7 +1906,7 @@ int main() {
     the Verilog language greatly obsures what the low level logic block
     layout is.
     Some operations are simply far more expensive but it takes forknowledge of
-    this or simply trial and error.
+    this or simple trial and error.
     One good rule of thumb for how complex a design is is to simply
     note how long the synthesis and routing programs take to execute.
     Another more contrete approach to knowing a design's complexity
@@ -1926,12 +1918,11 @@ int main() {
     As mentioned in previous sections of the paper, some operations,
     often common ones like addition and multiplications, have dedicated
     logic blocks available on the FPGA.
-    Though this did not appear to be the case for the modulus operation.
+    This did not appear to be the case for the modulus operation.
 
     Attempts were made to emulate the modulus operation using division
-    and multiplication. This modulus emulation worked correctly in the
-    simulations. Though it turned out to be even more expensive to
-    actually synthesize than a regular modulus.
+    and multiplication. These attempts to emulate a modulus did not
+    yield the same values in cases where overflow occurred.
 
     \lstset{language=Verilog}
 
@@ -1941,11 +1932,10 @@ int main() {
     \end{lstlisting}   
     
 
-    Without the modulus operation, the FPGA could run this design at it's
+    Without the modulus operation, the FPGA could run this design at its
     standard 16Mhz. That is, it would do 16 million iterations per second.
     With the design now working on a real FPGA, more attempts were made
-    to change the clock frequency. Except this time,
-    the clock frequency was increased.
+    to change the clock frequency. Except this time, the clock frequency was increased.
     For unknown reasons, and without protest from the synthesis tools,
     these higher clock frequencies simply caused the design to fail
     silently and were therefore not used.
@@ -2082,24 +2072,23 @@ endmodule
     32-bit space.
 
     And this FPGA, which costs only around 15 dollars, pales in comparison
-    when compared to the resources FPGAs costing thousands of dollars posses.
+    when compared to the resources FPGAs that cost thousands of dollars posses.
 
-    Of course, the actual calculations this FPGA design performed, are not
+    Of course, the actual calculations this FPGA design performed are not
     strictly speaking a real linear congruential generator
     do to the lack of a modulus. Though adding this modulus back
     in is as simple as changing a few lines of commented out code.
     It is also very likely that higher end FPGA models will have
     dedicated modulus logic blocks.
 
-    Another than using a modulus operation and getting a more powerful
-    FPGA there are additional ways of improving this project.
+    There are additional ways of improving this project.
 
     The work of searching the possible seeds of a random number generator
     could easily be split among multiple different FPGAs.
     The average software developer does not own an expensive FPGA
-    but they could rent FPGAs in the cloud from cloud providers like Amazon.
-    Another improvement to the algorithm could be looking for mathematical
-    methods that could be a lot more efficient the a simple brute force method.
+    but they could rent FPGAs in the cloud from providers like Amazon.
+    Improvements to the algorithm could be found by looking for mathematical
+    methods that are a lot more efficient the a simple brute force method.
     
     \break
     \section*{References}

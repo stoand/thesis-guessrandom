@@ -47,6 +47,8 @@ Please let me know if you have any questions on the above. Your presentation is 
 
 Changes:
 
-Section 5.5 added,
+Section 5.5: added
+
+Section 7:
 
 Paragraph: "Just this brute force approach" ...

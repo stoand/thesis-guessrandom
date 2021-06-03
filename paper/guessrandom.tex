@@ -1552,6 +1552,25 @@
     use of most mixed generators.
     They still remained quite popular in academia for some time, however, and were
     featured in a number of textbooks.
+
+    \subsection{Motivation}
+
+    The majority of programmers are likely to simply use RNGs as a black box,
+    without much knowledge of their internals. One main takeaway
+    is that entropy is key. The basic idea is that the higher a system's entropy is,
+    the larger the search space is that an attacker needs to sift through.
+    One of the most common uses of RNGs that developers come across
+    is in the design of an authentication system.
+    In an authentication system, RNGs are used to generate secure tokens that users need to
+    authenticate their session.
+    If a weak RNG is used, the app could be compromised by an attacker recovering another user's session
+    or password recovery token.
+    When it comes to RNG vulnerabilies, it seems to be common knowledge that an RNG
+    needs to be "cryptographically secure." Though there doesn't seem to be a large
+    number of projects that actually demonstrate an RNG being attacked in practice.
+    The demonstration of such an attack, even against a purposefully insecure system,
+    can give those not well versed in cryptographic principles insight into what actually
+    sets insecure RNGs apart from their secure counterparts.
     
     \section{Breaking RNGs}
 

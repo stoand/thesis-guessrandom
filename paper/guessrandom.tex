@@ -1804,7 +1804,7 @@
     language will be used for comparison.
 
     Just this brute force approach will not work for RNGs like the one used
-    in PHP's standard library [todo cite this] due to it using 64 bit values.
+    in PHP's standard library [11] due to it using 64 bit values.
     However, if a certain number of bits can be recovered by the attacker,
     say if the application seeded the RNG with the current time,
     the remaining bits could possibly be guessed through a brute force approach.
@@ -2129,7 +2129,8 @@ endmodule
     \item Kelsey, John, et al. "Cryptanalytic attacks on pseudorandom number generators." International workshop on fast software encryption. Springer, Berlin, Heidelberg, 1998.
     \item Yu, Hoyoung, et al. "Recent advances in FPGA reverse engineering." Electronics 7.10 (2018): 246.
     \item Wilson, Peter. Design recipes for FPGAs: using Verilog and VHDL. Newnes, 2015.
-    \item Valenty, Luke. “TinyFPGA B-Series.” Hackaday.io, Hackaday, 27 Jan. 2018, hackaday.io/project/26848-tinyfpga-b-series. 
+    \item Valenty, Luke. “TinyFPGA B-Series.” Hackaday.io, Hackaday, 27 Jan. 2018, hackaday.io/project/26848-tinyfpga-b-series.
+    \item Lerdorf, Rasmus, et al. "ext/standard/rand.c", PHP-SRC, 1 July. 2020, https://github.com/php/php-src.
 
     \end{enumerate}
     

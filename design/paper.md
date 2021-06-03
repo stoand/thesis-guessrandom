@@ -44,3 +44,9 @@ how many bits are the typical RNG…Also, how your FPGA design is going to chang
 
 Please let me know if you have any questions on the above. Your presentation is scheduled for June 7, so if you could get your committee members the final draft by June 4 that will be great! 
 ```
+
+Changes:
+
+Section 5.5 added,
+
+Paragraph: "Just this brute force approach" ...

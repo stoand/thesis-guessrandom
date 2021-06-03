@@ -34,7 +34,7 @@
 
     \section*{Abstract}
 
-    This paper will explore FPGAs and cryptanalysis and finally
+    This project will explore field programmable gate arrays and cryptanalysis and finally
     culminate in a simple project that shows how these can be used together.
     The hunger for parallel computation that cryptanalysis has is a
     natural match for the FPGA. One interesting aspect of this project is
@@ -56,7 +56,7 @@
     their lack of speed.
 
     Programmable Logic Arrays, also known as PLAs, made significat improvements over PROMs [2].
-    Namely, PLAs were generally must faster than PROMs. They could also support a far
+    Namely, PLAs were generally much faster than PROMs. They could also support a far
     larger number of inputs. Though one drawback was that the number of combinations of
     logic elements was slightly more constrained than that of PROMs.
 
@@ -66,8 +66,9 @@
     were much more sophisticated in their support for expressing sequential logic. Futhermore,
     they had the benefit of great performance.
 
-    The FPGA was designed with the goal of accomplishing the same computations as ASICs but
-    with the added benefit of reprogrammability. Because of this, FPGAs are frequently
+    The FPGA was designed with the goal of accomplishing the same computations as
+    application specific integrated circuits
+    but with the added benefit of reprogrammability. Because of this, FPGAs are frequently
     used to emulate ASICs, as well as to act as temporariy stand-ins while ASICs
     are still being produced. FPGAs as they are today have benefitted greatly
     from advances in CMOS design that were initially made with improving CPUs in mind.
@@ -78,7 +79,7 @@
     This was in the late 70s and researchers were trying to create a "database-machine."
     It was specifically tailored to run database queries on low-level hardware.
 
-    When it comes to the benefits of using FPGAs verses CPUs there are several factors to keep in mind.
+    When it comes to the benefits of using FPGAs vs. CPUs there are several factors to keep in mind.
     Image and signal processing are two applications where FPGAs shine [3].
     Partially this is because FPGAs can generally offer a greater level of determinism
     than CPUs. In an FPGA, latecy for some tasks can often not only be lower, but the latecy
@@ -158,7 +159,7 @@
     benefit is accessibility. If anyone can install a tool for free this is great
     for students and anyone who wants to learn about the project.
     Another benefit of open source is reliability. If a vendor simply stops updating a closed
-    source project then everyone dependant on it is in serious trouble if bugs
+    source project then everyone depending on it is in serious trouble if bugs
     crop up and there is no one to fix them.
     Another factor is security. The more experienced people read and understand a piece of
     code the more likely it is that issues can be discovered.
@@ -173,7 +174,7 @@
     exploits for it as easily.
 
     The current state of open source tools for FPGA designs is as follows:
-    project Icestorm provides decently feature-rich tools for a small number of FPGA
+    project Icestorm [8] provides decently feature-rich tools for a small number of FPGA
     models. Not only does Icestorm provide most features needed throughout the FPGA
     design workflow, it is even superior to proprietary tools in some ways. Icestorm
     does not suffer from the massive bloat and slowness of conventional FPGA tools.
@@ -556,7 +557,7 @@
 
     The design flow deals with the steps needed to eventually program an FPGA
     to solve a certain problem [2]. The design flow of FPGAs is actually quite
-    similar to the design flow used for CLPDs and ASICs.
+    similar to the design flow used for ASICs.
     In the previous section, the creation of the actual FPGA itself was discussed,
     as well as programming the FPGA. This seciton will only cover the programming
     part as well as the steps leading up to it.
@@ -610,7 +611,7 @@
     is not viable for any even somewhat sophisticated design.
 
     The two technologies that are by far the most common for design entry are the languages
-    Verilog and VHDL. These languages are highly portable in that they abstract
+    Verilog and VHDL [9]. These languages are highly portable in that they abstract
     over the low level differences that exist between FGPA models.
     They are also far more readable, flexible and expressive. These languages
     allow for what is called "synthesis" in which a software program is read
@@ -679,7 +680,6 @@
 
     Once the design is programmed onto the the FPGA, manual tests can be performed
     to ensure the FPGA outputs the correct values for a given group of input values.
-
     Or if the FPGA is part of a larger circuit, the testing step involves ensuring
     that the complete system works as intended. If any problems are discovered,
     the workflow repeats itself and additional changes to the HDL as well as
@@ -699,7 +699,7 @@
     because they depend on miniscule delays caused by variations in interal timing.
     Even a tiny change in voltage or temperature can cause a change in the output.
 
-    This can become a very serous problem because chips that were working perfectly
+    This can become a very serious problem because chips that were working perfectly
     may suddenly exhibit erroneous output after weeks, months, or even years of
     reliable operation. One way in which race conditions can be dealt with
     is to introduce a delay by converting an asynchronous operation to a synchronous one.
@@ -1653,7 +1653,7 @@
     This rules out the use of direct cryptanalytic attacks against X9.17.
 
     Input based attacks against X9.17 could be possible in theory, but in practice
-    require 2 to the power of 63 outputs to be observed. This makes this kind
+    require $2^{63}$ outputs to be observed. This makes this kind
     of an attack an "academic" attack since it's only possible in theory.
 
     One variant of attacks that does work is the state compromise extension attack.
@@ -1771,7 +1771,7 @@
     can be used in the cryptanalysis of a toy, vulnerable on purpose,
     LCG random number generation algorithm variant.
 
-    The FPGA used for this experiment belongs to the Lattice Ice40 family of FPGAs.
+    The FPGA used for this experiment belongs to the Lattice Ice40 family of FPGAs [10].
     The board that houses this FPGA is the TinyFPGA BX board.
 
     This toy random number generator has the following purposeful vulnerability:
@@ -1853,7 +1853,7 @@ int main() {
 
     For a more involved computation, the FPGA could be configured to
     send data over ethernet. This data could in turn then be read
-    using a progrma like Wireshark.
+    using a program like Wireshark.
 
     Though because most work was done in a simulation, this lack of detailed
     outputs did not cause significant problems or slowdowns in the workflow.
@@ -2102,6 +2102,9 @@ endmodule
     \item Park, Stephen K., and Keith W. Miller. "Random number generators: good ones are hard to find." Communications of the ACM 31.10 (1988): 1192-1201.
     \item Knuth, D.E. The Art of Computer Programming. 3rd Ed. Addison- Wesley, Reading, Mass. 1981.
     \item Kelsey, John, et al. "Cryptanalytic attacks on pseudorandom number generators." International workshop on fast software encryption. Springer, Berlin, Heidelberg, 1998.
+    \item Yu, Hoyoung, et al. "Recent advances in FPGA reverse engineering." Electronics 7.10 (2018): 246.
+    \item Wilson, Peter. Design recipes for FPGAs: using Verilog and VHDL. Newnes, 2015.
+    \item Valenty, Luke. “TinyFPGA B-Series.” Hackaday.io, Hackaday, 27 Jan. 2018, hackaday.io/project/26848-tinyfpga-b-series. 
 
     \end{enumerate}
     

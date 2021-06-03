@@ -1803,6 +1803,12 @@
     It order to verify the FPGA's implemention is correct, an implentation in the C
     language will be used for comparison.
 
+    Just this brute force approach will not work for RNGs like the one used
+    in PHP's standard library [todo cite this] due to it using 64 bit values.
+    However, if a certain number of bits can be recovered by the attacker,
+    say if the application seeded the RNG with the current time,
+    the remaining bits could possibly be guessed through a brute force approach.
+
     As mentioned in a previous section about best practices in FPGA design,
     the design workflow will first make use of a simulation.
     This simulation will be used to get the first working version of the RNG

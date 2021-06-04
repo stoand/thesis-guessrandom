@@ -43,3 +43,29 @@ nodemon -e tex -x '(pdflatex present.tex || echo) && cp present.pdf /mnt/c/Users
 ```
 
 then open `present.pdf`
+
+
+## Email info
+
+Length
+
+```
+Please note that the presentation (in ppt) will be 10-15 minutes,
+followed by 5-10 minutes demonstration of the program, if any.
+The overall presentation must be concluded in 20 minutes, so please plan accordingly. 
+
+…please update the FYP link…we are now doing WebEx (zoom has time restrictions)…
+still plan for 20 minute presentation…Andreas, please be available around 10:30... 
+```
+
+Time/Date
+
+```
+June 7
+
+10:45 - 11:30 Andreas
+
+please be available around 10:30
+```
+
+

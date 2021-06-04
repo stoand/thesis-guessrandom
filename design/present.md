@@ -47,6 +47,8 @@ then open `present.pdf`
 
 ## Email info
 
+https://globaltraining.webex.com/globaltraining/j.php?MTID=m9414951d1e2173f261f07d9ca866e495
+
 Length
 
 ```

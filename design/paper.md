@@ -63,3 +63,5 @@ Serious (PHP) RNG info/demonstration
 Move running stats to section 7
 
 Proper template
+
+More description of Verilog source

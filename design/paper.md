@@ -52,3 +52,14 @@ Section 5.5: added
 Section 7:
 
 Paragraph: "Just this brute force approach" ...
+
+## Presentation Reviewer Feedback
+
+ASIC vs FPGA comparison table
+
+GPU Comparison
+Serious (PHP) RNG info/demonstration
+
+Move running stats to section 7
+
+Proper template

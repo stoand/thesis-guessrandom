@@ -11,10 +11,9 @@ cp paper/guessrandom.tex netlify-latex/main.tex && \
 cp netlify-latex/main.pdf build_out/thesis-guessrandom.pdf && \
 
 # Build presentation
-cp present/present.tex netlify-latex/main.tex && \
-cp present/*.sty netlify-latex && \
-(cd netlify-latex && bash ./build.sh main.tex) && \
-cp netlify-latex/main.pdf build_out/thesis-guessrandom-presentation.pdf && \
+cp present/* -r netlify-latex && \
+(cd netlify-latex && bash ./build.sh present.tex) && \
+cp netlify-latex/present.pdf build_out/thesis-guessrandom-presentation.pdf && \
 
 echo "<meta http-equiv=\"Refresh\" content=\"0; url='thesis-guessrandom.pdf'\" />" > build_out/index.html
 

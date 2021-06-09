@@ -19,7 +19,9 @@ __DANGER: writing to the wrong location in ram can CORRUPT THE BOOTLOADER. See `
 ## Simulation
 
 ```
-make reduce.sim-watch
+make lcg.sim
+
+make lcg.sim-watch
 ```
 
 ## Programming the FPGA

@@ -77,6 +77,8 @@ To modify `SIZE` when programming FPGA:
 
 Edit `yosys -D SIZE=...` in `./fpga_lcg/Makefile`
 
+_Note: set `SIZE` to 31 and 63 bits (not 32 and 64)_
+
 
 ### Links
 

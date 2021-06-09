@@ -70,12 +70,12 @@ open `build/lcg/engine_0/trace.vcd`
 
 To modify `SIZE` in simulations:
 
-Edit `read -define SIZE=...` in `./fpga_lcg/lcg.sby`.
+Edit `read -define SIZE=...` in [./fpga_lcg/lcg.sby](./fpga_lcg/lcg.sby).
 
 
 To modify `SIZE` when programming FPGA:
 
-Edit `yosys -D SIZE=...` in `./fpga_lcg/Makefile`
+Edit `yosys -D SIZE=...` in [./fpga_lcg/Makefile](./fpga_lcg/Makefile)
 
 _Note: set `SIZE` to 31 and 63 bits (not 32 and 64)_
 

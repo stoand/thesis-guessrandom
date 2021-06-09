@@ -38,22 +38,22 @@ endmodule
 module lcg_guess(
     input CLK,
     
-    input [31:0] MODULUS, // m
-    input [31:0] MULTIPLIER, // a
-    input [31:0] INCREMENT, // c
+    input [`SIZE:0] MODULUS, // m
+    input [`SIZE:0] MULTIPLIER, // a
+    input [`SIZE:0] INCREMENT, // c
     
-    input [31:0] expected_v0,
-    input [31:0] expected_v1,
-    input [31:0] expected_v2,
+    input [`SIZE:0] expected_v0,
+    input [`SIZE:0] expected_v1,
+    input [`SIZE:0] expected_v2,
     
     output done,
-    output [31:0] valid_seed,
+    output [`SIZE:0] valid_seed,
 );
 
-    reg [31:0] scan_seed = 0;
-    reg [31:0] scan_v0;
-    reg [31:0] scan_v1;
-    reg [31:0] scan_v2;
+    reg [`SIZE:0] scan_seed = 0;
+    reg [`SIZE:0] scan_v0;
+    reg [`SIZE:0] scan_v1;
+    reg [`SIZE:0] scan_v2;
     
     initial 
         done = 0;
@@ -87,11 +87,11 @@ module testbench(input CLK);
     
     reg done;
     
-    reg [31:0] valid_seed;
+    reg [`SIZE:0] valid_seed;
     
-    reg [31:0] counter = 0;
+    reg [`SIZE:0] counter = 0;
     
-    reg [31:0] expected_valid_seed = 96;
+    reg [`SIZE:0] expected_valid_seed = 96;
     
     lcg_guess lcg_guess0(
         .CLK(CLK),

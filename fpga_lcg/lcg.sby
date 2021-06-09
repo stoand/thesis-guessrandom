@@ -6,6 +6,7 @@ depth 120
 smtbmc
 
 [script]
+read -define SIZE=31 
 read -formal lcg.v
 prep -top testbench
 

@@ -20,7 +20,7 @@ BUILD = build
 
 $(BUILD)/%.json: src/%.v
 	mkdir -p $(BUILD)
-	yosys -Q -qq -l $(basename $@).log -p 'synth_ice40 -top $(basename $(@F)) -json $@' $<
+	yosys -D SIZE=31 -Q -qq -l $(basename $@).log -p 'synth_ice40 -top $(basename $(@F)) -json $@' $<
 
 $(BUILD)/%.asc: $(BUILD)/%.json src/$(PIN_DEF)
 	nextpnr-ice40 --lp8k --package cm81 --json $< --pcf src/$(PIN_DEF) --asc $@ --ignore-loops

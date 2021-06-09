@@ -66,6 +66,18 @@ Ensure an assertion fails then:
 
 open `build/lcg/engine_0/trace.vcd`
 
+## 32/64 Bit Configuration
+
+To modify `SIZE` in simulations:
+
+Edit `read -define SIZE=...` in `./fpga_lcg/lcg.sby`.
+
+
+To modify `SIZE` when programming FPGA:
+
+Edit `yosys -D SIZE=...` in `./fpga_lcg/Makefile`
+
+
 ### Links
 
 [TinyFPGA_BX guide](http://www.latticesemi.com/~/media/LatticeSemi/Documents/DataSheets/iCE/iCE40LPHXFamilyDataSheet.pdf)

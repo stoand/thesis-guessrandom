@@ -17,4 +17,7 @@ internal state in order to predict future random numbers
 
 See `./design` directory for more information on individual components.
 
+* [C LCG Instructions](./design/c_lcg.md)
+* [FPGA LCG Instructions](./design/fpga_lcg.md)
+
 Specifically see `/.design/brainstorm.md` for an overview

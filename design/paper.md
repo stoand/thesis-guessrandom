@@ -59,7 +59,7 @@ GPU Comparison - Section 2, "FPGAs are also frequently compared to GPUs."
 
 Serious (PHP) RNG info/demonstration
 
-ASIC vs FPGA comparison table
+ASIC vs FPGA comparison table - Section 2 table
 
 Move running stats to section 7
 

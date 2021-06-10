@@ -2114,7 +2114,29 @@ module testbench(input CLK);
     end
 endmodule
 `endif
-    \end{lstlisting}   
+    \end{lstlisting}
+
+    The "lcg" module is the top or main module where the design starts.
+    Besides the clock, the only IO this module possesses is an led output.
+
+    The "lcg\_guess" module does the heavy lifting of iterating over possible
+    seeds. The "lcg" module connects its led to the "done" property of
+    the "lcg\_guess" module. This means the FPGA's led will be on or off
+    depending on whether a valid seed has been found.
+
+    Besides the "done" wire, the "lcg\_guess" module's inputs and outputs include
+    LCG constants as well as the first three expected outputs of the LCG.
+
+    The module begins iterating at a seed of zero and then inspects the output values for each iteration.
+    If all three outputs match, the "done" flag is set to one and the found "valid\_seed" is set as an output.
+
+    The "testbench" module is the top or main module used in simulations.
+    Unlike the "lcg" module, which ignores the "valid\_seed" and simply cares if "done" is set,
+    the "testbench" module checks that the "valid\_seed" has the correct value.
+    This check is performed after a hard coded number of iterations have passed.
+
+    If a given number of iterations have passed and the "lcg\_guess" module is not done
+    the simulation will fail.
 
     \section{Conclusion}
 

@@ -55,10 +55,11 @@ Paragraph: "Just this brute force approach" ...
 
 ## Presentation Reviewer Feedback
 
-ASIC vs FPGA comparison table
+GPU Comparison - Section 2, "FPGAs are also frequently compared to GPUs."
 
-GPU Comparison
 Serious (PHP) RNG info/demonstration
+
+ASIC vs FPGA comparison table
 
 Move running stats to section 7
 

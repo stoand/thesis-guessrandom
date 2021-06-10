@@ -55,15 +55,17 @@ Paragraph: "Just this brute force approach" ...
 
 ## Presentation Reviewer Feedback
 
-GPU Comparison - Section 2, "FPGAs are also frequently compared to GPUs."
-
 Serious (PHP) RNG info/demonstration
+
+Proper template
+
+
+
+GPU Comparison - Section 2, "FPGAs are also frequently compared to GPUs."
 
 ASIC vs FPGA comparison table - Section 2 table
 
-Move running stats to section 7
-
-Proper template
+Move running stats to section 7 - Section 7 "Running at 16Mhz..."
 
 More description of Verilog source
 

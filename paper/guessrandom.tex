@@ -1826,6 +1826,9 @@
     is not very high when considering the number of computations modern hardware can perform
     per second.
 
+    Running at 16Mhz, it would only take the Lattice Ice40 FPGA
+    a mere 4 minutes to search the 4 billion permutations possible.
+
     It order to verify the FPGA's implemention is correct, an implentation in the C
     language will be used for comparison.
 
@@ -2117,10 +2120,6 @@ endmodule
 
     This experiment showed that FPGAs can be quite useful for
     cryptanalysis, specifically for breaking random number generators.
-
-    Running at 16Mhz, it would only take this specific model of FPGA
-    a mere 4 minutes to search the 4 billion permutations possible in
-    32-bit space.
 
     And this FPGA, which costs only around 15 dollars, pales in comparison
     when compared to the resources FPGAs that cost thousands of dollars posses.

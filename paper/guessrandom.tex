@@ -2140,7 +2140,7 @@ endmodule
     have its value set to 63 to allow 64 bit seeds and values
     to be computed.
 
-    The "lcg" module is the top or main module where the design starts.
+    The "lcg" module is the top module where the design starts.
     Besides the clock, the only IO this module possesses is an led output.
 
     The "lcg\_guess" module does the heavy lifting of iterating over possible
@@ -2154,7 +2154,7 @@ endmodule
     The module begins iterating at a seed of zero and then inspects the output values for each iteration.
     If all three outputs match, the "done" flag is set to one and the found "valid\_seed" is set as an output.
 
-    The "testbench" module is the top or main module used in simulations.
+    The "testbench" module is the top module used in simulations.
     Unlike the "lcg" module, which ignores the "valid\_seed" and simply cares if "done" is set,
     the "testbench" module checks that the "valid\_seed" has the correct value.
     This check is performed after a hard coded number of iterations have passed.

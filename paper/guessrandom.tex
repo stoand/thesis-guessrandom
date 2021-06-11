@@ -5,6 +5,7 @@
 \usepackage[document]{ragged2e}
 \usepackage{listings}
 \usepackage{setspace}
+\usepackage{amsmath}
 
 \linespread{1.3}
 
@@ -1832,11 +1833,20 @@
     It order to verify the FPGA's implemention is correct, an implentation in the C
     language will be used for comparison.
 
-    Just this brute force approach will not work for RNGs like the one used
+    Just this brute force approach will be a lot more difficult for RNGs like the one used
     in PHP's standard library [11] due to PHP using 64 bit values.
     However, if a certain number of bits can be recovered by the attacker,
     say if the application seeded the RNG with the current time,
-    the remaining bits could possibly be guessed through a brute force approach.
+    the remaining bits could more easily be guessed through a brute force approach.
+
+    Despite the increased difficulty, 64 bit LCG RNGs could in theory still
+    be broken by a simple brute force approach if powerful enough FPGAs are used.
+    Assuming an FPGA runs at 1GHz and scans 1000 seeds per iteration, it would
+    take that FPGA a maximum of 214 days to recover a 64 bit seed.
+
+    \[ 18,446,744,073,709,551,615 \div 1,000,000,000 \div 1,000 = 18,446,744 \]
+
+    \[ 18,446,744 \text{ seconds} = 214 \text{ days} \]
 
     As mentioned in a previous section about best practices in FPGA design,
     the design workflow will first make use of a simulation.

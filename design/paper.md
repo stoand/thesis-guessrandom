@@ -76,7 +76,11 @@ More description of Verilog source - Section 7, "The first line"
 In a sense, how difficult will it be to set a flag to determine whether we are
 running for a 32-bit RNG or for a 64-bit one?
 
+-- Section 7, "The first line ..."
+
+
 2. Could you give a rough estimate how long it will take to compromise a 64-bit RNG?
 
 We are thinking to extend your work by addressing the above! And in addition, run the code on a GPU and compare\contrast the findings. Needless to say, you are done with your FYP :) We will get another student to continue — unless you do an MSc and that will be your thesis! :) 
 
+-- Section 7, "Just this brute force approach ..."

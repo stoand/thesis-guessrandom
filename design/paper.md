@@ -63,11 +63,11 @@ Proper template
 
 GPU Comparison - Section 2, "FPGAs are also frequently compared to GPUs."
 
-ASIC vs FPGA comparison table - Section 2 table
+ASIC vs FPGA comparison table - Section 2, table
 
-Move running stats to section 7 - Section 7 "Running at 16Mhz..."
+Move running stats to section 7 - Section 7, "Running at 16Mhz..."
 
-More description of Verilog source - Section 7 - "The "lcg" module..."
+More description of Verilog source - Section 7, "The first line"
 
 ## Advisor Feedback
 
